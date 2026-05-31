@@ -1,7 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_gigis_personalizacion_public,gigis.personalizacion.public,model_gigis_personalizacion,,0,0,1,0
-access_gigis_personalizacion_user,gigis.personalizacion.user,model_gigis_personalizacion,base.group_user,1,1,1,0
-access_gigis_personalizacion_manager,gigis.personalizacion.manager,model_gigis_personalizacion,base.group_system,1,1,1,1
-access_gigis_historia_public,gigis.historia.public,model_gigis_historia,,1,0,0,0
-access_gigis_historia_user,gigis.historia.user,model_gigis_historia,base.group_user,1,1,1,0
-access_gigis_historia_manager,gigis.historia.manager,model_gigis_historia,base.group_system,1,1,1,1
