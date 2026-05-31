@@ -80,21 +80,21 @@
                 <!-- Tarjeta "Tu historia aquí" siempre al final -->
                 <div class="col-md-6 col-lg-3 gc-fade-up">
                     <a href="/personalizados" class="gc-story-card"
-                       style="border:2.5px dashed var(--gc-blue);
+                       style="border:2.5px dashed #5DA7E8;
                               background:transparent;box-shadow:none;">
                         <div class="gc-story-media"
                              style="background:linear-gradient(135deg,
-                                    var(--gc-light-blue),var(--gc-mint));height:220px;">
+                                    #D6EDFB,#C8F5F1);height:220px;">
                             <div class="gc-media-placeholder">
                                 <span class="gc-ph-icon">✨</span>
-                                <span class="gc-ph-text" style="color:var(--gc-blue);opacity:1;">
+                                <span class="gc-ph-text" style="color:#5DA7E8;opacity:1;">
                                     ¿La siguiente historia<br/>es la de tu pequeño?
                                 </span>
                             </div>
                         </div>
                         <div class="gc-story-body">
                             <span class="gc-story-tag"
-                                  style="background:var(--gc-peach);color:var(--gc-coral);">
+                                  style="background:#FFE5E6;color:#FF5C64;">
                                 ✨ Tu historia
                             </span>
                             <h3 class="gc-story-title">La historia de tu pequeño</h3>
@@ -114,9 +114,9 @@
     </section>
 
     <!-- CTA -->
-    <section class="gc-section" style="background:var(--gc-navy);">
+    <section class="gc-section" style="background:#1E3A5F;">
         <div class="container text-center">
-            <h2 style="font-family:var(--font-title);color:white;font-size:1.9rem;">
+            <h2 style="font-family:'Fredoka One',cursive;color:white;font-size:1.9rem;">
                 ¿Lista para crear la historia de tu pequeño?
             </h2>
             <p style="color:rgba(255,255,255,0.75);margin:1rem 0 2rem;">
@@ -198,7 +198,7 @@
                 <!-- Texto de la historia -->
                 <div class="col-lg-6">
                     <a href="/historias"
-                       style="color:var(--gc-blue);font-size:0.85rem;text-decoration:none;">
+                       style="color:#5DA7E8;font-size:0.85rem;text-decoration:none;">
                         ← Todas las historias
                     </a>
 
@@ -213,7 +213,7 @@
                         <t t-esc="historia.titulo"/>
                     </h1>
                     <t t-if="historia.subtitulo">
-                        <p style="color:var(--gc-gray);font-size:1rem;margin-top:0.3rem;">
+                        <p style="color:#4B4B4B;font-size:1rem;margin-top:0.3rem;">
                             <t t-esc="historia.subtitulo"/>
                         </p>
                     </t>
@@ -231,9 +231,9 @@
                     <!-- Capítulo: El Proceso -->
                     <t t-if="historia.capitulo_proceso">
                         <div class="gc-chapter"
-                             style="border-color:var(--gc-turquoise);">
+                             style="border-color:#34C9B8;">
                             <div class="gc-chapter-num"
-                                 style="color:var(--gc-turquoise);">El proceso</div>
+                                 style="color:#34C9B8;">El proceso</div>
                             <p class="gc-chapter-text">
                                 <t t-esc="historia.capitulo_proceso"/>
                             </p>
@@ -243,9 +243,9 @@
                     <!-- Capítulo: El Resultado -->
                     <t t-if="historia.capitulo_resultado">
                         <div class="gc-chapter"
-                             style="border-color:var(--gc-coral);">
+                             style="border-color:#FF5C64;">
                             <div class="gc-chapter-num"
-                                 style="color:var(--gc-coral);">El resultado ❤️</div>
+                                 style="color:#FF5C64;">El resultado ❤️</div>
                             <p class="gc-chapter-text">
                                 <t t-esc="historia.capitulo_resultado"/>
                             </p>

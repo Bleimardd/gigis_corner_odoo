@@ -13,20 +13,20 @@
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 gc-fade-up">
-                    <span class="gc-section-label" style="background:var(--gc-coral);">❤️ Nuestra historia</span>
+                    <span class="gc-section-label" style="background:#FF5C64;">❤️ Nuestra historia</span>
                     <h1 class="gc-section-title mt-2" style="font-size:2.4rem;">
                         Detrás de cada lámpara hay una historia de amor
                     </h1>
-                    <p style="font-size:1rem;color:var(--gc-gray);line-height:1.8;">
+                    <p style="font-size:1rem;color:#4B4B4B;line-height:1.8;">
                         Gigi's Corner nació de una madre, una hija, y el deseo de convertir
                         los sueños de los niños en algo que se pueda tocar, sentir y encender.
                     </p>
                 </div>
                 <div class="col-lg-6 gc-fade-up gc-delay-2">
-                    <div style="border-radius:var(--gc-radius);overflow:hidden;height:350px;">
+                    <div style="border-radius:18px;overflow:hidden;height:350px;">
                         <!-- ▼▼▼ FOTO HERO NOSOTROS ▼▼▼ -->
                         <div class="gc-media-placeholder"
-                             style="height:100%;background:linear-gradient(135deg,var(--gc-peach),#FFD5C8);">
+                             style="height:100%;background:linear-gradient(135deg,#FFE5E6,#FFD5C8);">
                             <span class="gc-ph-icon" style="font-size:3.5rem;">👨‍👩‍👧‍👦</span>
                             <span class="gc-ph-text">
                                 Foto del equipo completo<br/>
@@ -53,10 +53,10 @@
                         <div class="gc-chapter-num">Capítulo 1</div>
                         <h2 class="gc-chapter-title">Ana y Helana</h2>
                         <!-- ▼▼▼ FOTO ANA Y HELANA ▼▼▼ -->
-                        <div style="border-radius:var(--gc-radius-sm);overflow:hidden;
+                        <div style="border-radius:10px;overflow:hidden;
                                     height:220px;margin-bottom:1rem;">
                             <div class="gc-media-placeholder"
-                                 style="height:100%;background:linear-gradient(135deg,var(--gc-peach),#FFD5C8);">
+                                 style="height:100%;background:linear-gradient(135deg,#FFE5E6,#FFD5C8);">
                                 <span class="gc-ph-icon">👩‍👧</span>
                                 <span class="gc-ph-text">Foto de Ana con Helana</span>
                             </div>
@@ -76,14 +76,14 @@
                     </div>
 
                     <!-- Capítulo 2 -->
-                    <div class="gc-chapter gc-fade-up gc-delay-1" style="border-color:var(--gc-turquoise);margin-top:2rem;">
-                        <div class="gc-chapter-num" style="color:var(--gc-turquoise);">Capítulo 2</div>
+                    <div class="gc-chapter gc-fade-up gc-delay-1" style="border-color:#34C9B8;margin-top:2rem;">
+                        <div class="gc-chapter-num" style="color:#34C9B8;">Capítulo 2</div>
                         <h2 class="gc-chapter-title">El nacimiento de Gigi's Corner</h2>
                         <!-- ▼▼▼ FOTO DEL TALLER / INICIO ▼▼▼ -->
-                        <div style="border-radius:var(--gc-radius-sm);overflow:hidden;
+                        <div style="border-radius:10px;overflow:hidden;
                                     height:200px;margin-bottom:1rem;">
                             <div class="gc-media-placeholder"
-                                 style="height:100%;background:linear-gradient(135deg,var(--gc-mint),var(--gc-light-blue));">
+                                 style="height:100%;background:linear-gradient(135deg,#C8F5F1,#D6EDFB);">
                                 <span class="gc-ph-icon">🏠</span>
                                 <span class="gc-ph-text">Foto del taller / inicio del proyecto</span>
                             </div>
@@ -102,14 +102,14 @@
                 <div class="col-lg-6">
 
                     <!-- Capítulo 3 -->
-                    <div class="gc-chapter gc-fade-up gc-delay-2" style="border-color:var(--gc-coral);">
-                        <div class="gc-chapter-num" style="color:var(--gc-coral);">Capítulo 3</div>
+                    <div class="gc-chapter gc-fade-up gc-delay-2" style="border-color:#FF5C64;">
+                        <div class="gc-chapter-num" style="color:#FF5C64;">Capítulo 3</div>
                         <h2 class="gc-chapter-title">El equipo de madres creadoras</h2>
                         <!-- ▼▼▼ FOTO DEL EQUIPO ▼▼▼ -->
-                        <div style="border-radius:var(--gc-radius-sm);overflow:hidden;
+                        <div style="border-radius:10px;overflow:hidden;
                                     height:200px;margin-bottom:1rem;">
                             <div class="gc-media-placeholder"
-                                 style="height:100%;background:linear-gradient(135deg,var(--gc-peach),#FFE0E0);">
+                                 style="height:100%;background:linear-gradient(135deg,#FFE5E6,#FFE0E0);">
                                 <span class="gc-ph-icon">👩‍🎨</span>
                                 <span class="gc-ph-text">Foto del equipo trabajando</span>
                             </div>
@@ -129,10 +129,10 @@
 
                     <!-- Capítulo 4: Misión -->
                     <div class="gc-chapter gc-fade-up gc-delay-3"
-                         style="border-color:var(--gc-yellow);margin-top:2rem;
+                         style="border-color:#F5C640;margin-top:2rem;
                                 background:linear-gradient(135deg,#FFF8E1,#FFFBF0);
-                                border-radius:var(--gc-radius-sm);padding:1.5rem;border-left-width:4px;">
-                        <div class="gc-chapter-num" style="color:var(--gc-yellow);">Capítulo 4</div>
+                                border-radius:10px;padding:1.5rem;border-left-width:4px;">
+                        <div class="gc-chapter-num" style="color:#F5C640;">Capítulo 4</div>
                         <h2 class="gc-chapter-title">Nuestra misión</h2>
                         <p class="gc-chapter-text">
                             Transformar historias, sueños y recuerdos en lámparas únicas
@@ -143,25 +143,25 @@
                             <div class="col-6">
                                 <div style="background:white;border-radius:10px;padding:0.8rem;text-align:center;">
                                     <div style="font-size:1.5rem;">🎨</div>
-                                    <div style="font-size:0.8rem;font-weight:600;color:var(--gc-navy);">100% Artesanal</div>
+                                    <div style="font-size:0.8rem;font-weight:600;color:#1E3A5F;">100% Artesanal</div>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div style="background:white;border-radius:10px;padding:0.8rem;text-align:center;">
                                     <div style="font-size:1.5rem;">❤️</div>
-                                    <div style="font-size:0.8rem;font-weight:600;color:var(--gc-navy);">Hecho con amor</div>
+                                    <div style="font-size:0.8rem;font-weight:600;color:#1E3A5F;">Hecho con amor</div>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div style="background:white;border-radius:10px;padding:0.8rem;text-align:center;">
                                     <div style="font-size:1.5rem;">✨</div>
-                                    <div style="font-size:0.8rem;font-weight:600;color:var(--gc-navy);">100% Personalizado</div>
+                                    <div style="font-size:0.8rem;font-weight:600;color:#1E3A5F;">100% Personalizado</div>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div style="background:white;border-radius:10px;padding:0.8rem;text-align:center;">
                                     <div style="font-size:1.5rem;">🇲🇽</div>
-                                    <div style="font-size:0.8rem;font-weight:600;color:var(--gc-navy);">Hecho en CDMX</div>
+                                    <div style="font-size:0.8rem;font-weight:600;color:#1E3A5F;">Hecho en CDMX</div>
                                 </div>
                             </div>
                         </div>
@@ -176,25 +176,25 @@
     <!-- EQUIPO COMPLETO -->
     <section class="gc-section gc-section-blue">
         <div class="container text-center">
-            <span class="gc-section-label" style="background:var(--gc-turquoise);">👐 Nuestro equipo</span>
+            <span class="gc-section-label" style="background:#34C9B8;">👐 Nuestro equipo</span>
             <h2 class="gc-section-title">Las manos detrás de cada historia</h2>
 
             <div class="row g-4 justify-content-center mt-3">
 
                 <div class="col-6 col-md-3 gc-fade-up gc-delay-1">
                     <div class="gc-team-card">
-                        <div class="gc-team-avatar" style="background:var(--gc-peach);width:110px;height:110px;font-size:3rem;">
+                        <div class="gc-team-avatar" style="background:#FFE5E6;width:110px;height:110px;font-size:3rem;">
                             <!-- ▼▼▼ FOTO ANA ▼▼▼ -->
                             <span>👩‍🎨</span>
                         </div>
                         <div class="gc-team-name mt-2">Ana</div>
-                        <span class="gc-team-role" style="background:var(--gc-coral);">Fundadora &amp; CEO</span>
+                        <span class="gc-team-role" style="background:#FF5C64;">Fundadora &amp; CEO</span>
                         <p class="gc-team-sub mt-2">
                             Mamá de Helana.<br/>
                             Corazón y alma de Gigi's Corner.
                         </p>
                         <!-- ▼▼▼ QUOTE DE ANA ▼▼▼ -->
-                        <p style="font-size:0.8rem;color:var(--gc-gray);font-style:italic;margin-top:0.5rem;">
+                        <p style="font-size:0.8rem;color:#4B4B4B;font-style:italic;margin-top:0.5rem;">
                             "Cada lámpara que hago lleva un pedazo de mi corazón."
                         </p>
                     </div>
@@ -202,12 +202,12 @@
 
                 <div class="col-6 col-md-3 gc-fade-up gc-delay-2">
                     <div class="gc-team-card">
-                        <div class="gc-team-avatar" style="background:var(--gc-light-blue);width:110px;height:110px;font-size:3rem;">
+                        <div class="gc-team-avatar" style="background:#D6EDFB;width:110px;height:110px;font-size:3rem;">
                             <!-- ▼▼▼ FOTO MARLENE ▼▼▼ -->
                             <span>🎨</span>
                         </div>
                         <div class="gc-team-name mt-2">Marlene</div>
-                        <span class="gc-team-role" style="background:var(--gc-blue);">Diseño</span>
+                        <span class="gc-team-role" style="background:#5DA7E8;">Diseño</span>
                         <p class="gc-team-sub mt-2">
                             Mamá de Edrik y Rohan.<br/>
                             Diseño y desarrollo de patrones.
@@ -217,12 +217,12 @@
 
                 <div class="col-6 col-md-3 gc-fade-up gc-delay-3">
                     <div class="gc-team-card">
-                        <div class="gc-team-avatar" style="background:var(--gc-mint);width:110px;height:110px;font-size:3rem;">
+                        <div class="gc-team-avatar" style="background:#C8F5F1;width:110px;height:110px;font-size:3rem;">
                             <!-- ▼▼▼ FOTO LEIDY ▼▼▼ -->
                             <span>✂️</span>
                         </div>
                         <div class="gc-team-name mt-2">Leidy</div>
-                        <span class="gc-team-role" style="background:var(--gc-turquoise);">Producción</span>
+                        <span class="gc-team-role" style="background:#34C9B8;">Producción</span>
                         <p class="gc-team-sub mt-2">
                             Diseño y producción artesanal.<br/>
                             Maestra del detalle.
@@ -237,7 +237,7 @@
                             <span>✏️</span>
                         </div>
                         <div class="gc-team-name mt-2">Bryan</div>
-                        <span class="gc-team-role" style="background:var(--gc-yellow);color:var(--gc-gray);">Creativo</span>
+                        <span class="gc-team-role" style="background:#F5C640;color:#4B4B4B;">Creativo</span>
                         <p class="gc-team-sub mt-2">
                             Diseñador creativo.<br/>
                             Desarrollo visual de cada historia.
@@ -258,7 +258,7 @@
                 <p>Cuéntanos sobre tu pequeño y creamos juntos algo único e irrepetible.</p>
                 <div class="d-flex gap-3 justify-content-center mt-4 flex-wrap">
                     <a href="/personalizados"
-                       class="gc-btn-primary" style="background:white;color:var(--gc-coral);">
+                       class="gc-btn-primary" style="background:white;color:#FF5C64;">
                         ✨ Crear mi lámpara
                     </a>
                     <a href="https://wa.me/525529451680" target="_blank" class="gc-btn-whatsapp">

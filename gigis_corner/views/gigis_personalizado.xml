@@ -23,16 +23,16 @@
                 la lámpara más especial de su infancia.
             </p>
             <div class="d-flex gap-4 justify-content-center flex-wrap mt-3">
-                <span style="font-size:0.88rem;color:var(--gc-gray);">
+                <span style="font-size:0.88rem;color:#4B4B4B;">
                     ⏱️ Entrega en 2–3 semanas
                 </span>
-                <span style="font-size:0.88rem;color:var(--gc-gray);">
+                <span style="font-size:0.88rem;color:#4B4B4B;">
                     🎨 100% pintado a mano
                 </span>
-                <span style="font-size:0.88rem;color:var(--gc-gray);">
+                <span style="font-size:0.88rem;color:#4B4B4B;">
                     ✏️ Nombre incluido
                 </span>
-                <span style="font-size:0.88rem;color:var(--gc-gray);">
+                <span style="font-size:0.88rem;color:#4B4B4B;">
                     📍 Envíos a todo México
                 </span>
             </div>
@@ -50,14 +50,14 @@
             <div class="row g-3">
                 <!-- ▼▼▼ REEMPLAZA CON TUS FOTOS REALES ▼▼▼ -->
                 <t t-foreach="[
-                    ('🌊','Amira - Océano','var(--gc-light-blue)'),
-                    ('🐢','Pepe - Tortuga','var(--gc-mint)'),
-                    ('🚀','Valentina - Espacio','var(--gc-peach)'),
+                    ('🌊','Amira - Océano','#D6EDFB'),
+                    ('🐢','Pepe - Tortuga','#C8F5F1'),
+                    ('🚀','Valentina - Espacio','#FFE5E6'),
                     ('🚜','Mateo - Constructor','#FFF0D0'),
-                    ('🦋','Lucía - Mariposas','var(--gc-peach)'),
-                    ('🦕','Diego - Dinosaurios','var(--gc-mint)'),
-                    ('🌺','Sofía - Flores','var(--gc-light-blue)'),
-                    ('⭐','Tu diseño aquí','linear-gradient(135deg,var(--gc-light-blue),var(--gc-mint))')
+                    ('🦋','Lucía - Mariposas','#FFE5E6'),
+                    ('🦕','Diego - Dinosaurios','#C8F5F1'),
+                    ('🌺','Sofía - Flores','#D6EDFB'),
+                    ('⭐','Tu diseño aquí','linear-gradient(135deg,#D6EDFB,#C8F5F1)')
                 ]" t-as="item">
                     <div class="col-6 col-md-3 gc-fade-up">
                         <div class="gc-gallery-item"
@@ -118,7 +118,7 @@
                                 <div class="col-md-6">
                                     <label class="gc-form-label" for="gc_nombre">
                                         ✏️ Nombre del niño/a
-                                        <span style="color:var(--gc-coral)">*</span>
+                                        <span style="color:#FF5C64">*</span>
                                     </label>
                                     <input type="text" id="gc_nombre"
                                            name="nombre_nino"
@@ -144,7 +144,7 @@
                                 <div class="col-md-6">
                                     <label class="gc-form-label" for="gc_tema">
                                         🦋 Tema favorito
-                                        <span style="color:var(--gc-coral)">*</span>
+                                        <span style="color:#FF5C64">*</span>
                                     </label>
                                     <input type="text" id="gc_tema"
                                            name="tema_favorito"
@@ -170,7 +170,7 @@
                                 <div class="col-md-6">
                                     <label class="gc-form-label" for="gc_nombre_contacto">
                                         👤 Tu nombre
-                                        <span style="color:var(--gc-coral)">*</span>
+                                        <span style="color:#FF5C64">*</span>
                                     </label>
                                     <input type="text" id="gc_nombre_contacto"
                                            name="nombre_contacto"
@@ -182,7 +182,7 @@
                                 <div class="col-md-6">
                                     <label class="gc-form-label" for="gc_whatsapp">
                                         📱 WhatsApp / Teléfono
-                                        <span style="color:var(--gc-coral)">*</span>
+                                        <span style="color:#FF5C64">*</span>
                                     </label>
                                     <input type="tel" id="gc_whatsapp"
                                            name="telefono"
@@ -251,15 +251,15 @@
 
                             <!-- ── CAMPO ESPECIAL: HISTORIA ── -->
                             <div class="mt-4 p-3"
-                                 style="background:#FFF8F8;border-radius:var(--gc-radius-sm);
-                                        border:2px solid var(--gc-coral);">
+                                 style="background:#FFF8F8;border-radius:10px;
+                                        border:2px solid #FF5C64;">
                                 <label class="gc-form-label gc-form-label-special"
                                        for="gc_historia"
                                        style="font-size:0.93rem;">
                                     💌 Cuéntanos la historia detrás de tu diseño
-                                    <span style="color:var(--gc-coral)">*</span>
+                                    <span style="color:#FF5C64">*</span>
                                     <span style="font-size:0.77rem;font-weight:400;
-                                                 color:var(--gc-gray);display:block;
+                                                 color:#4B4B4B;display:block;
                                                  margin-top:0.2rem;">
                                         Este es el campo más importante. Mientras más nos cuentes,
                                         más especial será la lámpara.
@@ -290,7 +290,7 @@
                             </div>
 
                             <p class="text-center mt-3"
-                               style="font-size:0.77rem;color:var(--gc-gray);opacity:0.7;">
+                               style="font-size:0.77rem;color:#4B4B4B;opacity:0.7;">
                                 🔒 Tus datos están seguros. Solo los usamos para crear tu lámpara.
                             </p>
 
@@ -314,15 +314,15 @@
                     ('🎁','4. La recibes en casa','Empacada con amor y lista para iluminar.')
                 ]" t-as="paso">
                     <div class="col-md-3">
-                        <div style="background:white;border-radius:var(--gc-radius);
-                                    padding:1.5rem;box-shadow:var(--gc-shadow);">
+                        <div style="background:white;border-radius:18px;
+                                    padding:1.5rem;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
                             <div style="font-size:2rem;margin-bottom:0.5rem;">
                                 <t t-esc="paso[0]"/>
                             </div>
-                            <strong style="color:var(--gc-navy);">
+                            <strong style="color:#1E3A5F;">
                                 <t t-esc="paso[1]"/>
                             </strong>
-                            <p style="font-size:0.82rem;color:var(--gc-gray);margin-top:0.5rem;">
+                            <p style="font-size:0.82rem;color:#4B4B4B;margin-top:0.5rem;">
                                 <t t-esc="paso[2]"/>
                             </p>
                         </div>
@@ -347,10 +347,10 @@
                     min-height:72vh;display:flex;align-items:center;">
         <div class="container text-center">
             <div style="font-size:5rem;margin-bottom:1rem;">🎉</div>
-            <h1 style="font-family:var(--font-title);color:var(--gc-navy);font-size:2.2rem;">
+            <h1 style="font-family:'Fredoka One',cursive;color:#1E3A5F;font-size:2.2rem;">
                 ¡Recibimos la historia de tu pequeño!
             </h1>
-            <p style="font-size:1.05rem;color:var(--gc-gray);max-width:520px;
+            <p style="font-size:1.05rem;color:#4B4B4B;max-width:520px;
                       margin:1rem auto 2rem;line-height:1.7;">
                 Ana y su equipo la están leyendo con mucho cariño.
                 Te contactaremos en las próximas <strong>24 horas</strong>
