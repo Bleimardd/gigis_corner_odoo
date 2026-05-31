@@ -1,0 +1,1 @@
+# gigis_corner_odoo
