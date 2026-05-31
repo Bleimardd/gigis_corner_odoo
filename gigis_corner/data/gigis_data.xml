@@ -3,27 +3,6 @@
 <data noupdate="1">
 
     <!-- ═══════════════════════════════════════════
-         EMPRESA: Asignar el website a Gigi's Corner
-         Busca la empresa por nombre y la asigna al
-         website activo. Funciona con multi-empresa.
-    ═══════════════════════════════════════════ -->
-
-    <!-- 1. Crear/actualizar la empresa Gigi's Corner si no existe -->
-    <record id="gigis_company" model="res.company">
-        <field name="name">Gigi's Corner</field>
-        <field name="website">https://gigiscorner.com.mx</field>
-        <field name="email">info@gigiscorner.com.mx</field>
-        <field name="phone">+52 55 2945 1680</field>
-    </record>
-
-    <!-- 2. Asignar el website a la empresa Gigi's Corner -->
-    <record id="gigis_website" model="website">
-        <field name="name">Gigi's Corner</field>
-        <field name="domain">https://gigiscorner.com.mx</field>
-        <field name="company_id" ref="gigis_company"/>
-    </record>
-
-    <!-- ═══════════════════════════════════════════
          HISTORIAS DE EJEMPLO
     ═══════════════════════════════════════════ -->
 
@@ -86,6 +65,11 @@
         <field name="capitulo_resultado">La cara de Mateo cuando vio su lámpara no tiene precio. La abraza cada noche y dice que cuando sea grande va a construir casas para todos.</field>
         <field name="sequence">40</field>
     </record>
+
+    <!-- NOTA: La asignación del website a la empresa Gigi's Corner
+         se hace manualmente desde:
+         Odoo → Sitio Web → Configuración → Ajustes → Empresa
+         No se puede hacer por XML porque el website ya existe en la BD. -->
 
 </data>
 </odoo>
