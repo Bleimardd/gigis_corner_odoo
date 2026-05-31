@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_gigis_personalizacion,gigis.personalizacion,model_gigis_personalizacion,,1,0,1,0
-access_gigis_personalizacion_manager,gigis.personalizacion.manager,model_gigis_personalizacion,base.group_system,1,1,1,1
