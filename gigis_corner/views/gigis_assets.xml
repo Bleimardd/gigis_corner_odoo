@@ -2,10 +2,12 @@
 <odoo>
 
     <!-- ═══════════════════════════════════════════════════════
-         ASSETS — Forma correcta en Odoo 17 Community
-         Se hereda web.assets_frontend para agregar CSS y JS
+         ASSETS — Sintaxis correcta Odoo 17
+         Se usa <template> con t-inherit, NO <data inherit_id>
     ═══════════════════════════════════════════════════════════ -->
-    <template id="gigis_assets_frontend" inherit_id="web.assets_frontend" name="Gigi's Corner Assets">
+    <template id="gigis_assets_frontend"
+              inherit_id="web.assets_frontend"
+              name="Gigi's Corner Assets">
         <xpath expr="." position="inside">
             <link rel="stylesheet" type="text/css"
                   href="/gigis_corner/static/src/css/gigis_main.css"/>
