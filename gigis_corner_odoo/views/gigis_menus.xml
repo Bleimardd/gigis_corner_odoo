@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         MENÚS DE NAVEGACIÓN
+         ═══════════════════════════════════════════════════════════ -->
+
+    <!-- Menú principal: Historias -->
+    <record id="menu_historias" model="website.menu">
+        <field name="name">📖 Historias</field>
+        <field name="url">/historias</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <!-- Sub-menú Historias -->
+    <record id="menu_historia_amira" model="website.menu">
+        <field name="name">Amira y el Mar 🌊</field>
+        <field name="url">/historias/amira-y-el-mar</field>
+        <field name="parent_id" ref="gigis_corner.menu_historias"/>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="menu_historia_pepe" model="website.menu">
+        <field name="name">Pepe la Tortuga 🐢</field>
+        <field name="url">/historias/pepe-la-tortuga</field>
+        <field name="parent_id" ref="gigis_corner.menu_historias"/>
+        <field name="sequence">2</field>
+    </record>
+
+    <record id="menu_historia_valentina" model="website.menu">
+        <field name="name">Valentina Astronauta 🚀</field>
+        <field name="url">/historias/valentina-astronauta</field>
+        <field name="parent_id" ref="gigis_corner.menu_historias"/>
+        <field name="sequence">3</field>
+    </record>
+
+    <record id="menu_historia_mateo" model="website.menu">
+        <field name="name">Mateo Constructor 🚜</field>
+        <field name="url">/historias/mateo-constructor</field>
+        <field name="parent_id" ref="gigis_corner.menu_historias"/>
+        <field name="sequence">4</field>
+    </record>
+
+    <!-- Menú: Nosotros -->
+    <record id="menu_nosotros" model="website.menu">
+        <field name="name">❤️ Nosotros</field>
+        <field name="url">/nosotros</field>
+        <field name="sequence">30</field>
+    </record>
+
+    <!-- Menú: Personalizados -->
+    <record id="menu_personalizados" model="website.menu">
+        <field name="name">✨ Personalizados</field>
+        <field name="url">/personalizados</field>
+        <field name="sequence">40</field>
+    </record>
+
+    <!-- Menú: Tienda -->
+    <record id="menu_tienda" model="website.menu">
+        <field name="name">🛍️ Tienda</field>
+        <field name="url">/shop</field>
+        <field name="sequence">50</field>
+    </record>
+
+</data>
+</odoo>
