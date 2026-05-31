@@ -2,14 +2,13 @@
 <odoo>
 
 <!-- ═══════════════════════════════════════════════════════════
-     LAYOUT BASE — Navbar + Footer personalizados
-     inherit_id="website.layout" → Community ✅
+     NAVBAR PERSONALIZADO
+     inherit_id="website.navbar"  ← plantilla correcta en Odoo 17
      ═══════════════════════════════════════════════════════════ -->
+<template id="gigis_navbar" name="Gigi's Corner — Navbar"
+          inherit_id="website.navbar">
 
-<template id="gigis_layout" name="Gigi's Corner Layout" inherit_id="website.layout">
-
-    <!-- ── NAVBAR ── -->
-    <xpath expr="//nav[hasclass('navbar')]" position="replace">
+    <xpath expr="//nav" position="replace">
         <nav class="gc-navbar navbar navbar-expand-lg">
             <div class="container">
 
@@ -19,7 +18,8 @@
                          alt="Gigi's Corner"
                          style="height:48px;object-fit:contain;"
                          onerror="this.style.display='none';
-                                  document.getElementById('gc-logo-text').style.display='inline'"/>
+                                  var s=document.getElementById('gc-logo-text');
+                                  if(s)s.style.display='inline';"/>
                     <span id="gc-logo-text"
                           style="display:none;font-family:'Fredoka One',sans-serif;
                                  color:var(--gc-coral);font-size:1.4rem;line-height:1;">
@@ -33,7 +33,7 @@
                         data-bs-target="#gcNavMenu"
                         aria-controls="gcNavMenu"
                         aria-expanded="false">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"/>
                 </button>
 
                 <!-- Links -->
@@ -54,7 +54,7 @@
                     </ul>
 
                     <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
-                        <a href="https://wa.me/525529451680?text=Hola%2C%20me%20interesa%20una%20l%C3%A1mpara%20personalizada%20✨"
+                        <a href="https://wa.me/525529451680?text=Hola%2C%20me%20interesa%20una%20l%C3%A1mpara%20personalizada%20%E2%9C%A8"
                            target="_blank" rel="noopener"
                            class="text-decoration-none"
                            style="font-size:1.4rem;" title="WhatsApp">💬</a>
@@ -68,108 +68,119 @@
         </nav>
     </xpath>
 
-    <!-- ── FOOTER ── -->
-    <xpath expr="//footer" position="replace">
-        <footer class="gc-footer">
-            <div class="container">
-                <div class="row g-4">
+</template>
 
-                    <!-- Marca -->
-                    <div class="col-lg-4">
-                        <div class="gc-footer-logo">
-                            <img src="/web/image/website/2/logo"
-                                 alt="Gigi's Corner"
-                                 onerror="this.outerHTML='&lt;span style=&quot;font-family:Fredoka One,sans-serif;color:white;font-size:1.5rem;&quot;&gt;Gigi\'s Corner&lt;/span&gt;'"/>
-                        </div>
-                        <p class="gc-footer-tagline mt-2">
-                            "Iluminando historias, sueños y recuerdos."
-                        </p>
-                        <div class="gc-footer-social">
-                            <a href="https://www.instagram.com/gigis_corner.com.mx"
-                               target="_blank" rel="noopener" title="Instagram">
-                                <i class="fa fa-instagram"/>
-                            </a>
-                            <a href="https://www.facebook.com/gigiscorner"
-                               target="_blank" rel="noopener" title="Facebook">
-                                <i class="fa fa-facebook"/>
-                            </a>
-                            <a href="https://wa.me/525529451680"
-                               target="_blank" rel="noopener" title="WhatsApp">
-                                <i class="fa fa-whatsapp"/>
-                            </a>
-                            <a href="https://www.tiktok.com/@gigis_corner.com.mx"
-                               target="_blank" rel="noopener" title="TikTok">
-                                <i class="fa fa-music"/>
-                            </a>
-                        </div>
-                    </div>
 
-                    <!-- Navegación -->
-                    <div class="col-lg-2 col-6">
-                        <h5>Páginas</h5>
-                        <ul>
-                            <li><a href="/">Inicio</a></li>
-                            <li><a href="/historias">Historias</a></li>
-                            <li><a href="/nosotros">Nosotros</a></li>
-                            <li><a href="/personalizados">Personalizados</a></li>
-                        </ul>
-                    </div>
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER PERSONALIZADO
+     inherit_id="website.layout"  + xpath al footer
+     ═══════════════════════════════════════════════════════════ -->
+<template id="gigis_footer" name="Gigi's Corner — Footer"
+          inherit_id="website.layout">
 
-                    <!-- Historias -->
-                    <div class="col-lg-2 col-6">
-                        <h5>Historias</h5>
-                        <ul>
-                            <li><a href="/historias/amira-y-el-mar">🌊 Amira y el Mar</a></li>
-                            <li><a href="/historias/pepe-la-tortuga">🐢 Pepe la Tortuga</a></li>
-                            <li><a href="/historias/valentina-astronauta">🚀 Valentina</a></li>
-                            <li><a href="/historias/mateo-constructor">🚜 Mateo</a></li>
-                        </ul>
-                    </div>
+    <xpath expr="//div[@id='footer']" position="replace">
+        <div id="footer" t-ignore="true">
 
-                    <!-- Contacto -->
-                    <div class="col-lg-4">
-                        <h5>Contacto</h5>
-                        <ul>
-                            <li>
-                                <a href="https://wa.me/525529451680" target="_blank">
-                                    💬 +52 55 2945 1680
+            <footer class="gc-footer">
+                <div class="container">
+                    <div class="row g-4">
+
+                        <!-- Marca -->
+                        <div class="col-lg-4">
+                            <div class="gc-footer-logo">
+                                <img src="/web/image/website/2/logo"
+                                     alt="Gigi's Corner"
+                                     onerror="this.outerHTML=&quot;&lt;span style='font-family:Fredoka One,sans-serif;color:white;font-size:1.5rem;'&gt;Gigi\'s Corner&lt;/span&gt;&quot;"/>
+                            </div>
+                            <p class="gc-footer-tagline mt-2">
+                                "Iluminando historias, sueños y recuerdos."
+                            </p>
+                            <div class="gc-footer-social">
+                                <a href="https://www.instagram.com/gigis_corner.com.mx"
+                                   target="_blank" rel="noopener" title="Instagram">
+                                    <i class="fa fa-instagram"/>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="mailto:info@gigiscorner.com.mx">
-                                    📧 info@gigiscorner.com.mx
+                                <a href="https://www.facebook.com/gigiscorner"
+                                   target="_blank" rel="noopener" title="Facebook">
+                                    <i class="fa fa-facebook"/>
                                 </a>
-                            </li>
-                            <li style="color:rgba(255,255,255,0.55);font-size:0.85rem;margin-top:0.4rem;">
-                                📍 Benito Juárez 95, Isidro Fabela,<br/>Tlalpan, CDMX
-                            </li>
-                        </ul>
-                        <a href="/personalizados"
-                           class="gc-btn-primary d-inline-flex mt-3"
-                           style="font-size:0.85rem;padding:0.55rem 1.3rem;">
-                            ✨ Diseñar mi lámpara
-                        </a>
+                                <a href="https://wa.me/525529451680"
+                                   target="_blank" rel="noopener" title="WhatsApp">
+                                    <i class="fa fa-whatsapp"/>
+                                </a>
+                                <a href="https://www.tiktok.com/@gigis_corner.com.mx"
+                                   target="_blank" rel="noopener" title="TikTok">
+                                    <i class="fa fa-music"/>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Navegación -->
+                        <div class="col-lg-2 col-6">
+                            <h5>Páginas</h5>
+                            <ul>
+                                <li><a href="/">Inicio</a></li>
+                                <li><a href="/historias">Historias</a></li>
+                                <li><a href="/nosotros">Nosotros</a></li>
+                                <li><a href="/personalizados">Personalizados</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Historias -->
+                        <div class="col-lg-2 col-6">
+                            <h5>Historias</h5>
+                            <ul>
+                                <li><a href="/historias/amira-y-el-mar">🌊 Amira y el Mar</a></li>
+                                <li><a href="/historias/pepe-la-tortuga">🐢 Pepe la Tortuga</a></li>
+                                <li><a href="/historias/valentina-astronauta">🚀 Valentina</a></li>
+                                <li><a href="/historias/mateo-constructor">🚜 Mateo</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Contacto -->
+                        <div class="col-lg-4">
+                            <h5>Contacto</h5>
+                            <ul>
+                                <li>
+                                    <a href="https://wa.me/525529451680" target="_blank">
+                                        💬 +52 55 2945 1680
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:info@gigiscorner.com.mx">
+                                        📧 info@gigiscorner.com.mx
+                                    </a>
+                                </li>
+                                <li style="color:rgba(255,255,255,0.55);font-size:0.85rem;margin-top:0.4rem;">
+                                    📍 Benito Juárez 95, Isidro Fabela,<br/>Tlalpan, CDMX
+                                </li>
+                            </ul>
+                            <a href="/personalizados"
+                               class="gc-btn-primary d-inline-flex mt-3"
+                               style="font-size:0.85rem;padding:0.55rem 1.3rem;">
+                                ✨ Diseñar mi lámpara
+                            </a>
+                        </div>
+
                     </div>
 
+                    <hr class="gc-footer-divider"/>
+                    <div class="d-flex flex-wrap justify-content-between gc-footer-bottom gap-2">
+                        <span>© 2024 Gigi's Corner · Hecho con ❤️ en CDMX, México.</span>
+                        <span><a href="/contactus">Contacto</a></span>
+                    </div>
                 </div>
+            </footer>
 
-                <hr class="gc-footer-divider"/>
-                <div class="d-flex flex-wrap justify-content-between gc-footer-bottom gap-2">
-                    <span>© 2024 Gigi's Corner · Hecho con ❤️ en CDMX, México.</span>
-                    <span>
-                        <a href="/contactus">Contacto</a>
-                    </span>
-                </div>
-            </div>
-        </footer>
+            <!-- WhatsApp flotante -->
+            <a href="https://wa.me/525529451680?text=Hola%20Ana%2C%20me%20interesa%20una%20l%C3%A1mpara%20personalizada%20para%20mi%20peque%C3%B1o%20%E2%9C%A8"
+               target="_blank" rel="noopener"
+               class="gc-whatsapp-float"
+               title="Escríbenos por WhatsApp">
+                💬
+            </a>
 
-        <!-- WhatsApp flotante -->
-        <a href="https://wa.me/525529451680?text=Hola%20Ana%2C%20me%20interesa%20una%20l%C3%A1mpara%20personalizada%20para%20mi%20peque%C3%B1o%20✨"
-           target="_blank" rel="noopener"
-           class="gc-whatsapp-float"
-           title="Escríbenos por WhatsApp">
-            💬
-        </a>
+        </div>
     </xpath>
 
 </template>

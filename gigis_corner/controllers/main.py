@@ -9,6 +9,13 @@ _logger = logging.getLogger(__name__)
 class GigisController(http.Controller):
 
     # ─────────────────────────────────────────────────────────
+    # HOME — página principal
+    # ─────────────────────────────────────────────────────────
+    @http.route('/', type='http', auth='public', website=True)
+    def home(self, **kwargs):
+        return request.render('gigis_corner.view_home_page', {})
+
+    # ─────────────────────────────────────────────────────────
     # HISTORIAS — lista
     # ─────────────────────────────────────────────────────────
     @http.route('/historias', type='http', auth='public', website=True)

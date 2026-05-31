@@ -4,9 +4,9 @@
 <!-- ═══════════════════════════════════════════════════════════
      HOME — PÁGINA PRINCIPAL
      ═══════════════════════════════════════════════════════════ -->
-<template id="view_home_page" name="Gigi's Corner - Home" inherit_id="website.homepage">
-<xpath expr="//main" position="replace">
-<main>
+<template id="view_home_page" name="Gigi's Corner - Home">
+<t t-call="website.layout">
+<div id="wrap">
 
     <!-- ══════════════════════════════════
          SECCIÓN 1 — HERO
@@ -606,8 +606,8 @@
         </div>
     </section>
 
-</main>
-</xpath>
+</div>
+</t>
 </template>
 
 </odoo>
