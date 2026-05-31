@@ -86,7 +86,7 @@
                 <div class="col-lg-9">
 
                     <div class="text-center mb-4">
-                        <span class="gc-section-label">📝 Formulario</span>
+                        <span class="gc-section-label">Formulario de diseño</span>
                         <h2 class="gc-section-title">
                             Cuéntanos la historia de tu pequeño
                         </h2>
@@ -279,13 +279,13 @@
                                 <button type="submit"
                                         class="gc-btn-primary gc-form-submit-btn"
                                         style="font-size:1rem;padding:0.9rem 2.2rem;">
-                                    ✨ Enviar mi historia
+                                    Enviar mi historia
                                 </button>
                                 <a href="https://wa.me/525529451680?text=Hola%20Ana%2C%20me%20interesa%20una%20l%C3%A1mpara%20personalizada%20para%20mi%20peque%C3%B1o%20%F0%9F%92%A1"
                                    target="_blank" rel="noopener"
                                    class="gc-btn-whatsapp"
                                    style="font-size:1rem;padding:0.9rem 2.2rem;">
-                                    💬 O escríbenos directo
+                                    O escríbenos por WhatsApp
                                 </a>
                             </div>
 
@@ -359,10 +359,10 @@
             <div class="d-flex gap-3 justify-content-center flex-wrap">
                 <a href="https://wa.me/525529451680" target="_blank"
                    class="gc-btn-whatsapp">
-                    💬 También puedes escribirnos
+                    También puedes escribirnos por WhatsApp
                 </a>
                 <a href="/historias" class="gc-btn-secondary">
-                    📖 Ver otras historias
+                    Ver otras historias
                 </a>
             </div>
         </div>

@@ -11,66 +11,66 @@
     <!-- ══════════════════════════════════
          SECCIÓN 1 — HERO
     ══════════════════════════════════ -->
-    <section class="gc-hero">
+    <section style="background:linear-gradient(135deg,#E8F4FD 0%,#EEF9F7 60%,#FFF8EE 100%);padding:5rem 0 3rem;position:relative;overflow:hidden;">
         <div class="container">
             <div class="row align-items-center g-5">
 
                 <!-- Texto Hero -->
-                <div class="col-lg-6 gc-slide-left">
+                <div class="col-lg-6">
                     <span style="display:inline-block;background:#34C9B8;color:white;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">
                         ✨ Lámparas Artesanales Personalizadas · Hecho en México 🇲🇽
                     </span>
-                    <h1 class="gc-hero-title mt-2">
+                    <h1 style="font-family:'Fredoka One',cursive;font-size:2.8rem;line-height:1.15;color:#1E3A5F;margin-top:0.5rem;">
                         Cada niño tiene<br/>
                         una historia que<br/>
-                        <span>merece ser iluminada</span>
+                        <span style="color:#FF5C64;">merece ser iluminada</span>
                     </h1>
-                    <p class="gc-hero-subtitle mt-3">
+                    <p style="font-size:1.05rem;color:#4B4B4B;line-height:1.7;max-width:520px;margin-top:1rem;">
                         Diseñamos, armamos y pintamos a mano lámparas únicas inspiradas
                         en los sueños, recuerdos y aventuras de cada pequeño.
                     </p>
                     <div class="d-flex flex-wrap gap-3 mt-4">
-                        <a href="/historias" class="gc-btn-primary">
-                            💡 Explorar Historias
+                        <a href="/historias" style="display:inline-flex;align-items:center;gap:0.5rem;background:#FF5C64;color:white;border-radius:50px;padding:0.8rem 2rem;font-weight:700;font-size:0.95rem;text-decoration:none;">
+                            Explorar Historias
                         </a>
-                        <a href="/personalizados" class="gc-btn-secondary">
-                            ✨ Diseñar mi lámpara
+                        <a href="/personalizados" style="display:inline-flex;align-items:center;gap:0.5rem;color:#5DA7E8;border:2px solid #5DA7E8;border-radius:50px;padding:0.78rem 1.9rem;font-weight:700;font-size:0.95rem;text-decoration:none;background:transparent;">
+                            Diseñar mi lámpara
                         </a>
                     </div>
                     <!-- Stats Bar -->
-                    <div class="gc-stats-bar mt-4">
-                        <div class="gc-stat-item">
-                            <span class="gc-stat-value gc-count-up" data-target="500" data-suffix="+">500+</span>
-                            <span class="gc-stat-label">Historias iluminadas</span>
+                    <div style="background:white;border-radius:18px;box-shadow:0 4px 24px rgba(93,167,232,0.13);padding:1.2rem 2rem;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:2rem;">
+                        <div style="text-align:center;">
+                            <span style="display:block;font-family:'Fredoka One',cursive;font-size:1.6rem;color:#FF5C64;line-height:1;" class="gc-count-up" data-target="500" data-suffix="+">500+</span>
+                            <span style="font-size:0.78rem;color:#4B4B4B;opacity:0.75;">Historias iluminadas</span>
                         </div>
-                        <div class="gc-stat-item">
-                            <span class="gc-stat-value">100%</span>
-                            <span class="gc-stat-label">Pintadas a mano</span>
+                        <div style="text-align:center;">
+                            <span style="display:block;font-family:'Fredoka One',cursive;font-size:1.6rem;color:#FF5C64;line-height:1;">100%</span>
+                            <span style="font-size:0.78rem;color:#4B4B4B;opacity:0.75;">Pintadas a mano</span>
                         </div>
-                        <div class="gc-stat-item">
-                            <span class="gc-stat-value">❤️</span>
-                            <span class="gc-stat-label">Madres creadoras</span>
+                        <div style="text-align:center;">
+                            <span style="display:block;font-family:'Fredoka One',cursive;font-size:1.6rem;color:#FF5C64;line-height:1;">❤️</span>
+                            <span style="font-size:0.78rem;color:#4B4B4B;opacity:0.75;">Madres creadoras</span>
                         </div>
-                        <div class="gc-stat-item">
-                            <span class="gc-stat-value">🇲🇽</span>
-                            <span class="gc-stat-label">Hecho en CDMX</span>
+                        <div style="text-align:center;">
+                            <span style="display:block;font-family:'Fredoka One',cursive;font-size:1.6rem;color:#FF5C64;line-height:1;">🇲🇽</span>
+                            <span style="font-size:0.78rem;color:#4B4B4B;opacity:0.75;">Hecho en CDMX</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Imagen Hero -->
-                <div class="col-lg-6 gc-slide-right">
-                    <div class="gc-hero-media gc-float">
+                <div class="col-lg-6">
+                    <div style="border-radius:18px;overflow:hidden;box-shadow:0 8px 40px rgba(30,58,95,0.13);aspect-ratio:4/5;background:#D6EDFB;position:relative;min-height:420px;">
                         <!-- ▼▼▼ REEMPLAZA CON TU FOTO PRINCIPAL ▼▼▼ -->
-                        <div class="gc-media-placeholder" style="height:100%;">
-                            <span class="gc-ph-icon">💡</span>
+                        <div style="width:100%;height:100%;min-height:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#D6EDFB,#EEF9F7);">
+                            <span style="font-size:4rem;opacity:0.4;">💡</span>
                             <span class="gc-ph-text">
                                 📸 Foto principal de lámpara<br/>
                                 <small>Reemplaza desde el editor de Odoo</small>
                             </span>
                         </div>
                         <!-- ▲▲▲ FIN PLACEHOLDER ▲▲▲ -->
-                        <div class="gc-hero-badge">
+                        <div style="position:absolute;bottom:24px;left:24px;background:white;border-radius:14px;padding:0.9rem 1.2rem;box-shadow:0 4px 20px rgba(0,0,0,0.12);display:flex;align-items:center;gap:0.8rem;font-size:0.85rem;">
                             <span style="font-size:2rem;">💡</span>
                             <div>
                                 <strong>HELANA</strong>
@@ -113,10 +113,10 @@
         <div class="container text-center">
             <span style="display:inline-block;background:#5DA7E8;color:white;font-size:0.78rem;
                          font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">
-                📖 Historias reales
+                Historias reales
             </span>
             <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-bottom:0.5rem;">
-                Historias que iluminan 🌟
+                Historias que iluminan
             </h2>
             <p style="font-size:1rem;color:#4B4B4B;opacity:0.8;margin-bottom:2.5rem;">
                 Cada lámpara tiene una historia real detrás. Conoce a nuestros pequeños.
@@ -272,7 +272,7 @@
                    style="display:inline-flex;align-items:center;gap:0.5rem;background:#FF5C64;
                           color:white;border-radius:50px;padding:0.8rem 2rem;font-weight:700;
                           font-size:0.95rem;text-decoration:none;">
-                    📖 Ver todas las historias
+                    Ver todas las historias
                 </a>
             </div>
         </div>
@@ -286,10 +286,10 @@
         <div class="container text-center">
             <span style="display:inline-block;background:#F5C640;color:#4B4B4B;font-size:0.78rem;
                          font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">
-                🔨 Proceso artesanal
+                Proceso artesanal
             </span>
             <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-bottom:0.5rem;">
-                Así nace una lámpara ✨
+                Así nace una lámpara
             </h2>
             <p style="font-size:1rem;color:#4B4B4B;opacity:0.8;margin-bottom:2.5rem;">
                 Cada paso es un acto de amor artesanal
@@ -339,7 +339,7 @@
             <div class="row g-2 mt-4">
                 <div class="col-12 text-start mb-2">
                     <span style="font-size:0.85rem;color:#4B4B4B;font-weight:600;">
-                        📸 Fotos del proceso artesanal
+                        Fotos del proceso artesanal
                     </span>
                 </div>
                 <t t-foreach="[
@@ -377,7 +377,7 @@
     ══════════════════════════════════ -->
     <section style="padding:5rem 0;">
         <div class="container">
-            <div class="gc-ana-section">
+            <div style="background:linear-gradient(135deg,#FFF0E6 0%,#FFF8EE 100%);border-radius:18px;padding:3rem;">
                 <div class="row align-items-center g-5">
 
                     <!-- Foto Ana -->
@@ -397,9 +397,9 @@
                     <!-- Texto Ana -->
                     <div class="col-lg-7 gc-fade-up gc-delay-2">
                         <span style="display:inline-block;background:#34C9B8;color:white;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;background:#FF5C64">
-                            ❤️ Nuestra historia
+                            Nuestra historia
                         </span>
-                        <h2 class="gc-section-title mt-2">
+                        <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-top:0.5rem;margin-bottom:0.5rem;">
                             Una mamá construyendo sueños mientras acompaña los de su hija
                         </h2>
                         <p style="font-size:0.97rem;color:#4B4B4B;line-height:1.8;margin-top:1rem;">
@@ -414,11 +414,11 @@
                             querer que cada rincón del cuarto de tu pequeño tenga alma propia.
                         </p>
                         <div class="d-flex gap-3 mt-4 flex-wrap">
-                            <a href="/nosotros" class="gc-btn-primary">
-                                ❤️ Conoce nuestra historia
+                            <a href="/nosotros" style="display:inline-flex;align-items:center;gap:0.5rem;background:#FF5C64;color:white;border-radius:50px;padding:0.8rem 2rem;font-weight:700;font-size:0.95rem;text-decoration:none;">
+                                Conoce nuestra historia
                             </a>
-                            <a href="/personalizados" class="gc-btn-secondary">
-                                ✨ Crear mi lámpara
+                            <a href="/personalizados" style="display:inline-flex;align-items:center;gap:0.5rem;color:#5DA7E8;border:2px solid #5DA7E8;border-radius:50px;padding:0.78rem 1.9rem;font-weight:700;font-size:0.95rem;text-decoration:none;background:transparent;">
+                                Crear mi lámpara
                             </a>
                         </div>
                     </div>
@@ -434,7 +434,7 @@
     ══════════════════════════════════ -->
     <section style="background:#F7F3EB;padding:5rem 0;">
         <div class="container text-center">
-            <span style="display:inline-block;background:#34C9B8;color:white;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">👐 Nuestro equipo</span>
+            <span style="display:inline-block;background:#34C9B8;color:white;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">Nuestro equipo</span>
             <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-bottom:0.5rem;">Las manos detrás de cada historia</h2>
             <p style="font-size:1rem;color:#4B4B4B;opacity:0.8;margin-bottom:2.5rem;">Un proyecto construido principalmente por madres que crean mientras acompañan la infancia de sus hijos.</p>
             <div class="row g-4 justify-content-center mt-2">
@@ -456,7 +456,7 @@
     ══════════════════════════════════ -->
     <section style="background:linear-gradient(135deg,#E8F4FD,#EEF9F7);padding:5rem 0;">
         <div class="container text-center">
-            <span style="display:inline-block;background:#5DA7E8;color:white;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">📸 Galería</span>
+            <span style="display:inline-block;background:#5DA7E8;color:white;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">Galería de familias</span>
             <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-bottom:0.5rem;">Familias que iluminan sus historias</h2>
             <p style="font-size:1rem;color:#4B4B4B;opacity:0.8;margin-bottom:2.5rem;">Habitaciones reales, niños reales, momentos reales.</p>
             <div class="row g-2">
@@ -478,8 +478,8 @@
     ══════════════════════════════════ -->
     <section style="background:#4B4B4B;padding:5rem 0;">
         <div class="container text-center">
-            <span style="display:inline-block;background:#F5C640;color:#4B4B4B;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">⭐ Reseñas</span>
-            <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:white;margin-bottom:0.5rem;">❤️ Lo que dicen las familias</h2>
+            <span style="display:inline-block;background:#F5C640;color:#4B4B4B;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">Reseñas</span>
+            <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:white;margin-bottom:0.5rem;">Lo que dicen las familias</h2>
             <p style="font-size:1rem;color:rgba(255,255,255,0.7);margin-bottom:2.5rem;">Cada testimonio es una historia iluminada</p>
             <div class="row g-4 mt-2 text-start">
                 <t t-foreach="[('M','María G.','Mamá de Sofía, CDMX','#FF5C64','Cuando vi la lámpara con el nombre de mi hija, lloré de emoción. Es exactamente lo que soñábamos para su cuarto. Ana es increíble.'),('C','Carlos M.','Papá de Mateo, Guadalajara','#5DA7E8','El proceso fue increíble, nos incluyeron en cada detalle. Mateo no quiere que la apaguen nunca. ¡Es perfecta para él!'),('F','Fernanda L.','Mamá de Emma, Monterrey','#34C9B8','El mejor regalo de cumpleaños que hemos dado. La lámpara tiene la historia favorita de Emma pintada a mano. ¡Obra de arte!')]" t-as="t">
@@ -513,12 +513,11 @@
                     que acompañarán la infancia de cada niño."
                 </p>
                 <div class="d-flex gap-3 justify-content-center mt-4 flex-wrap">
-                    <a href="/personalizados" class="gc-btn-primary"
-                       style="background:white;color:#FF5C64;">
-                        ✨ Comenzar mi historia
+                    <a href="/personalizados" style="display:inline-flex;align-items:center;gap:0.5rem;background:#FF5C64;color:white;border-radius:50px;padding:0.8rem 2rem;font-weight:700;font-size:0.95rem;text-decoration:none;background:white;color:#FF5C64">
+                        Comenzar mi historia
                     </a>
-                    <a href="https://wa.me/525529451680" target="_blank" class="gc-btn-whatsapp">
-                        💬 Hablar con Ana
+                    <a href="https://wa.me/525529451680" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:#25D366;color:white;border-radius:50px;padding:0.8rem 2rem;font-weight:700;font-size:0.95rem;text-decoration:none;">
+                        Hablar con Ana por WhatsApp
                     </a>
                 </div>
             </div>

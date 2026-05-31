@@ -46,26 +46,26 @@
                     <div class="collapse navbar-collapse" id="gcNavMenu">
                         <ul class="navbar-nav mx-auto gap-1">
                             <li class="nav-item">
-                                <a class="nav-link" href="/">🏠 Inicio</a>
+                                <a class="nav-link" href="/">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/historias">📖 Historias</a>
+                                <a class="nav-link" href="/historias">Historias</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/nosotros">❤️ Nosotros</a>
+                                <a class="nav-link" href="/nosotros">Nosotros</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/personalizados">✨ Personalizados</a>
+                                <a class="nav-link" href="/personalizados">Personalizados</a>
                             </li>
                         </ul>
                         <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
                             <a href="https://wa.me/525529451680" target="_blank"
-                               style="font-size:1.4rem;text-decoration:none;" title="WhatsApp">💬</a>
+                               style="font-size:1.4rem;text-decoration:none;color:#25D366;" title="WhatsApp">WhatsApp</a>
                             <a href="/personalizados"
                                style="background:#FF5C64;color:white;border:none;border-radius:50px;
                                       padding:0.45rem 1.3rem;font-weight:700;font-size:0.88rem;
                                       text-decoration:none;white-space:nowrap;">
-                                💡 Diseñar mi lámpara
+                                Diseñar mi lámpara
                             </a>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
                                       background:#FF5C64;color:white;border-radius:50px;
                                       padding:0.55rem 1.3rem;font-size:0.85rem;font-weight:700;
                                       text-decoration:none;margin-top:1rem;">
-                                ✨ Diseñar mi lámpara
+                                Diseñar mi lámpara
                             </a>
                         </div>
 

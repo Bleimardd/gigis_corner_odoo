@@ -3,6 +3,27 @@
 <data noupdate="1">
 
     <!-- ═══════════════════════════════════════════
+         EMPRESA: Asignar el website a Gigi's Corner
+         Busca la empresa por nombre y la asigna al
+         website activo. Funciona con multi-empresa.
+    ═══════════════════════════════════════════ -->
+
+    <!-- 1. Crear/actualizar la empresa Gigi's Corner si no existe -->
+    <record id="gigis_company" model="res.company">
+        <field name="name">Gigi's Corner</field>
+        <field name="website">https://gigiscorner.com.mx</field>
+        <field name="email">info@gigiscorner.com.mx</field>
+        <field name="phone">+52 55 2945 1680</field>
+    </record>
+
+    <!-- 2. Asignar el website a la empresa Gigi's Corner -->
+    <record id="gigis_website" model="website">
+        <field name="name">Gigi's Corner</field>
+        <field name="domain">https://gigiscorner.com.mx</field>
+        <field name="company_id" ref="gigis_company"/>
+    </record>
+
+    <!-- ═══════════════════════════════════════════
          HISTORIAS DE EJEMPLO
     ═══════════════════════════════════════════ -->
 
@@ -14,7 +35,7 @@
         <field name="extracto">Una niña que soñaba con el océano recibió su propia aventura marina pintada a mano, con olas y su nombre brillando en la luz de la noche.</field>
         <field name="emoji">🌊</field>
         <field name="etiqueta">🌊 Mar</field>
-        <field name="color_fondo">var(--gc-light-blue)</field>
+        <field name="color_fondo">#D6EDFB</field>
         <field name="capitulo_historia">Amira siempre soñaba con el mar. Sus ojos brillaban cada vez que veía el océano en un libro o en una película. Sus papás querían que ese amor por el mar viviera también en su habitación, iluminando cada noche.</field>
         <field name="capitulo_proceso">Conversamos con su mamá durante más de una hora sobre la personalidad de Amira, sus colores favoritos, su amor por las olas y los peces de colores. Diseñamos cada pieza pensando en ella, cortamos el MDF con precisión y pintamos a mano cada detalle del océano que la hace soñar.</field>
         <field name="capitulo_resultado">Una lámpara que hace brillar los ojos de Amira cada noche cuando se enciende y su nombre ilumina las paredes de su cuarto. Su mamá nos dijo que Amira la abraza antes de dormir.</field>
@@ -29,7 +50,7 @@
         <field name="extracto">La mascota favorita de un pequeño se convirtió en personaje de cuento que ahora alumbra su habitación con calidez cada noche.</field>
         <field name="emoji">🐢</field>
         <field name="etiqueta">🐢 Amigos</field>
-        <field name="color_fondo">var(--gc-mint)</field>
+        <field name="color_fondo">#C8F5F1</field>
         <field name="capitulo_historia">Pepe era la tortuga de juguete favorita de un pequeño explorador. La llevaba a todos lados, incluso a dormir. Sus papás querían que Pepe también iluminara su cuarto.</field>
         <field name="capitulo_proceso">Diseñamos a Pepe con todos sus detalles: su caparazón verde, su carita amigable y los colores favoritos del niño. Cada escama fue pintada a mano con amor y paciencia.</field>
         <field name="capitulo_resultado">Ahora Pepe ilumina cada noche el cuarto del pequeño. Ya no tiene miedo a la oscuridad porque su mejor amigo siempre está encendido.</field>
@@ -44,7 +65,7 @@
         <field name="extracto">Una niña que quería conquistar las estrellas tiene su propia misión espacial iluminando cada sueño nocturno desde su habitación.</field>
         <field name="emoji">🚀</field>
         <field name="etiqueta">🚀 Espacio</field>
-        <field name="color_fondo">var(--gc-peach)</field>
+        <field name="color_fondo">#FFE5E6</field>
         <field name="capitulo_historia">Valentina tiene 5 años y ya sabe los nombres de todos los planetas. Quiere ser astronauta. Sus papás querían que su habitación fuera el mejor trampolín hacia las estrellas.</field>
         <field name="capitulo_proceso">Creamos una lámpara con su cohete favorito, estrellas y su nombre en letras de constelación. Cada estrella fue pintada a mano con pintura que brilla suavemente en la oscuridad.</field>
         <field name="capitulo_resultado">Valentina ahora duerme mirando su propia misión espacial. Sus papás dicen que ya no quiere que la arropen porque prefiere quedarse despierta admirando su lámpara.</field>
@@ -65,10 +86,6 @@
         <field name="capitulo_resultado">La cara de Mateo cuando vio su lámpara no tiene precio. La abraza cada noche y dice que cuando sea grande va a construir casas para todos.</field>
         <field name="sequence">40</field>
     </record>
-
-    <!-- NOTA: Las rutas /nosotros, /personalizados, /historias y /gracias
-         son manejadas por el controlador Python (controllers/main.py).
-         No se necesitan registros website.page. -->
 
 </data>
 </odoo>
