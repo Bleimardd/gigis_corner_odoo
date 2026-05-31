@@ -2,187 +2,196 @@
 <odoo>
 
 <!-- ═══════════════════════════════════════════════════════════
-     NAVBAR PERSONALIZADO
-     inherit_id="website.navbar"  ← plantilla correcta en Odoo 17
+     ESTILOS INLINE — inyectados directo en el <head>
+     Esto garantiza que los estilos carguen aunque los assets
+     estáticos fallen. Se complementa con los archivos CSS.
      ═══════════════════════════════════════════════════════════ -->
-<template id="gigis_navbar" name="Gigi's Corner — Navbar"
-          inherit_id="website.navbar">
-
-    <xpath expr="//nav" position="replace">
-        <nav class="gc-navbar navbar navbar-expand-lg">
-            <div class="container">
-
-                <!-- Logo -->
-                <a class="navbar-brand d-flex align-items-center gap-2" href="/">
-                    <img src="/web/image/website/2/logo"
-                         alt="Gigi's Corner"
-                         style="height:48px;object-fit:contain;"
-                         onerror="this.style.display='none';
-                                  var s=document.getElementById('gc-logo-text');
-                                  if(s)s.style.display='inline';"/>
-                    <span id="gc-logo-text"
-                          style="display:none;font-family:'Fredoka One',sans-serif;
-                                 color:var(--gc-coral);font-size:1.4rem;line-height:1;">
-                        Gigi's Corner
-                    </span>
-                </a>
-
-                <!-- Toggler móvil -->
-                <button class="navbar-toggler border-0" type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#gcNavMenu"
-                        aria-controls="gcNavMenu"
-                        aria-expanded="false">
-                    <span class="navbar-toggler-icon"/>
-                </button>
-
-                <!-- Links -->
-                <div class="collapse navbar-collapse" id="gcNavMenu">
-                    <ul class="navbar-nav mx-auto gap-1 align-items-lg-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">🏠 Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/historias">📖 Historias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/nosotros">❤️ Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/personalizados">✨ Personalizados</a>
-                        </li>
-                    </ul>
-
-                    <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
-                        <a href="https://wa.me/525529451680?text=Hola%2C%20me%20interesa%20una%20l%C3%A1mpara%20personalizada%20%E2%9C%A8"
-                           target="_blank" rel="noopener"
-                           class="text-decoration-none"
-                           style="font-size:1.4rem;" title="WhatsApp">💬</a>
-                        <a href="/personalizados" class="gc-btn-nav-cta btn">
-                            💡 Diseñar mi lámpara
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </nav>
+<template id="gigis_assets_head" inherit_id="website.layout" name="Gigi's Corner — Head Assets">
+    <xpath expr="//head" position="inside">
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&amp;family=Poppins:wght@400;600;700&amp;display=swap"
+              rel="stylesheet"/>
     </xpath>
+</template>
 
+<!-- ═══════════════════════════════════════════════════════════
+     NAVBAR — reemplaza el header completo
+     Se usa //header (más estable que //nav en Odoo 17)
+     ═══════════════════════════════════════════════════════════ -->
+<template id="gigis_navbar" inherit_id="website.layout" name="Gigi's Corner — Navbar">
+    <xpath expr="//header" position="replace">
+        <header>
+            <nav class="gc-navbar navbar navbar-expand-lg">
+                <div class="container">
+
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+                        <img src="/web/image/website/2/logo"
+                             alt="Gigi's Corner"
+                             style="height:48px;object-fit:contain;"
+                             onerror="this.style.display='none'"/>
+                        <span style="font-family:'Fredoka One',cursive;
+                                     color:#FF5C64;font-size:1.4rem;line-height:1;">
+                            Gigi's Corner
+                        </span>
+                    </a>
+
+                    <button class="navbar-toggler border-0" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#gcNavMenu"
+                            aria-expanded="false">
+                        <span class="navbar-toggler-icon"/>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="gcNavMenu">
+                        <ul class="navbar-nav mx-auto gap-1">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">🏠 Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/historias">📖 Historias</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/nosotros">❤️ Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/personalizados">✨ Personalizados</a>
+                            </li>
+                        </ul>
+                        <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+                            <a href="https://wa.me/525529451680" target="_blank"
+                               style="font-size:1.4rem;text-decoration:none;" title="WhatsApp">💬</a>
+                            <a href="/personalizados"
+                               style="background:#FF5C64;color:white;border:none;border-radius:50px;
+                                      padding:0.45rem 1.3rem;font-weight:700;font-size:0.88rem;
+                                      text-decoration:none;white-space:nowrap;">
+                                💡 Diseñar mi lámpara
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+    </xpath>
 </template>
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     FOOTER PERSONALIZADO
-     inherit_id="website.layout"  + xpath al footer
+     FOOTER
      ═══════════════════════════════════════════════════════════ -->
-<template id="gigis_footer" name="Gigi's Corner — Footer"
-          inherit_id="website.layout">
-
+<template id="gigis_footer" inherit_id="website.layout" name="Gigi's Corner — Footer">
     <xpath expr="//div[@id='footer']" position="replace">
         <div id="footer" t-ignore="true">
-
-            <footer class="gc-footer">
+            <footer style="background:#1E3A5F;color:rgba(255,255,255,0.8);padding:3.5rem 0 1.5rem;">
                 <div class="container">
                     <div class="row g-4">
 
-                        <!-- Marca -->
                         <div class="col-lg-4">
-                            <div class="gc-footer-logo">
-                                <img src="/web/image/website/2/logo"
-                                     alt="Gigi's Corner"
-                                     onerror="this.outerHTML=&quot;&lt;span style='font-family:Fredoka One,sans-serif;color:white;font-size:1.5rem;'&gt;Gigi\'s Corner&lt;/span&gt;&quot;"/>
-                            </div>
-                            <p class="gc-footer-tagline mt-2">
+                            <img src="/web/image/website/2/logo" alt="Gigi's Corner"
+                                 style="height:48px;filter:brightness(0) invert(1);margin-bottom:0.8rem;"
+                                 onerror="this.style.display='none'"/>
+                            <p style="font-size:0.88rem;color:rgba(255,255,255,0.6);font-style:italic;">
                                 "Iluminando historias, sueños y recuerdos."
                             </p>
-                            <div class="gc-footer-social">
+                            <div style="display:flex;gap:0.8rem;margin-top:1rem;">
                                 <a href="https://www.instagram.com/gigis_corner.com.mx"
-                                   target="_blank" rel="noopener" title="Instagram">
+                                   target="_blank"
+                                   style="width:38px;height:38px;background:rgba(255,255,255,0.1);
+                                          border-radius:50%;display:flex;align-items:center;
+                                          justify-content:center;color:white;text-decoration:none;
+                                          font-size:1rem;">
                                     <i class="fa fa-instagram"/>
                                 </a>
-                                <a href="https://www.facebook.com/gigiscorner"
-                                   target="_blank" rel="noopener" title="Facebook">
-                                    <i class="fa fa-facebook"/>
-                                </a>
-                                <a href="https://wa.me/525529451680"
-                                   target="_blank" rel="noopener" title="WhatsApp">
+                                <a href="https://wa.me/525529451680" target="_blank"
+                                   style="width:38px;height:38px;background:rgba(255,255,255,0.1);
+                                          border-radius:50%;display:flex;align-items:center;
+                                          justify-content:center;color:white;text-decoration:none;
+                                          font-size:1rem;">
                                     <i class="fa fa-whatsapp"/>
                                 </a>
-                                <a href="https://www.tiktok.com/@gigis_corner.com.mx"
-                                   target="_blank" rel="noopener" title="TikTok">
-                                    <i class="fa fa-music"/>
+                                <a href="https://www.facebook.com/gigiscorner" target="_blank"
+                                   style="width:38px;height:38px;background:rgba(255,255,255,0.1);
+                                          border-radius:50%;display:flex;align-items:center;
+                                          justify-content:center;color:white;text-decoration:none;
+                                          font-size:1rem;">
+                                    <i class="fa fa-facebook"/>
                                 </a>
                             </div>
                         </div>
 
-                        <!-- Navegación -->
                         <div class="col-lg-2 col-6">
-                            <h5>Páginas</h5>
-                            <ul>
-                                <li><a href="/">Inicio</a></li>
-                                <li><a href="/historias">Historias</a></li>
-                                <li><a href="/nosotros">Nosotros</a></li>
-                                <li><a href="/personalizados">Personalizados</a></li>
+                            <h5 style="font-family:'Fredoka One',cursive;color:white;margin-bottom:1rem;">Páginas</h5>
+                            <ul style="list-style:none;padding:0;margin:0;">
+                                <li style="margin-bottom:0.5rem;"><a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">Inicio</a></li>
+                                <li style="margin-bottom:0.5rem;"><a href="/historias" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">Historias</a></li>
+                                <li style="margin-bottom:0.5rem;"><a href="/nosotros" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">Nosotros</a></li>
+                                <li style="margin-bottom:0.5rem;"><a href="/personalizados" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">Personalizados</a></li>
                             </ul>
                         </div>
 
-                        <!-- Historias -->
                         <div class="col-lg-2 col-6">
-                            <h5>Historias</h5>
-                            <ul>
-                                <li><a href="/historias/amira-y-el-mar">🌊 Amira y el Mar</a></li>
-                                <li><a href="/historias/pepe-la-tortuga">🐢 Pepe la Tortuga</a></li>
-                                <li><a href="/historias/valentina-astronauta">🚀 Valentina</a></li>
-                                <li><a href="/historias/mateo-constructor">🚜 Mateo</a></li>
+                            <h5 style="font-family:'Fredoka One',cursive;color:white;margin-bottom:1rem;">Historias</h5>
+                            <ul style="list-style:none;padding:0;margin:0;">
+                                <li style="margin-bottom:0.5rem;"><a href="/historias/amira-y-el-mar" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">🌊 Amira y el Mar</a></li>
+                                <li style="margin-bottom:0.5rem;"><a href="/historias/pepe-la-tortuga" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">🐢 Pepe la Tortuga</a></li>
+                                <li style="margin-bottom:0.5rem;"><a href="/historias/valentina-astronauta" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">🚀 Valentina</a></li>
+                                <li style="margin-bottom:0.5rem;"><a href="/historias/mateo-constructor" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">🚜 Mateo</a></li>
                             </ul>
                         </div>
 
-                        <!-- Contacto -->
                         <div class="col-lg-4">
-                            <h5>Contacto</h5>
-                            <ul>
-                                <li>
-                                    <a href="https://wa.me/525529451680" target="_blank">
+                            <h5 style="font-family:'Fredoka One',cursive;color:white;margin-bottom:1rem;">Contacto</h5>
+                            <ul style="list-style:none;padding:0;margin:0;">
+                                <li style="margin-bottom:0.5rem;">
+                                    <a href="https://wa.me/525529451680" target="_blank"
+                                       style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">
                                         💬 +52 55 2945 1680
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="mailto:info@gigiscorner.com.mx">
+                                <li style="margin-bottom:0.5rem;">
+                                    <a href="mailto:info@gigiscorner.com.mx"
+                                       style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">
                                         📧 info@gigiscorner.com.mx
                                     </a>
                                 </li>
-                                <li style="color:rgba(255,255,255,0.55);font-size:0.85rem;margin-top:0.4rem;">
+                                <li style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-top:0.4rem;">
                                     📍 Benito Juárez 95, Isidro Fabela,<br/>Tlalpan, CDMX
                                 </li>
                             </ul>
                             <a href="/personalizados"
-                               class="gc-btn-primary d-inline-flex mt-3"
-                               style="font-size:0.85rem;padding:0.55rem 1.3rem;">
+                               style="display:inline-flex;align-items:center;gap:0.4rem;
+                                      background:#FF5C64;color:white;border-radius:50px;
+                                      padding:0.55rem 1.3rem;font-size:0.85rem;font-weight:700;
+                                      text-decoration:none;margin-top:1rem;">
                                 ✨ Diseñar mi lámpara
                             </a>
                         </div>
 
                     </div>
 
-                    <hr class="gc-footer-divider"/>
-                    <div class="d-flex flex-wrap justify-content-between gc-footer-bottom gap-2">
+                    <hr style="border-color:rgba(255,255,255,0.1);margin:2rem 0 1rem;"/>
+                    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;
+                                font-size:0.8rem;color:rgba(255,255,255,0.45);">
                         <span>© 2024 Gigi's Corner · Hecho con ❤️ en CDMX, México.</span>
-                        <span><a href="/contactus">Contacto</a></span>
+                        <a href="/contactus" style="color:rgba(255,255,255,0.45);text-decoration:none;">Contacto</a>
                     </div>
                 </div>
             </footer>
 
             <!-- WhatsApp flotante -->
-            <a href="https://wa.me/525529451680?text=Hola%20Ana%2C%20me%20interesa%20una%20l%C3%A1mpara%20personalizada%20para%20mi%20peque%C3%B1o%20%E2%9C%A8"
+            <a href="https://wa.me/525529451680?text=Hola%20Ana%2C%20me%20interesa%20una%20l%C3%A1mpara%20personalizada%20%E2%9C%A8"
                target="_blank" rel="noopener"
-               class="gc-whatsapp-float"
-               title="Escríbenos por WhatsApp">
+               title="WhatsApp"
+               style="position:fixed;bottom:28px;right:28px;width:60px;height:60px;
+                      background:#25D366;border-radius:50%;display:flex;align-items:center;
+                      justify-content:center;font-size:1.8rem;color:white;
+                      box-shadow:0 6px 24px rgba(37,211,102,0.45);z-index:9999;
+                      text-decoration:none;">
                 💬
             </a>
-
         </div>
     </xpath>
-
 </template>
 
 </odoo>
