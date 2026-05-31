@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PÁGINA: PERSONALIZADOS  — /personalizados
+     El formulario hace POST a /personalizados/enviar
+     No depende de website_form (Enterprise)
+     ═══════════════════════════════════════════════════════════ -->
+<template id="view_personalizado_page" name="Gigi's Corner — Personalizados">
+<t t-call="website.layout">
+<div id="wrap">
+
+    <!-- HERO -->
+    <section style="background:linear-gradient(135deg,#E8F4FD,#EEF9F7,#FFF8EE);
+                    padding:4rem 0 3rem;">
+        <div class="container text-center">
+            <span class="gc-section-label">✨ Diseño exclusivo</span>
+            <h1 class="gc-section-title mt-2" style="font-size:2.4rem;">
+                Tu historia comienza aquí
+            </h1>
+            <p class="gc-section-sub">
+                Cuéntanos quién es tu pequeño y creamos<br/>
+                la lámpara más especial de su infancia.
+            </p>
+            <div class="d-flex gap-4 justify-content-center flex-wrap mt-3">
+                <span style="font-size:0.88rem;color:#4B4B4B;">
+                    ⏱️ Entrega en 2–3 semanas
+                </span>
+                <span style="font-size:0.88rem;color:#4B4B4B;">
+                    🎨 100% pintado a mano
+                </span>
+                <span style="font-size:0.88rem;color:#4B4B4B;">
+                    ✏️ Nombre incluido
+                </span>
+                <span style="font-size:0.88rem;color:#4B4B4B;">
+                    📍 Envíos a todo México
+                </span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- GALERÍA DE EJEMPLOS -->
+    <section class="gc-section gc-section-cream">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="gc-section-label">🖼️ Trabajos realizados</span>
+                <h2 class="gc-section-title">Lámparas que ya iluminan hogares</h2>
+            </div>
+            <div class="row g-3">
+                <!-- ▼▼▼ REEMPLAZA CON TUS FOTOS REALES ▼▼▼ -->
+                <t t-foreach="[
+                    ('🌊','Amira - Océano','#D6EDFB'),
+                    ('🐢','Pepe - Tortuga','#C8F5F1'),
+                    ('🚀','Valentina - Espacio','#FFE5E6'),
+                    ('🚜','Mateo - Constructor','#FFF0D0'),
+                    ('🦋','Lucía - Mariposas','#FFE5E6'),
+                    ('🦕','Diego - Dinosaurios','#C8F5F1'),
+                    ('🌺','Sofía - Flores','#D6EDFB'),
+                    ('⭐','Tu diseño aquí','linear-gradient(135deg,#D6EDFB,#C8F5F1)')
+                ]" t-as="item">
+                    <div class="col-6 col-md-3 gc-fade-up">
+                        <div class="gc-gallery-item"
+                             style="aspect-ratio:3/4;">
+                            <div class="gc-media-placeholder"
+                                 t-attf-style="height:100%;background:#{item[2]}">
+                                <span style="font-size:2.5rem;">
+                                    <t t-esc="item[0]"/>
+                                </span>
+                                <span class="gc-ph-text" style="font-size:0.75rem;">
+                                    <t t-esc="item[1]"/>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FORMULARIO -->
+    <section class="gc-section gc-section-blue" id="gc-form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+
+                    <div class="text-center mb-4">
+                        <span class="gc-section-label">Formulario de diseño</span>
+                        <h2 class="gc-section-title">
+                            Cuéntanos la historia de tu pequeño
+                        </h2>
+                        <p class="gc-section-sub">
+                            Mientras más nos cuentes, más especial será su lámpara.
+                        </p>
+                    </div>
+
+                    <!-- Mensaje de error si el controlador lo envía -->
+                    <t t-if="error">
+                        <div class="alert alert-danger rounded-3 mb-3">
+                            ⚠️ <t t-esc="error"/>
+                        </div>
+                    </t>
+
+                    <div class="gc-form-wrapper">
+
+                        <!-- POST al controlador propio — sin website_form -->
+                        <form id="gc-personalizacion-form"
+                              action="/personalizados/enviar"
+                              method="post">
+
+                            <!-- CSRF token de Odoo -->
+                            <input type="hidden" name="csrf_token"
+                                   t-att-value="request.csrf_token()"/>
+
+                            <!-- ── FILA 1 ── -->
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="gc-form-label" for="gc_nombre">
+                                        ✏️ Nombre del niño/a
+                                        <span style="color:#FF5C64">*</span>
+                                    </label>
+                                    <input type="text" id="gc_nombre"
+                                           name="nombre_nino"
+                                           class="gc-form-input"
+                                           placeholder="Ej: Helana, Amira, Mateo..."
+                                           t-att-value="valores and valores.get('nombre_nino','')"
+                                           required="required"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="gc-form-label" for="gc_edad">
+                                        🎂 Edad
+                                    </label>
+                                    <input type="text" id="gc_edad"
+                                           name="edad"
+                                           class="gc-form-input"
+                                           placeholder="Ej: 3 años, 7 meses..."
+                                           t-att-value="valores and valores.get('edad','')"/>
+                                </div>
+                            </div>
+
+                            <!-- ── FILA 2 ── -->
+                            <div class="row g-3 mt-1">
+                                <div class="col-md-6">
+                                    <label class="gc-form-label" for="gc_tema">
+                                        🦋 Tema favorito
+                                        <span style="color:#FF5C64">*</span>
+                                    </label>
+                                    <input type="text" id="gc_tema"
+                                           name="tema_favorito"
+                                           class="gc-form-input"
+                                           placeholder="Ej: océano, espacio, dinosaurios..."
+                                           t-att-value="valores and valores.get('tema_favorito','')"
+                                           required="required"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="gc-form-label" for="gc_colores">
+                                        🎨 Colores preferidos
+                                    </label>
+                                    <input type="text" id="gc_colores"
+                                           name="colores"
+                                           class="gc-form-input"
+                                           placeholder="Ej: azul y turquesa, rosa y dorado..."
+                                           t-att-value="valores and valores.get('colores','')"/>
+                                </div>
+                            </div>
+
+                            <!-- ── FILA 3: Contacto ── -->
+                            <div class="row g-3 mt-1">
+                                <div class="col-md-6">
+                                    <label class="gc-form-label" for="gc_nombre_contacto">
+                                        👤 Tu nombre
+                                        <span style="color:#FF5C64">*</span>
+                                    </label>
+                                    <input type="text" id="gc_nombre_contacto"
+                                           name="nombre_contacto"
+                                           class="gc-form-input"
+                                           placeholder="Tu nombre completo"
+                                           t-att-value="valores and valores.get('nombre_contacto','')"
+                                           required="required"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="gc-form-label" for="gc_whatsapp">
+                                        📱 WhatsApp / Teléfono
+                                        <span style="color:#FF5C64">*</span>
+                                    </label>
+                                    <input type="tel" id="gc_whatsapp"
+                                           name="telefono"
+                                           class="gc-form-input"
+                                           placeholder="Ej: 55 1234 5678"
+                                           t-att-value="valores and valores.get('telefono','')"
+                                           required="required"/>
+                                </div>
+                            </div>
+
+                            <!-- ── Email + Fecha ── -->
+                            <div class="row g-3 mt-1">
+                                <div class="col-md-6">
+                                    <label class="gc-form-label" for="gc_email">
+                                        📧 Correo electrónico
+                                    </label>
+                                    <input type="email" id="gc_email"
+                                           name="email"
+                                           class="gc-form-input"
+                                           placeholder="tu@correo.com"
+                                           t-att-value="valores and valores.get('email','')"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="gc-form-label" for="gc_fecha">
+                                        📅 Fecha requerida
+                                    </label>
+                                    <input type="date" id="gc_fecha"
+                                           name="fecha_requerida"
+                                           class="gc-form-input"/>
+                                </div>
+                            </div>
+
+                            <!-- ── Presupuesto + Cómo nos conociste ── -->
+                            <div class="row g-3 mt-1">
+                                <div class="col-md-6">
+                                    <label class="gc-form-label" for="gc_presupuesto">
+                                        💰 Presupuesto aproximado
+                                    </label>
+                                    <select id="gc_presupuesto" name="presupuesto"
+                                            class="gc-form-select">
+                                        <option value="">Selecciona un rango...</option>
+                                        <option value="500-800">$500 – $800 MXN</option>
+                                        <option value="800-1200">$800 – $1,200 MXN</option>
+                                        <option value="1200-2000">$1,200 – $2,000 MXN</option>
+                                        <option value="2000+">$2,000+ MXN</option>
+                                        <option value="consulta">Quiero asesoría</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="gc-form-label" for="gc_como">
+                                        🔍 ¿Cómo nos conociste?
+                                    </label>
+                                    <select id="gc_como" name="como_conocio"
+                                            class="gc-form-select">
+                                        <option value="">Selecciona...</option>
+                                        <option value="instagram">Instagram</option>
+                                        <option value="facebook">Facebook</option>
+                                        <option value="tiktok">TikTok</option>
+                                        <option value="recomendacion">Recomendación</option>
+                                        <option value="google">Google</option>
+                                        <option value="whatsapp">WhatsApp</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- ── CAMPO ESPECIAL: HISTORIA ── -->
+                            <div class="mt-4 p-3"
+                                 style="background:#FFF8F8;border-radius:10px;
+                                        border:2px solid #FF5C64;">
+                                <label class="gc-form-label gc-form-label-special"
+                                       for="gc_historia"
+                                       style="font-size:0.93rem;">
+                                    💌 Cuéntanos la historia detrás de tu diseño
+                                    <span style="color:#FF5C64">*</span>
+                                    <span style="font-size:0.77rem;font-weight:400;
+                                                 color:#4B4B4B;display:block;
+                                                 margin-top:0.2rem;">
+                                        Este es el campo más importante. Mientras más nos cuentes,
+                                        más especial será la lámpara.
+                                    </span>
+                                </label>
+                                <textarea id="gc_historia"
+                                          name="historia"
+                                          class="gc-form-textarea gc-form-special"
+                                          required="required"
+                                          placeholder="Escribe libremente: la personalidad de tu niño, sus sueños, su personaje favorito, el momento especial que quieres recordar...">
+                                    <t t-esc="valores and valores.get('historia','')"/>
+                                </textarea>
+                            </div>
+
+                            <!-- ── BOTONES ── -->
+                            <div class="d-flex gap-3 justify-content-center mt-4 flex-wrap">
+                                <button type="submit"
+                                        class="gc-btn-primary gc-form-submit-btn"
+                                        style="font-size:1rem;padding:0.9rem 2.2rem;">
+                                    Enviar mi historia
+                                </button>
+                                <a href="https://wa.me/525529451680?text=Hola%20Ana%2C%20me%20interesa%20una%20l%C3%A1mpara%20personalizada%20para%20mi%20peque%C3%B1o%20%F0%9F%92%A1"
+                                   target="_blank" rel="noopener"
+                                   class="gc-btn-whatsapp"
+                                   style="font-size:1rem;padding:0.9rem 2.2rem;">
+                                    O escríbenos por WhatsApp
+                                </a>
+                            </div>
+
+                            <p class="text-center mt-3"
+                               style="font-size:0.77rem;color:#4B4B4B;opacity:0.7;">
+                                🔒 Tus datos están seguros. Solo los usamos para crear tu lámpara.
+                            </p>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PROCESO RÁPIDO -->
+    <section class="gc-section gc-section-cream">
+        <div class="container text-center">
+            <h2 class="gc-section-title">¿Qué pasa después de enviar?</h2>
+            <div class="row g-3 mt-3 justify-content-center">
+                <t t-foreach="[
+                    ('📱','1. Te contactamos','Ana te escribe por WhatsApp en menos de 24 horas.'),
+                    ('💡','2. Diseñamos juntos','Te mostramos un boceto antes de producir.'),
+                    ('🎨','3. Creamos tu lámpara','2–3 semanas de trabajo artesanal con amor.'),
+                    ('🎁','4. La recibes en casa','Empacada con amor y lista para iluminar.')
+                ]" t-as="paso">
+                    <div class="col-md-3">
+                        <div style="background:white;border-radius:18px;
+                                    padding:1.5rem;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                            <div style="font-size:2rem;margin-bottom:0.5rem;">
+                                <t t-esc="paso[0]"/>
+                            </div>
+                            <strong style="color:#1E3A5F;">
+                                <t t-esc="paso[1]"/>
+                            </strong>
+                            <p style="font-size:0.82rem;color:#4B4B4B;margin-top:0.5rem;">
+                                <t t-esc="paso[2]"/>
+                            </p>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </section>
+
+</div>
+</t>
+</template>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     PÁGINA: GRACIAS
+     ═══════════════════════════════════════════════════════════ -->
+<template id="view_gracias_page" name="Gigi's Corner — Gracias">
+<t t-call="website.layout">
+<div id="wrap">
+    <section style="padding:6rem 0;background:linear-gradient(135deg,#E8F4FD,#FFF8EE);
+                    min-height:72vh;display:flex;align-items:center;">
+        <div class="container text-center">
+            <div style="font-size:5rem;margin-bottom:1rem;">🎉</div>
+            <h1 style="font-family:'Fredoka One',cursive;color:#1E3A5F;font-size:2.2rem;">
+                ¡Recibimos la historia de tu pequeño!
+            </h1>
+            <p style="font-size:1.05rem;color:#4B4B4B;max-width:520px;
+                      margin:1rem auto 2rem;line-height:1.7;">
+                Ana y su equipo la están leyendo con mucho cariño.
+                Te contactaremos en las próximas <strong>24 horas</strong>
+                para comenzar a dar vida a la lámpara más especial de su infancia. 💛
+            </p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="https://wa.me/525529451680" target="_blank"
+                   class="gc-btn-whatsapp">
+                    También puedes escribirnos por WhatsApp
+                </a>
+                <a href="/historias" class="gc-btn-secondary">
+                    Ver otras historias
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+</t>
+</template>
+
+</odoo>
