@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PÁGINA: NOSOTROS
+     ═══════════════════════════════════════════════════════════ -->
+<template id="view_nosotros_page" name="Gigi's Corner - Nosotros">
+<t t-call="website.layout">
+<div id="wrap">
+
+    <!-- HERO NOSOTROS -->
+    <section style="background:linear-gradient(135deg,#FFF0E6,#FFF8EE);padding:4rem 0 3rem;">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 gc-fade-up">
+                    <span class="gc-section-label" style="background:#FF5C64;">Nuestra historia</span>
+                    <h1 class="gc-section-title mt-2" style="font-size:2.4rem;">
+                        Detrás de cada lámpara hay una historia de amor
+                    </h1>
+                    <p style="font-size:1rem;color:#4B4B4B;line-height:1.8;">
+                        Gigi's Corner nació de una madre, una hija, y el deseo de convertir
+                        los sueños de los niños en algo que se pueda tocar, sentir y encender.
+                    </p>
+                </div>
+                <div class="col-lg-6 gc-fade-up gc-delay-2">
+                    <div style="border-radius:18px;overflow:hidden;height:350px;">
+                        <!-- ▼▼▼ Foto editable del equipo ▼▼▼ -->
+                        <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&amp;q=75"
+                             alt="Equipo Gigi's Corner"
+                             style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CAPÍTULOS -->
+    <section class="gc-section gc-section-cream">
+        <div class="container">
+            <div class="row g-5">
+
+                <!-- Col izquierda: Capítulos 1 y 2 -->
+                <div class="col-lg-6">
+
+                    <!-- Capítulo 1 -->
+                    <div class="gc-chapter gc-fade-up">
+                        <div class="gc-chapter-num">Capítulo 1</div>
+                        <h2 class="gc-chapter-title">Ana y Helana</h2>
+                        <!-- ▼▼▼ FOTO ANA Y HELANA ▼▼▼ -->
+                        <div style="border-radius:10px;overflow:hidden;height:220px;margin-bottom:1rem;">
+                            <!-- ▼▼▼ Foto editable: Ana y Helana ▼▼▼ -->
+                            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=600&amp;q=70"
+                                 alt="Ana y Helana"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                        </div>
+                        <p class="gc-chapter-text">
+                            <!-- ▼▼▼ EDITA ESTE TEXTO CON LA HISTORIA REAL ▼▼▼ -->
+                            Todo comenzó con una niña llamada Helana y su mamá Ana. Como toda mamá,
+                            Ana quería que el cuarto de su hija fuera un espacio mágico, lleno de
+                            su personalidad y sus sueños. Pero no encontraba nada que capturara
+                            verdaderamente quién era Helana.
+                        </p>
+                        <p class="gc-chapter-text">
+                            Entonces Ana decidió crearlo. Con sus propias manos, con amor, con la
+                            certeza de que ningún niño debería tener una habitación genérica cuando
+                            tiene una historia única que merece ser contada.
+                        </p>
+                    </div>
+
+                    <!-- Capítulo 2 -->
+                    <div class="gc-chapter gc-fade-up gc-delay-1" style="border-color:#34C9B8;margin-top:2rem;">
+                        <div class="gc-chapter-num" style="color:#34C9B8;">Capítulo 2</div>
+                        <h2 class="gc-chapter-title">El nacimiento de Gigi's Corner</h2>
+                        <!-- ▼▼▼ FOTO DEL TALLER / INICIO ▼▼▼ -->
+                        <div style="border-radius:10px;overflow:hidden;height:200px;margin-bottom:1rem;">
+                            <!-- ▼▼▼ Foto editable: taller / inicio ▼▼▼ -->
+                            <img src="https://images.unsplash.com/photo-1556760544-74068565f05c?w=600&amp;q=70"
+                                 alt="El taller de Gigi's Corner"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                        </div>
+                        <p class="gc-chapter-text">
+                            La primera lámpara de Helana generó reacciones que Ana no esperaba.
+                            Amigas, familiares, conocidas: todas querían una para sus propios hijos.
+                            Así, sin buscarlo, nació Gigi's Corner: un rincón donde cada historia
+                            infantil merece ser iluminada.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Col derecha: Capítulos 3 y 4 -->
+                <div class="col-lg-6">
+
+                    <!-- Capítulo 3 -->
+                    <div class="gc-chapter gc-fade-up gc-delay-2" style="border-color:#FF5C64;">
+                        <div class="gc-chapter-num" style="color:#FF5C64;">Capítulo 3</div>
+                        <h2 class="gc-chapter-title">El equipo de madres creadoras</h2>
+                        <!-- ▼▼▼ FOTO DEL EQUIPO ▼▼▼ -->
+                        <div style="border-radius:10px;overflow:hidden;height:200px;margin-bottom:1rem;">
+                            <!-- ▼▼▼ Foto editable: equipo trabajando ▼▼▼ -->
+                            <img src="https://images.unsplash.com/photo-1558403194-611308249627?w=600&amp;q=70"
+                                 alt="El equipo de madres creadoras"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                        </div>
+                        <p class="gc-chapter-text">
+                            Gigi's Corner creció hasta convertirse en un equipo de madres: Marlene,
+                            Leidy, y Bryan se unieron al proyecto. Cada persona que forma parte
+                            del equipo entiende desde adentro lo que significa querer lo mejor
+                            para los hijos, porque ellos también son padres.
+                        </p>
+                        <p class="gc-chapter-text">
+                            Creamos lámparas mientras nuestros propios hijos juegan cerca.
+                            Eso hace que cada pieza tenga algo que ninguna fábrica puede replicar:
+                            el amor de quien sabe lo que es ser papá o mamá.
+                        </p>
+                    </div>
+
+                    <!-- Capítulo 4: Misión -->
+                    <div class="gc-chapter gc-fade-up gc-delay-3"
+                         style="border-color:#F5C640;margin-top:2rem;
+                                background:linear-gradient(135deg,#FFF8E1,#FFFBF0);
+                                border-radius:10px;padding:1.5rem;border-left-width:4px;">
+                        <div class="gc-chapter-num" style="color:#F5C640;">Capítulo 4</div>
+                        <h2 class="gc-chapter-title">Nuestra misión</h2>
+                        <p class="gc-chapter-text">
+                            Transformar historias, sueños y recuerdos en lámparas únicas
+                            que iluminen la infancia de cada niño. No creamos objetos
+                            decorativos: creamos compañeros de sueños.
+                        </p>
+                        <div class="row g-2 mt-2">
+                            <div class="col-6">
+                                <div style="background:white;border-radius:10px;padding:0.8rem;text-align:center;">
+                                    <div style="font-size:1.5rem;">🎨</div>
+                                    <div style="font-size:0.8rem;font-weight:600;color:#1E3A5F;">100% Artesanal</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div style="background:white;border-radius:10px;padding:0.8rem;text-align:center;">
+                                    <div style="font-size:1.5rem;">❤️</div>
+                                    <div style="font-size:0.8rem;font-weight:600;color:#1E3A5F;">Hecho con amor</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div style="background:white;border-radius:10px;padding:0.8rem;text-align:center;">
+                                    <div style="font-size:1.5rem;">✨</div>
+                                    <div style="font-size:0.8rem;font-weight:600;color:#1E3A5F;">100% Personalizado</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div style="background:white;border-radius:10px;padding:0.8rem;text-align:center;">
+                                    <div style="font-size:1.5rem;">🇲🇽</div>
+                                    <div style="font-size:0.8rem;font-weight:600;color:#1E3A5F;">Hecho en CDMX</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- EQUIPO COMPLETO -->
+    <section class="gc-section gc-section-blue">
+        <div class="container text-center">
+            <span class="gc-section-label" style="background:#34C9B8;">Nuestro equipo</span>
+            <h2 class="gc-section-title">Las manos detrás de cada historia</h2>
+
+            <div class="row g-4 justify-content-center mt-3">
+
+                <div class="col-6 col-md-3 gc-fade-up gc-delay-1">
+                    <div class="gc-team-card">
+                        <div class="gc-team-avatar" style="background:#FFE5E6;width:110px;height:110px;font-size:3rem;overflow:hidden;">
+                            <!-- ▼▼▼ Foto editable de Ana ▼▼▼ -->
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&amp;q=70" alt="Ana"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                        </div>
+                        <div class="gc-team-name mt-2">Ana</div>
+                        <span class="gc-team-role" style="background:#FF5C64;">Fundadora &amp; CEO</span>
+                        <p class="gc-team-sub mt-2">
+                            Mamá de Helana.<br/>
+                            Corazón y alma de Gigi's Corner.
+                        </p>
+                        <!-- ▼▼▼ QUOTE DE ANA ▼▼▼ -->
+                        <p style="font-size:0.8rem;color:#4B4B4B;font-style:italic;margin-top:0.5rem;">
+                            "Cada lámpara que hago lleva un pedazo de mi corazón."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3 gc-fade-up gc-delay-2">
+                    <div class="gc-team-card">
+                        <div class="gc-team-avatar" style="background:#D6EDFB;width:110px;height:110px;font-size:3rem;overflow:hidden;">
+                            <!-- ▼▼▼ Foto editable de Marlene ▼▼▼ -->
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&amp;q=70" alt="Marlene"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                        </div>
+                        <div class="gc-team-name mt-2">Marlene</div>
+                        <span class="gc-team-role" style="background:#5DA7E8;">Diseño</span>
+                        <p class="gc-team-sub mt-2">
+                            Mamá de Edrik y Rohan.<br/>
+                            Diseño y desarrollo de patrones.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3 gc-fade-up gc-delay-3">
+                    <div class="gc-team-card">
+                        <div class="gc-team-avatar" style="background:#C8F5F1;width:110px;height:110px;font-size:3rem;overflow:hidden;">
+                            <!-- ▼▼▼ Foto editable de Leidy ▼▼▼ -->
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&amp;q=70" alt="Leidy"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                        </div>
+                        <div class="gc-team-name mt-2">Leidy</div>
+                        <span class="gc-team-role" style="background:#34C9B8;">Producción</span>
+                        <p class="gc-team-sub mt-2">
+                            Diseño y producción artesanal.<br/>
+                            Maestra del detalle.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3 gc-fade-up gc-delay-4">
+                    <div class="gc-team-card">
+                        <div class="gc-team-avatar" style="background:#FFF0D0;width:110px;height:110px;font-size:3rem;overflow:hidden;">
+                            <!-- ▼▼▼ Foto editable de Bryan ▼▼▼ -->
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&amp;q=70" alt="Bryan"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                        </div>
+                        <div class="gc-team-name mt-2">Bryan</div>
+                        <span class="gc-team-role" style="background:#F5C640;color:#4B4B4B;">Creativo</span>
+                        <p class="gc-team-sub mt-2">
+                            Diseñador creativo.<br/>
+                            Desarrollo visual de cada historia.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA NOSOTROS -->
+    <section class="gc-section">
+        <div class="container">
+            <div class="gc-slogan-banner">
+                <h2>¿Quieres que tu historia también sea iluminada?</h2>
+                <p>Cuéntanos sobre tu pequeño y creamos juntos algo único e irrepetible.</p>
+                <div class="d-flex gap-3 justify-content-center mt-4 flex-wrap">
+                    <a href="/personalizados"
+                       class="gc-btn-primary" style="background:white;color:#FF5C64;">
+                        Crear mi lámpara
+                    </a>
+                    <a href="https://wa.me/525529451680" target="_blank" class="gc-btn-whatsapp">
+                        Hablar con Ana por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+</t>
+</template>
+
+</odoo>

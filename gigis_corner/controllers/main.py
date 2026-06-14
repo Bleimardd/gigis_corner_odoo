@@ -1,0 +1,173 @@
+# -*- coding: utf-8 -*-
+from odoo import http
+from odoo.http import request
+import logging
+
+_logger = logging.getLogger(__name__)
+
+
+class GigisController(http.Controller):
+
+    def _get_gigis_company(self):
+        """Devuelve siempre la empresa Gigi's Corner."""
+        return request.env['res.company'].sudo().search(
+            [('name', 'ilike', "Gigi's Corner")], limit=1
+        )
+
+    def _es_sitio_gigis(self):
+        """True si el sitio web actual es el de Gigi's Corner.
+        Solo restringe cuando existe más de un sitio web; si Gigi's
+        es el único sitio, nunca bloquea."""
+        website = getattr(request, 'website', False)
+        if not website:
+            return True
+        total_sitios = request.env['website'].sudo().search_count([])
+        if total_sitios <= 1:
+            return True
+        nombre = (website.name or '').lower()
+        return 'gigi' in nombre
+
+    # ── HOME ──────────────────────────────────────────────────
+    @http.route('/', type='http', auth='public', website=True)
+    def home(self, **kwargs):
+        if not self._es_sitio_gigis():
+            return request.not_found()
+        return request.render('gigis_corner.view_home_page', {})
+
+    # ── HISTORIAS — lista ─────────────────────────────────────
+    @http.route('/historias', type='http', auth='public', website=True)
+    def historias_lista(self, **kwargs):
+        if not self._es_sitio_gigis():
+            return request.not_found()
+        company = self._get_gigis_company()
+        domain = [('website_published', '=', True)]
+        if company:
+            domain.append(('company_id', '=', company.id))
+        historias = request.env['gigis.historia'].sudo().search(
+            domain, order='sequence, id'
+        )
+        return request.render('gigis_corner.view_historias_page', {
+            'historias': historias,
+        })
+
+    # ── HISTORIAS — detalle ───────────────────────────────────
+    @http.route('/historias/<string:slug>', type='http', auth='public', website=True)
+    def historia_detalle(self, slug, **kwargs):
+        if not self._es_sitio_gigis():
+            return request.not_found()
+        company = self._get_gigis_company()
+        domain = [('slug', '=', slug), ('website_published', '=', True)]
+        if company:
+            domain.append(('company_id', '=', company.id))
+        historia = request.env['gigis.historia'].sudo().search(domain, limit=1)
+        if not historia:
+            return request.not_found()
+        return request.render('gigis_corner.view_historia_detalle', {
+            'historia': historia,
+        })
+
+    # ── NOSOTROS ──────────────────────────────────────────────
+    @http.route('/nosotros', type='http', auth='public', website=True)
+    def nosotros(self, **kwargs):
+        if not self._es_sitio_gigis():
+            return request.not_found()
+        return request.render('gigis_corner.view_nosotros_page', {})
+
+    # ── CATEGORÍAS ────────────────────────────────────────────
+    _CATEGORIAS = {
+        'dulces-suenos': {
+            'emoji': '🌙', 'titulo': 'Dulces Sueños', 'color': '#D6EDFB',
+            'descripcion': 'Lámparas suaves y serenas para acompañar las noches de tu pequeño.',
+            'imagen': 'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=1200&q=75',
+        },
+        'suena-grande': {
+            'emoji': '🚀', 'titulo': 'Sueña en Grande', 'color': '#FFE5E6',
+            'descripcion': 'Para los que quieren conquistar las estrellas y volar muy alto.',
+            'imagen': 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200&q=75',
+        },
+        'exploradores': {
+            'emoji': '🚜', 'titulo': 'Pequeños Exploradores', 'color': '#C8F5F1',
+            'descripcion': 'Aventuras, máquinas y descubrimientos para los más curiosos.',
+            'imagen': 'https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=1200&q=75',
+        },
+        'amigos-especiales': {
+            'emoji': '🐢', 'titulo': 'Amigos Especiales', 'color': '#FFF0D0',
+            'descripcion': 'Las mascotas y personajes favoritos convertidos en luz.',
+            'imagen': 'https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=1200&q=75',
+        },
+        'aventuras-mar': {
+            'emoji': '🌊', 'titulo': 'Aventuras al Mar', 'color': '#D6EDFB',
+            'descripcion': 'Olas, peces y todo el océano iluminando la habitación.',
+            'imagen': 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1200&q=75',
+        },
+    }
+
+    @http.route('/categoria/<string:slug>', type='http', auth='public', website=True)
+    def categoria(self, slug, **kwargs):
+        if not self._es_sitio_gigis():
+            return request.not_found()
+        cat = self._CATEGORIAS.get(slug)
+        if not cat:
+            return request.not_found()
+        return request.render('gigis_corner.view_categoria_page', {
+            'cat': cat,
+            'slug': slug,
+        })
+
+    # ── PERSONALIZADOS — formulario ───────────────────────────
+    @http.route('/personalizados', type='http', auth='public', website=True)
+    def personalizados(self, **kwargs):
+        if not self._es_sitio_gigis():
+            return request.not_found()
+        return request.render('gigis_corner.view_personalizado_page', {})
+
+    # ── PERSONALIZADOS — recibir POST ─────────────────────────
+    @http.route('/personalizados/enviar', type='http', auth='public',
+                website=True, methods=['POST'], csrf=True)
+    def personalizado_submit(self, **post):
+        try:
+            # Buscar empresa Gigi's Corner
+            company = self._get_gigis_company()
+
+            vals = {
+                'nombre_nino':     post.get('nombre_nino', '').strip(),
+                'edad':            post.get('edad', '').strip(),
+                'tema_favorito':   post.get('tema_favorito', '').strip(),
+                'colores':         post.get('colores', '').strip(),
+                'historia':        post.get('historia', '').strip(),
+                'nombre_contacto': post.get('nombre_contacto', '').strip(),
+                'telefono':        post.get('telefono', '').strip(),
+                'email':           post.get('email', '').strip(),
+                'como_conocio':    post.get('como_conocio') or False,
+                'presupuesto':     post.get('presupuesto') or False,
+            }
+
+            # Asignar siempre a Gigi's Corner
+            if company:
+                vals['company_id'] = company.id
+
+            if not vals['nombre_nino'] or not vals['nombre_contacto']:
+                return request.render('gigis_corner.view_personalizado_page', {
+                    'error': 'Por favor completa el nombre del niño y tu nombre.',
+                    'valores': post,
+                })
+
+            fecha_str = post.get('fecha_requerida', '').strip()
+            if fecha_str:
+                vals['fecha_requerida'] = fecha_str
+
+            request.env['gigis.personalizacion'].sudo().create(vals)
+
+        except Exception as e:
+            _logger.error("Error solicitud Gigi's Corner: %s", e)
+            return request.render('gigis_corner.view_personalizado_page', {
+                'error': 'Hubo un error. Por favor escríbenos por WhatsApp.',
+                'valores': post,
+            })
+
+        return request.redirect('/gracias')
+
+    # ── GRACIAS ───────────────────────────────────────────────
+    @http.route('/gracias', type='http', auth='public', website=True)
+    def gracias(self, **kwargs):
+        return request.render('gigis_corner.view_gracias_page', {})

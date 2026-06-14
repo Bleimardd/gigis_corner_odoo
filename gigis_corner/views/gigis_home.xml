@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HOME — PÁGINA PRINCIPAL
+     ═══════════════════════════════════════════════════════════ -->
+<template id="view_home_page" name="Gigi's Corner - Home">
+<t t-call="website.layout">
+<div id="wrap">
+
+    <!-- ══════════════════════════════════
+         SECCIÓN 1 — HERO
+    ══════════════════════════════════ -->
+    <section style="background:linear-gradient(135deg,#E8F4FD 0%,#EEF9F7 60%,#FFF8EE 100%);padding:5rem 0 3rem;position:relative;overflow:hidden;">
+        <div class="container">
+            <div class="row align-items-center g-5">
+
+                <!-- Texto Hero -->
+                <div class="col-lg-6">
+                    <span style="display:inline-block;background:#34C9B8;color:white;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">
+                        ✨ Lámparas Artesanales Personalizadas · Hecho en México 🇲🇽
+                    </span>
+                    <h1 style="font-family:'Fredoka One',cursive;font-size:2.8rem;line-height:1.15;color:#1E3A5F;margin-top:0.5rem;">
+                        Cada niño tiene<br/>
+                        una historia que<br/>
+                        <span style="color:#FF5C64;">merece ser iluminada</span>
+                    </h1>
+                    <p style="font-size:1.05rem;color:#4B4B4B;line-height:1.7;max-width:520px;margin-top:1rem;">
+                        Diseñamos, armamos y pintamos a mano lámparas únicas inspiradas
+                        en los sueños, recuerdos y aventuras de cada pequeño.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="/historias" style="display:inline-flex;align-items:center;gap:0.5rem;background:#FF5C64;color:white;border-radius:50px;padding:0.8rem 2rem;font-weight:700;font-size:0.95rem;text-decoration:none;">
+                            Explorar Historias
+                        </a>
+                        <a href="/personalizados" style="display:inline-flex;align-items:center;gap:0.5rem;color:#5DA7E8;border:2px solid #5DA7E8;border-radius:50px;padding:0.78rem 1.9rem;font-weight:700;font-size:0.95rem;text-decoration:none;background:transparent;">
+                            Diseñar mi lámpara
+                        </a>
+                    </div>
+                    <!-- Stats Bar -->
+                    <div style="background:white;border-radius:18px;box-shadow:0 4px 24px rgba(93,167,232,0.13);padding:1.2rem 2rem;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:2rem;">
+                        <div style="text-align:center;">
+                            <span style="display:block;font-family:'Fredoka One',cursive;font-size:1.6rem;color:#FF5C64;line-height:1;" class="gc-count-up" data-target="500" data-suffix="+">500+</span>
+                            <span style="font-size:0.78rem;color:#4B4B4B;opacity:0.75;">Historias iluminadas</span>
+                        </div>
+                        <div style="text-align:center;">
+                            <span style="display:block;font-family:'Fredoka One',cursive;font-size:1.6rem;color:#FF5C64;line-height:1;">100%</span>
+                            <span style="font-size:0.78rem;color:#4B4B4B;opacity:0.75;">Pintadas a mano</span>
+                        </div>
+                        <div style="text-align:center;">
+                            <span style="display:block;font-family:'Fredoka One',cursive;font-size:1.6rem;color:#FF5C64;line-height:1;">❤️</span>
+                            <span style="font-size:0.78rem;color:#4B4B4B;opacity:0.75;">Madres creadoras</span>
+                        </div>
+                        <div style="text-align:center;">
+                            <span style="display:block;font-family:'Fredoka One',cursive;font-size:1.6rem;color:#FF5C64;line-height:1;">🇲🇽</span>
+                            <span style="font-size:0.78rem;color:#4B4B4B;opacity:0.75;">Hecho en CDMX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagen Hero -->
+                <div class="col-lg-6">
+                    <!-- ▼▼▼ FOTO PRINCIPAL — editable con el lápiz de Odoo ▼▼▼ -->
+                    <div style="border-radius:18px;overflow:hidden;
+                                box-shadow:0 8px 40px rgba(30,58,95,0.13);
+                                position:relative;min-height:480px;">
+                        <img src="https://images.unsplash.com/photo-1566479179817-c0b5b4b4b1e5?w=900&amp;q=80"
+                             alt="Lámpara personalizada Gigi's Corner"
+                             style="width:100%;height:480px;object-fit:cover;display:block;"/>
+                        <!-- Badge nombre -->
+                        <div style="position:absolute;bottom:24px;left:24px;
+                                    background:white;border-radius:14px;
+                                    padding:0.8rem 1.1rem;
+                                    box-shadow:0 4px 20px rgba(0,0,0,0.12);
+                                    display:flex;align-items:center;gap:0.8rem;">
+                            <span style="font-size:1.8rem;">💡</span>
+                            <div>
+                                <strong style="display:block;font-size:0.9rem;color:#1E3A5F;">HELANA</strong>
+                                <span style="font-size:0.72rem;color:#4B4B4B;opacity:0.7;">Lámpara personalizada</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ▲▲▲ FIN FOTO ▲▲▲ -->
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         SECCIÓN 2 — CATEGORÍAS
+    ══════════════════════════════════ -->
+    <section style="background:#F7F3EB;padding:5rem 0;">
+        <div class="container text-center">
+            <span style="display:inline-block;background:#34C9B8;color:white;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">Encuentra tu historia</span>
+            <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-bottom:0.5rem;">¿Qué historia quieres contar?</h2>
+            <p style="font-size:1rem;color:#4B4B4B;opacity:0.8;margin-bottom:2.5rem;">Cada lámpara nace de un sueño, una aventura o un personaje favorito</p>
+            <div class="row g-3 mt-2">
+                <t t-foreach="[
+                    ('🌙','Dulces Sueños','/categoria/dulces-suenos','#D6EDFB','https://images.unsplash.com/photo-1532012197267-da84d127e765?w=500&amp;q=70'),
+                    ('🚀','Sueña en Grande','/categoria/suena-grande','#FFE5E6','https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=500&amp;q=70'),
+                    ('🚜','Pequeños Exploradores','/categoria/exploradores','#C8F5F1','https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=500&amp;q=70'),
+                    ('🐢','Amigos Especiales','/categoria/amigos-especiales','#FFF0D0','https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=500&amp;q=70'),
+                    ('🌊','Aventuras al Mar','/categoria/aventuras-mar','#D6EDFB','https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=500&amp;q=70'),
+                    ('✨','Mi Propia Historia','/personalizados','#FFE5E6','https://images.unsplash.com/photo-1519681393784-d120267933ba?w=500&amp;q=70')
+                ]" t-as="cat">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <a t-attf-href="#{cat[2]}" t-attf-style="background:#{cat[3]};border-radius:18px;overflow:hidden;text-align:center;cursor:pointer;transition:transform 0.3s;text-decoration:none;display:block;color:#4B4B4B;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 8px 40px rgba(30,58,95,0.13)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
+                            <!-- ▼▼▼ Imagen editable de la categoría ▼▼▼ -->
+                            <img t-att-src="cat[4]" t-att-alt="cat[1]"
+                                 style="width:100%;height:120px;object-fit:cover;display:block;"/>
+                            <div style="padding:1rem 0.8rem 1.2rem;">
+                                <span style="font-size:1.6rem;display:block;margin-bottom:0.4rem;"><t t-esc="cat[0]"/></span>
+                                <span style="font-family:'Fredoka One',cursive;font-size:1rem;font-weight:700;color:#1E3A5F;display:block;margin-bottom:0.6rem;"><t t-esc="cat[1]"/></span>
+                                <span style="width:32px;height:32px;background:#5DA7E8;color:white;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;">→</span>
+                            </div>
+                        </a>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </section>
+<!-- ══════════════════════════════════
+         SECCIÓN 3 — HISTORIAS QUE ILUMINAN
+    ══════════════════════════════════ -->
+    <section style="background:linear-gradient(135deg,#E8F4FD,#EEF9F7);padding:5rem 0;">
+        <div class="container text-center">
+            <span style="display:inline-block;background:#5DA7E8;color:white;font-size:0.78rem;
+                         font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">
+                Historias reales
+            </span>
+            <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-bottom:0.5rem;">
+                Historias que iluminan
+            </h2>
+            <p style="font-size:1rem;color:#4B4B4B;opacity:0.8;margin-bottom:2.5rem;">
+                Cada lámpara tiene una historia real detrás. Conoce a nuestros pequeños.
+            </p>
+
+            <div class="row g-4 mt-2 text-start">
+
+                <!-- Historia 1: Amira -->
+                <div class="col-md-4">
+                    <a href="/historias/amira-y-el-mar"
+                       style="display:block;border-radius:18px;overflow:hidden;background:white;
+                              box-shadow:0 4px 24px rgba(93,167,232,0.13);text-decoration:none;
+                              color:#4B4B4B;transition:transform 0.3s;"
+                       onmouseover="this.style.transform='translateY(-8px)'"
+                       onmouseout="this.style.transform='translateY(0)'">
+                        <div style="position:relative;height:220px;background:#D6EDFB;overflow:hidden;">
+                            <!-- ▼▼▼ Foto editable de Amira ▼▼▼ -->
+                            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=600&amp;q=70"
+                                 alt="Amira y el Mar"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                            <!-- Para activar el video: pon la URL en data-video (si está vacío, no aparece el botón) -->
+                            <t t-set="video_amira" t-value="''"/>
+                            <t t-if="video_amira">
+                                <div class="gc-play-btn" t-att-data-video="video_amira"
+                                     style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+                                            width:56px;height:56px;background:rgba(255,255,255,0.92);
+                                            border-radius:50%;display:flex;align-items:center;
+                                            justify-content:center;font-size:1.3rem;color:#FF5C64;
+                                            box-shadow:0 4px 16px rgba(0,0,0,0.15);cursor:pointer;">▶</div>
+                            </t>
+                        </div>
+                        <div style="padding:1.3rem;">
+                            <span style="display:inline-block;background:#C8F5F1;color:#34C9B8;
+                                         font-size:0.72rem;font-weight:700;padding:0.25rem 0.7rem;
+                                         border-radius:50px;margin-right:0.3rem;">🌊 Mar</span>
+                            <span style="display:inline-block;background:#C8F5F1;color:#34C9B8;
+                                         font-size:0.72rem;font-weight:700;padding:0.25rem 0.7rem;
+                                         border-radius:50px;">🎨 Pintado a mano</span>
+                            <h3 style="font-family:'Fredoka One',cursive;font-size:1.15rem;
+                                       color:#1E3A5F;margin:0.7rem 0 0.5rem;">Amira y el Mar</h3>
+                            <p style="font-size:0.85rem;color:#4B4B4B;opacity:0.8;
+                                      line-height:1.6;margin-bottom:1rem;">
+                                Una niña que soñaba con el océano recibió su propia aventura marina
+                                pintada a mano, con olas y su nombre brillando en la luz de la noche.
+                            </p>
+                            <span style="display:inline-block;color:#5DA7E8;border:2px solid #5DA7E8;
+                                         border-radius:50px;padding:0.4rem 1rem;font-size:0.82rem;
+                                         font-weight:700;">Ver historia →</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Historia 2: Pepe -->
+                <div class="col-md-4">
+                    <a href="/historias/pepe-la-tortuga"
+                       style="display:block;border-radius:18px;overflow:hidden;background:white;
+                              box-shadow:0 4px 24px rgba(93,167,232,0.13);text-decoration:none;
+                              color:#4B4B4B;transition:transform 0.3s;"
+                       onmouseover="this.style.transform='translateY(-8px)'"
+                       onmouseout="this.style.transform='translateY(0)'">
+                        <div style="position:relative;height:220px;background:#C8F5F1;overflow:hidden;">
+                            <!-- ▼▼▼ Foto editable de Pepe ▼▼▼ -->
+                            <img src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=600&amp;q=70"
+                                 alt="Pepe la Tortuga"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                            <t t-set="video_pepe" t-value="''"/>
+                            <t t-if="video_pepe">
+                                <div class="gc-play-btn" t-att-data-video="video_pepe"
+                                     style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+                                            width:56px;height:56px;background:rgba(255,255,255,0.92);
+                                            border-radius:50%;display:flex;align-items:center;
+                                            justify-content:center;font-size:1.3rem;color:#FF5C64;
+                                            box-shadow:0 4px 16px rgba(0,0,0,0.15);cursor:pointer;">▶</div>
+                            </t>
+                        </div>
+                        <div style="padding:1.3rem;">
+                            <span style="display:inline-block;background:#C8F5F1;color:#34C9B8;
+                                         font-size:0.72rem;font-weight:700;padding:0.25rem 0.7rem;
+                                         border-radius:50px;margin-right:0.3rem;">🐢 Amigos</span>
+                            <span style="display:inline-block;background:#C8F5F1;color:#34C9B8;
+                                         font-size:0.72rem;font-weight:700;padding:0.25rem 0.7rem;
+                                         border-radius:50px;">🌿 Naturaleza</span>
+                            <h3 style="font-family:'Fredoka One',cursive;font-size:1.15rem;
+                                       color:#1E3A5F;margin:0.7rem 0 0.5rem;">Pepe la Tortuga</h3>
+                            <p style="font-size:0.85rem;color:#4B4B4B;opacity:0.8;
+                                      line-height:1.6;margin-bottom:1rem;">
+                                La mascota favorita de un pequeño se convirtió en personaje de cuento
+                                que ahora alumbra su habitación con calidez cada noche.
+                            </p>
+                            <span style="display:inline-block;color:#5DA7E8;border:2px solid #5DA7E8;
+                                         border-radius:50px;padding:0.4rem 1rem;font-size:0.82rem;
+                                         font-weight:700;">Ver historia →</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Historia 3: Valentina -->
+                <div class="col-md-4">
+                    <a href="/historias/valentina-astronauta"
+                       style="display:block;border-radius:18px;overflow:hidden;background:white;
+                              box-shadow:0 4px 24px rgba(93,167,232,0.13);text-decoration:none;
+                              color:#4B4B4B;transition:transform 0.3s;"
+                       onmouseover="this.style.transform='translateY(-8px)'"
+                       onmouseout="this.style.transform='translateY(0)'">
+                        <div style="position:relative;height:220px;background:#FFE5E6;overflow:hidden;">
+                            <!-- ▼▼▼ Foto editable de Valentina ▼▼▼ -->
+                            <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=600&amp;q=70"
+                                 alt="Valentina Astronauta"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                            <t t-set="video_valentina" t-value="''"/>
+                            <t t-if="video_valentina">
+                                <div class="gc-play-btn" t-att-data-video="video_valentina"
+                                     style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+                                            width:56px;height:56px;background:rgba(255,255,255,0.92);
+                                            border-radius:50%;display:flex;align-items:center;
+                                            justify-content:center;font-size:1.3rem;color:#FF5C64;
+                                            box-shadow:0 4px 16px rgba(0,0,0,0.15);cursor:pointer;">▶</div>
+                            </t>
+                        </div>
+                        <div style="padding:1.3rem;">
+                            <span style="display:inline-block;background:#FFE5E6;color:#FF5C64;
+                                         font-size:0.72rem;font-weight:700;padding:0.25rem 0.7rem;
+                                         border-radius:50px;margin-right:0.3rem;">🚀 Espacio</span>
+                            <span style="display:inline-block;background:#FFE5E6;color:#FF5C64;
+                                         font-size:0.72rem;font-weight:700;padding:0.25rem 0.7rem;
+                                         border-radius:50px;">⭐ Sueños</span>
+                            <h3 style="font-family:'Fredoka One',cursive;font-size:1.15rem;
+                                       color:#1E3A5F;margin:0.7rem 0 0.5rem;">Valentina Astronauta</h3>
+                            <p style="font-size:0.85rem;color:#4B4B4B;opacity:0.8;
+                                      line-height:1.6;margin-bottom:1rem;">
+                                Una niña que quería conquistar las estrellas tiene su propia misión
+                                espacial iluminando cada sueño nocturno desde su habitación.
+                            </p>
+                            <span style="display:inline-block;color:#5DA7E8;border:2px solid #5DA7E8;
+                                         border-radius:50px;padding:0.4rem 1rem;font-size:0.82rem;
+                                         font-weight:700;">Ver historia →</span>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="mt-5">
+                <a href="/historias"
+                   style="display:inline-flex;align-items:center;gap:0.5rem;background:#FF5C64;
+                          color:white;border-radius:50px;padding:0.8rem 2rem;font-weight:700;
+                          font-size:0.95rem;text-decoration:none;">
+                    Ver todas las historias
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         SECCIÓN 4 — ASÍ NACE UNA LÁMPARA
+    ══════════════════════════════════ -->
+    <section style="background:#F7F3EB;padding:5rem 0;">
+        <div class="container text-center">
+            <span style="display:inline-block;background:#F5C640;color:#4B4B4B;font-size:0.78rem;
+                         font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">
+                Proceso artesanal
+            </span>
+            <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-bottom:0.5rem;">
+                Así nace una lámpara
+            </h2>
+            <p style="font-size:1rem;color:#4B4B4B;opacity:0.8;margin-bottom:2.5rem;">
+                Cada paso es un acto de amor artesanal
+            </p>
+
+            <div class="row g-3 mt-2">
+
+                <t t-foreach="[
+                    ('1','💡','Diseñamos la idea','Conversamos contigo sobre la historia y sueños de tu pequeño.','#5DA7E8'),
+                    ('2','✂️','Cortamos cada pieza','Con precisión artesanal cortamos el MDF según el diseño único.','#34C9B8'),
+                    ('3','🔨','Armamos cuidadosamente','Cada pieza encaja perfectamente con detalle y precisión.','#FF5C64'),
+                    ('4','🎨','Pintamos a mano','Nuestras artistas dan vida al diseño con pinceladas únicas.','#F5C640'),
+                    ('5','✏️','Personalizamos el nombre','El nombre de tu niño es el toque más especial de la lámpara.','#5DA7E8'),
+                    ('6','🎁','Empacamos con amor','Lista para ser el regalo más memorable de la infancia.','#34C9B8')
+                ]" t-as="paso">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div style="background:white;border-radius:18px;padding:1.5rem 1rem;
+                                    box-shadow:0 4px 24px rgba(93,167,232,0.13);height:100%;
+                                    transition:transform 0.25s;"
+                             onmouseover="this.style.transform='translateY(-5px)'"
+                             onmouseout="this.style.transform='translateY(0)'">
+                            <!-- Número con color -->
+                            <div t-attf-style="width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:'Fredoka One',cursive;font-size:1.1rem;color:white;margin-bottom:0.8rem;background:#{paso[4]};">
+                                <t t-esc="paso[0]"/>
+                            </div>
+                            <!-- Emoji -->
+                            <div style="font-size:2rem;margin-bottom:0.7rem;">
+                                <t t-esc="paso[1]"/>
+                            </div>
+                            <!-- Título -->
+                            <h4 style="font-family:'Fredoka One',cursive;font-size:0.95rem;
+                                       color:#1E3A5F;margin-bottom:0.4rem;">
+                                <t t-esc="paso[2]"/>
+                            </h4>
+                            <!-- Descripción -->
+                            <p style="font-size:0.8rem;color:#4B4B4B;opacity:0.8;
+                                      line-height:1.6;margin:0;">
+                                <t t-esc="paso[3]"/>
+                            </p>
+                        </div>
+                    </div>
+                </t>
+
+            </div>
+
+            <!-- Fotos del proceso -->
+            <div class="row g-2 mt-4">
+                <div class="col-12 text-start mb-2">
+                    <span style="font-size:0.85rem;color:#4B4B4B;font-weight:600;">
+                        Fotos del proceso artesanal
+                    </span>
+                </div>
+                <t t-foreach="[
+                    ('https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=300&amp;q=70','Diseño'),
+                    ('https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=300&amp;q=70','Corte'),
+                    ('https://images.unsplash.com/photo-1488926756850-9c1f6d7d2e7a?w=300&amp;q=70','Armado'),
+                    ('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=300&amp;q=70','Pintado'),
+                    ('https://images.unsplash.com/photo-1499744937866-d7e566a20a61?w=300&amp;q=70','Nombre'),
+                    ('https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=300&amp;q=70','Empaque')
+                ]" t-as="foto">
+                    <div class="col-4 col-md-2">
+                        <div style="border-radius:10px;overflow:hidden;aspect-ratio:1;
+                                    cursor:pointer;transition:transform 0.25s;position:relative;"
+                             onmouseover="this.style.transform='scale(1.04)'"
+                             onmouseout="this.style.transform='scale(1)'">
+                            <!-- ▼▼▼ Foto editable del paso ▼▼▼ -->
+                            <img t-att-src="foto[0]" t-att-alt="foto[1]"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                            <span style="position:absolute;bottom:0;left:0;right:0;
+                                         background:rgba(30,58,95,0.55);color:white;
+                                         font-size:0.65rem;font-weight:600;text-align:center;
+                                         padding:0.2rem 0;">
+                                <t t-esc="foto[1]"/>
+                            </span>
+                        </div>
+                    </div>
+                </t>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         SECCIÓN 5 — LA HISTORIA DE ANA
+    ══════════════════════════════════ -->
+    <section style="padding:5rem 0;">
+        <div class="container">
+            <div style="background:linear-gradient(135deg,#FFF0E6 0%,#FFF8EE 100%);border-radius:18px;padding:3rem;">
+                <div class="row align-items-center g-5">
+
+                    <!-- Foto Ana -->
+                    <div class="col-lg-5 gc-fade-up">
+                        <div style="border-radius:18px;overflow:hidden;height:420px;">
+                            <!-- ▼▼▼ Foto editable de Ana con Helana ▼▼▼ -->
+                            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=700&amp;q=75"
+                                 alt="Ana y Helana"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                        </div>
+                    </div>
+
+                    <!-- Texto Ana -->
+                    <div class="col-lg-7 gc-fade-up gc-delay-2">
+                        <span style="display:inline-block;background:#34C9B8;color:white;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;background:#FF5C64">
+                            Nuestra historia
+                        </span>
+                        <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-top:0.5rem;margin-bottom:0.5rem;">
+                            Una mamá construyendo sueños mientras acompaña los de su hija
+                        </h2>
+                        <p style="font-size:0.97rem;color:#4B4B4B;line-height:1.8;margin-top:1rem;">
+                            Todo comenzó cuando Ana quiso crear algo completamente especial para Helana.
+                            Lo que nació como un proyecto personal de amor se fue transformando en algo
+                            mucho más grande: <strong>Gigi's Corner</strong>, un espacio donde cada lámpara
+                            lleva el nombre de un niño, su historia, sus sueños y el amor de quienes la crearon.
+                        </p>
+                        <p style="font-size:0.97rem;color:#4B4B4B;line-height:1.8;">
+                            Hoy somos un equipo de madres que creamos mientras acompañamos la infancia
+                            de nuestros propios hijos. Porque sabemos exactamente lo que significa
+                            querer que cada rincón del cuarto de tu pequeño tenga alma propia.
+                        </p>
+                        <div class="d-flex gap-3 mt-4 flex-wrap">
+                            <a href="/nosotros" style="display:inline-flex;align-items:center;gap:0.5rem;background:#FF5C64;color:white;border-radius:50px;padding:0.8rem 2rem;font-weight:700;font-size:0.95rem;text-decoration:none;">
+                                Conoce nuestra historia
+                            </a>
+                            <a href="/personalizados" style="display:inline-flex;align-items:center;gap:0.5rem;color:#5DA7E8;border:2px solid #5DA7E8;border-radius:50px;padding:0.78rem 1.9rem;font-weight:700;font-size:0.95rem;text-decoration:none;background:transparent;">
+                                Crear mi lámpara
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         SECCIÓN 6 — EL EQUIPO
+    ══════════════════════════════════ -->
+    <section style="background:#F7F3EB;padding:5rem 0;">
+        <div class="container text-center">
+            <span style="display:inline-block;background:#34C9B8;color:white;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">Nuestro equipo</span>
+            <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-bottom:0.5rem;">Las manos detrás de cada historia</h2>
+            <p style="font-size:1rem;color:#4B4B4B;opacity:0.8;margin-bottom:2.5rem;">Un proyecto construido principalmente por madres que crean mientras acompañan la infancia de sus hijos.</p>
+            <div class="row g-4 justify-content-center mt-2">
+                <t t-foreach="[('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&amp;q=70','Ana','Fundadora','Mamá de Helana · Corazón del proyecto','#FFE5E6','#FF5C64'),('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&amp;q=70','Marlene','Diseño','Mamá de Edrik y Rohan · Diseño y desarrollo','#D6EDFB','#5DA7E8'),('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&amp;q=70','Leidy','Producción','Diseño y producción artesanal','#C8F5F1','#34C9B8'),('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&amp;q=70','Bryan','Creativo','Diseñador creativo · Desarrollo visual','#FFF0D0','#F5C640')]" t-as="m">
+                    <div class="col-6 col-md-3">
+                        <div style="background:white;border-radius:18px;padding:2rem 1.5rem;text-align:center;box-shadow:0 4px 24px rgba(93,167,232,0.13);transition:transform 0.25s;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <!-- ▼▼▼ Foto editable del miembro ▼▼▼ -->
+                            <div t-attf-style="width:90px;height:90px;border-radius:50%;margin:0 auto 1rem;overflow:hidden;background:#{m[4]};">
+                                <img t-att-src="m[0]" t-att-alt="m[1]"
+                                     style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                            </div>
+                            <div style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:#1E3A5F;margin-bottom:0.4rem;"><t t-esc="m[1]"/></div>
+                            <span t-attf-style="display:inline-block;font-size:0.75rem;font-weight:700;padding:0.2rem 0.8rem;border-radius:50px;color:white;margin-bottom:0.6rem;background:#{m[5]};"><t t-esc="m[2]"/></span>
+                            <p style="font-size:0.82rem;color:#4B4B4B;opacity:0.75;margin:0;"><t t-esc="m[3]"/></p>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </section>
+    <!-- ══════════════════════════════════
+         SECCIÓN 7 — GALERÍA DE FAMILIAS
+    ══════════════════════════════════ -->
+    <section style="background:linear-gradient(135deg,#E8F4FD,#EEF9F7);padding:5rem 0;">
+        <div class="container text-center">
+            <span style="display:inline-block;background:#5DA7E8;color:white;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">Galería de familias</span>
+            <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-bottom:0.5rem;">Familias que iluminan sus historias</h2>
+            <p style="font-size:1rem;color:#4B4B4B;opacity:0.8;margin-bottom:2.5rem;">Habitaciones reales, niños reales, momentos reales.</p>
+            <div class="row g-4 text-start">
+                <t t-foreach="[
+                    ('https://images.unsplash.com/photo-1566479179817-c0b5b4b4b1e5?w=600&amp;q=70','🏠 La familia de Sofía','La lámpara que conquistó la sala','Sofía no quiere dormir sin su lámpara de luna. Ahora ilumina toda la sala cada noche.','#D6EDFB','#185FA5'),
+                    ('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=600&amp;q=70','🛏️ El cuarto de Mateo','Un rincón de aventuras','El cuarto de Mateo se transformó con su lámpara de excavadoras pintada a mano.','#C8F5F1','#0F6E56'),
+                    ('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=600&amp;q=70','🌙 La historia de Emma','Buenas noches con luz cálida','Emma ya no le teme a la oscuridad: su lámpara la acompaña cada noche con luz cálida.','#FFE5E6','#993556'),
+                    ('https://images.unsplash.com/photo-1535572290543-960a8046f5af?w=600&amp;q=70','🎁 El regalo de Lucas','El mejor regalo de cumpleaños','La cara de Lucas al abrir su lámpara personalizada no tiene precio.','#FFF0D0','#854F0B'),
+                    ('https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&amp;q=70','👶 El cuarto del bebé','Luz suave para el bebé','Una luz tenue y cálida que acompaña los primeros sueños del bebé.','#D6EDFB','#185FA5'),
+                    ('https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=600&amp;q=70','🎉 La celebración','Momentos que iluminan','Cada entrega es una pequeña celebración en familia que atesoramos.','#C8F5F1','#0F6E56')
+                ]" t-as="fam">
+                    <div class="col-12 col-md-6 col-lg-4 gc-fade-up">
+                        <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);transition:transform 0.25s;"
+                             onmouseover="this.style.transform='translateY(-6px)'"
+                             onmouseout="this.style.transform='translateY(0)'">
+                            <!-- ▼▼▼ Imagen editable de la familia ▼▼▼ -->
+                            <div t-attf-style="height:180px;background:#{fam[4]};overflow:hidden;">
+                                <img t-att-src="fam[0]" t-att-alt="fam[2]"
+                                     style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                            </div>
+                            <div style="padding:1.2rem;">
+                                <!-- ▼▼▼ Etiqueta / título / historia editables ▼▼▼ -->
+                                <span t-attf-style="display:inline-block;font-size:0.72rem;font-weight:700;padding:0.25rem 0.8rem;border-radius:50px;background:#{fam[4]};color:#{fam[5]};">
+                                    <t t-esc="fam[1]"/>
+                                </span>
+                                <h4 style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:#1E3A5F;margin:0.6rem 0 0.4rem;">
+                                    <t t-esc="fam[2]"/>
+                                </h4>
+                                <p style="font-size:0.85rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">
+                                    <t t-esc="fam[3]"/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </section>
+    <!-- ══════════════════════════════════
+         SECCIÓN 8 — TESTIMONIOS
+    ══════════════════════════════════ -->
+    <section style="background:#4B4B4B;padding:5rem 0;">
+        <div class="container text-center">
+            <span style="display:inline-block;background:#F5C640;color:#4B4B4B;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">Reseñas</span>
+            <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:white;margin-bottom:0.5rem;">Lo que dicen las familias</h2>
+            <p style="font-size:1rem;color:rgba(255,255,255,0.7);margin-bottom:2.5rem;">Cada testimonio es una historia iluminada</p>
+            <div class="row g-4 mt-2 text-start">
+                <t t-foreach="[('M','María G.','Mamá de Sofía, CDMX','#FF5C64','Cuando vi la lámpara con el nombre de mi hija, lloré de emoción. Es exactamente lo que soñábamos para su cuarto. Ana es increíble.'),('C','Carlos M.','Papá de Mateo, Guadalajara','#5DA7E8','El proceso fue increíble, nos incluyeron en cada detalle. Mateo no quiere que la apaguen nunca. ¡Es perfecta para él!'),('F','Fernanda L.','Mamá de Emma, Monterrey','#34C9B8','El mejor regalo de cumpleaños que hemos dado. La lámpara tiene la historia favorita de Emma pintada a mano. ¡Obra de arte!')]" t-as="t">
+                    <div class="col-md-4">
+                        <div style="background:#5A5A5A;border-radius:18px;padding:1.8rem;height:100%;">
+                            <div style="color:#F5C640;font-size:1rem;margin-bottom:1rem;letter-spacing:2px;">★★★★★</div>
+                            <p style="font-size:0.88rem;line-height:1.7;color:#DDDDDD;margin-bottom:1.2rem;font-style:italic;">"<t t-esc="t[4]"/>"</p>
+                            <div style="display:flex;align-items:center;gap:0.8rem;">
+                                <div t-attf-style="width:44px;height:44px;border-radius:50%;background:#{t[3]};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;color:white;flex-shrink:0;"><t t-esc="t[0]"/></div>
+                                <div>
+                                    <div style="font-weight:700;font-size:0.9rem;color:white;"><t t-esc="t[1]"/></div>
+                                    <div style="font-size:0.75rem;color:#AAAAAA;"><t t-esc="t[2]"/></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </section>
+<!-- ══════════════════════════════════
+         SECCIÓN 9 — CTA PERSONALIZADO
+    ══════════════════════════════════ -->
+    <section style="background:#F7F3EB;padding:5rem 0;">
+        <div class="container">
+            <div class="gc-slogan-banner">
+                <div style="font-size:2.5rem;margin-bottom:0.8rem;">💡</div>
+                <h2>"No creamos lámparas para habitaciones.</h2>
+                <p>
+                    Creamos lámparas para los recuerdos, sueños y aventuras<br/>
+                    que acompañarán la infancia de cada niño."
+                </p>
+                <div class="d-flex gap-3 justify-content-center mt-4 flex-wrap">
+                    <a href="/personalizados" style="display:inline-flex;align-items:center;gap:0.5rem;background:#FF5C64;color:white;border-radius:50px;padding:0.8rem 2rem;font-weight:700;font-size:0.95rem;text-decoration:none;background:white;color:#FF5C64">
+                        Comenzar mi historia
+                    </a>
+                    <a href="https://wa.me/525529451680" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:#25D366;color:white;border-radius:50px;padding:0.8rem 2rem;font-weight:700;font-size:0.95rem;text-decoration:none;">
+                        Hablar con Ana por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+</t>
+</template>
+
+</odoo>
