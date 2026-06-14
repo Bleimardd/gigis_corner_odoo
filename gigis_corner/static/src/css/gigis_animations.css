@@ -2,16 +2,41 @@
    GIGI'S CORNER — ANIMACIONES
    ═══════════════════════════════════════════════════════════ */
 
-/* ── FADE UP (scroll reveal) ── */
+/* ── FADE UP (scroll reveal) ──
+   IMPORTANTE: el contenido SIEMPRE es visible por defecto.
+   La animación solo se activa si el JS marca .gc-animate en <html>.
+   Así, si el JS no corre (editor de Odoo, etc.), nada queda oculto. */
 .gc-fade-up {
+    opacity: 1;
+    transform: none;
+}
+
+/* Solo cuando el JS confirma que puede animar, ocultamos para revelar al hacer scroll */
+html.gc-animate .gc-fade-up {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.gc-fade-up.gc-visible {
+html.gc-animate .gc-fade-up.gc-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* En el editor de Odoo, todo siempre visible */
+.editor_enable .gc-fade-up,
+.o_editable .gc-fade-up,
+body[data-edit_translations] .gc-fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Las imágenes nunca deben quedar invisibles */
+.gc-fade-up img,
+.gc-story-media img,
+.gc-team-avatar img,
+.gc-gallery-item img {
+    opacity: 1 !important;
 }
 
 /* Delays */

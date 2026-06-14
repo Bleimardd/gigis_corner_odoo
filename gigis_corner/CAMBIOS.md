@@ -39,3 +39,65 @@ imagen y sube la tuya. Todas las imágenes de muestra son de Unsplash (libres).
 ## Cómo activar un video en el home
 En views/gigis_home.xml busca `video_amira` (o pepe / valentina) y pon la URL del MP4
 entre las comillas de t-value.
+
+## v17.0.3.0.0 — Bloques vacíos resueltos
+**Causa raíz:** las imágenes de muestra venían de Unsplash (URL externa). Unsplash
+bloquea la carga directa (hotlink) desde otros dominios, así que esas imágenes salían
+como BLOQUES VACÍOS en la web.
+
+**Solución:** todas las imágenes de muestra ahora están INCRUSTADAS dentro del módulo
+(carpeta static/src/img/samples/). Cargan siempre, sin depender de internet.
+Son placeholders con los colores de la marca y un texto que dice qué va en cada bloque.
+
+**Cómo reemplazarlas por tus fotos reales:** entra al editor del sitio (botón Editar de
+Odoo), doble clic sobre cualquier imagen de muestra y sube la tuya. Cada imagen indica
+en su texto qué contenido le corresponde (ej. "Foto de Ana y Helana").
+
+- Logo: incrustado (navbar crema + footer transparente).
+- 43 imágenes de muestra locales: hero, 6 categorías, 3 historias, 6 proceso, Ana,
+  4 equipo, 6 familias, hero+capítulos de Nosotros, hero+galería de Personalizados,
+  hero+ejemplos de las páginas de categoría.
+
+## v17.0.4.0.0 — Imágenes ocultas / bloques vacíos al cargar
+**Problema:** al subir tus fotos reales, los bloques se veían vacíos hasta que
+hacías clic en ellos.
+
+**Causa:** la animación "fade-up" ponía los bloques en opacity:0 y solo los
+revelaba al detectar scroll con JavaScript. En el editor de Odoo (o si el JS no
+disparaba el observer) el bloque se quedaba invisible. Al hacer clic, el navegador
+forzaba un repaint y aparecía.
+
+**Solución:**
+1. Ahora el contenido es VISIBLE por defecto. La animación solo se activa si el JS
+   confirma que puede animar (clase .gc-animate en <html>).
+2. Failsafe: a los 2.5s se revela cualquier bloque que siguiera oculto.
+3. En el editor de Odoo (.editor_enable/.o_editable) todo se fuerza visible.
+4. Blindaje de imágenes: clases .gc-img-box / .gc-img-cover garantizan que la
+   imagen llene su contenedor y sea visible aunque Odoo le cambie los estilos al
+   reemplazarla.
+
+IMPORTANTE tras instalar: actualiza el módulo y haz Ctrl+F5 (o ventana incógnito)
+para limpiar el CSS/JS viejo cacheado.
+
+## v17.0.5.0.0 — TODAS las imágenes ahora son editables
+**Problema:** las imágenes generadas con bucles (t-foreach / t-att-src) NO se podían
+editar desde el editor web de Odoo (aparecían "bloqueadas").
+
+**Solución:** se reescribieron como etiquetas <img src> FIJAS individuales. Ahora el
+editor de Odoo permite hacer doble clic en cualquiera y reemplazarla.
+
+Imágenes editables por página (55 en total):
+- INICIO: hero, 6 categorías, 3 historias, 6 fotos de proceso, foto de Ana,
+  4 del equipo, 6 de familias.
+- NOSOTROS: hero, 3 capítulos, 4 del equipo.
+- PERSONALIZADOS: hero + 7 de la galería de trabajos.
+- CATEGORÍA: hero (uno por categoría) + 3 ejemplos.
+- HISTORIAS: se editan desde el panel Odoo → Gigi's Corner → Historias
+  (imagen principal, video y 4 fotos de proceso por cada historia).
+- Logos (navbar y footer): incrustados en el módulo.
+
+CÓMO EDITAR UNA IMAGEN:
+1. Entra a la página y pulsa el botón "Editar" (arriba a la derecha en Odoo).
+2. Haz doble clic sobre la imagen que quieras cambiar.
+3. Sube tu foto o elige una. Pulsa "Guardar".
+   (NO uses el panel "Bloques" de la derecha; ese es para arrastrar bloques nuevos.)

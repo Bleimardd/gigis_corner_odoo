@@ -61,12 +61,12 @@
                 <!-- Imagen Hero -->
                 <div class="col-lg-6">
                     <!-- ▼▼▼ FOTO PRINCIPAL — editable con el lápiz de Odoo ▼▼▼ -->
-                    <div style="border-radius:18px;overflow:hidden;
+                    <div class="gc-img-box" style="border-radius:18px;
                                 box-shadow:0 8px 40px rgba(30,58,95,0.13);
-                                position:relative;min-height:480px;">
-                        <img src="https://images.unsplash.com/photo-1566479179817-c0b5b4b4b1e5?w=900&amp;q=80"
+                                position:relative;height:480px;">
+                        <img src="/gigis_corner/static/src/img/samples/hero.jpg"
                              alt="Lámpara personalizada Gigi's Corner"
-                             style="width:100%;height:480px;object-fit:cover;display:block;"/>
+                             class="gc-img-cover"/>
                         <!-- Badge nombre -->
                         <div style="position:absolute;bottom:24px;left:24px;
                                     background:white;border-radius:14px;
@@ -97,27 +97,84 @@
             <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-bottom:0.5rem;">¿Qué historia quieres contar?</h2>
             <p style="font-size:1rem;color:#4B4B4B;opacity:0.8;margin-bottom:2.5rem;">Cada lámpara nace de un sueño, una aventura o un personaje favorito</p>
             <div class="row g-3 mt-2">
-                <t t-foreach="[
-                    ('🌙','Dulces Sueños','/categoria/dulces-suenos','#D6EDFB','https://images.unsplash.com/photo-1532012197267-da84d127e765?w=500&amp;q=70'),
-                    ('🚀','Sueña en Grande','/categoria/suena-grande','#FFE5E6','https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=500&amp;q=70'),
-                    ('🚜','Pequeños Exploradores','/categoria/exploradores','#C8F5F1','https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=500&amp;q=70'),
-                    ('🐢','Amigos Especiales','/categoria/amigos-especiales','#FFF0D0','https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=500&amp;q=70'),
-                    ('🌊','Aventuras al Mar','/categoria/aventuras-mar','#D6EDFB','https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=500&amp;q=70'),
-                    ('✨','Mi Propia Historia','/personalizados','#FFE5E6','https://images.unsplash.com/photo-1519681393784-d120267933ba?w=500&amp;q=70')
-                ]" t-as="cat">
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <a t-attf-href="#{cat[2]}" t-attf-style="background:#{cat[3]};border-radius:18px;overflow:hidden;text-align:center;cursor:pointer;transition:transform 0.3s;text-decoration:none;display:block;color:#4B4B4B;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 8px 40px rgba(30,58,95,0.13)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
-                            <!-- ▼▼▼ Imagen editable de la categoría ▼▼▼ -->
-                            <img t-att-src="cat[4]" t-att-alt="cat[1]"
-                                 style="width:100%;height:120px;object-fit:cover;display:block;"/>
-                            <div style="padding:1rem 0.8rem 1.2rem;">
-                                <span style="font-size:1.6rem;display:block;margin-bottom:0.4rem;"><t t-esc="cat[0]"/></span>
-                                <span style="font-family:'Fredoka One',cursive;font-size:1rem;font-weight:700;color:#1E3A5F;display:block;margin-bottom:0.6rem;"><t t-esc="cat[1]"/></span>
-                                <span style="width:32px;height:32px;background:#5DA7E8;color:white;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;">→</span>
-                            </div>
-                        </a>
-                    </div>
-                </t>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="/categoria/dulces-suenos" style="background:#D6EDFB;border-radius:18px;overflow:hidden;text-align:center;text-decoration:none;display:block;color:#4B4B4B;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 8px 40px rgba(30,58,95,0.13)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
+                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="height:120px;">
+                            <img src="/gigis_corner/static/src/img/samples/cat_dulces.jpg" alt="Dulces Sueños" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1rem 0.8rem 1.2rem;">
+                            <span style="font-size:1.6rem;display:block;margin-bottom:0.4rem;">🌙</span>
+                            <span style="font-family:'Fredoka One',cursive;font-size:1rem;font-weight:700;color:#1E3A5F;display:block;margin-bottom:0.6rem;">Dulces Sueños</span>
+                            <span style="width:32px;height:32px;background:#5DA7E8;color:white;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;">→</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="/categoria/suena-grande" style="background:#FFE5E6;border-radius:18px;overflow:hidden;text-align:center;text-decoration:none;display:block;color:#4B4B4B;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 8px 40px rgba(30,58,95,0.13)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
+                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="height:120px;">
+                            <img src="/gigis_corner/static/src/img/samples/cat_suena.jpg" alt="Sueña en Grande" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1rem 0.8rem 1.2rem;">
+                            <span style="font-size:1.6rem;display:block;margin-bottom:0.4rem;">🚀</span>
+                            <span style="font-family:'Fredoka One',cursive;font-size:1rem;font-weight:700;color:#1E3A5F;display:block;margin-bottom:0.6rem;">Sueña en Grande</span>
+                            <span style="width:32px;height:32px;background:#5DA7E8;color:white;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;">→</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="/categoria/exploradores" style="background:#C8F5F1;border-radius:18px;overflow:hidden;text-align:center;text-decoration:none;display:block;color:#4B4B4B;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 8px 40px rgba(30,58,95,0.13)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
+                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="height:120px;">
+                            <img src="/gigis_corner/static/src/img/samples/cat_explora.jpg" alt="Pequeños Exploradores" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1rem 0.8rem 1.2rem;">
+                            <span style="font-size:1.6rem;display:block;margin-bottom:0.4rem;">🚜</span>
+                            <span style="font-family:'Fredoka One',cursive;font-size:1rem;font-weight:700;color:#1E3A5F;display:block;margin-bottom:0.6rem;">Pequeños Exploradores</span>
+                            <span style="width:32px;height:32px;background:#5DA7E8;color:white;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;">→</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="/categoria/amigos-especiales" style="background:#FFF0D0;border-radius:18px;overflow:hidden;text-align:center;text-decoration:none;display:block;color:#4B4B4B;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 8px 40px rgba(30,58,95,0.13)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
+                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="height:120px;">
+                            <img src="/gigis_corner/static/src/img/samples/cat_amigos.jpg" alt="Amigos Especiales" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1rem 0.8rem 1.2rem;">
+                            <span style="font-size:1.6rem;display:block;margin-bottom:0.4rem;">🐢</span>
+                            <span style="font-family:'Fredoka One',cursive;font-size:1rem;font-weight:700;color:#1E3A5F;display:block;margin-bottom:0.6rem;">Amigos Especiales</span>
+                            <span style="width:32px;height:32px;background:#5DA7E8;color:white;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;">→</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="/categoria/aventuras-mar" style="background:#D6EDFB;border-radius:18px;overflow:hidden;text-align:center;text-decoration:none;display:block;color:#4B4B4B;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 8px 40px rgba(30,58,95,0.13)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
+                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="height:120px;">
+                            <img src="/gigis_corner/static/src/img/samples/cat_mar.jpg" alt="Aventuras al Mar" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1rem 0.8rem 1.2rem;">
+                            <span style="font-size:1.6rem;display:block;margin-bottom:0.4rem;">🌊</span>
+                            <span style="font-family:'Fredoka One',cursive;font-size:1rem;font-weight:700;color:#1E3A5F;display:block;margin-bottom:0.6rem;">Aventuras al Mar</span>
+                            <span style="width:32px;height:32px;background:#5DA7E8;color:white;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;">→</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="/personalizados" style="background:#FFE5E6;border-radius:18px;overflow:hidden;text-align:center;text-decoration:none;display:block;color:#4B4B4B;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 8px 40px rgba(30,58,95,0.13)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">
+                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="height:120px;">
+                            <img src="/gigis_corner/static/src/img/samples/cat_historia.jpg" alt="Mi Propia Historia" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1rem 0.8rem 1.2rem;">
+                            <span style="font-size:1.6rem;display:block;margin-bottom:0.4rem;">✨</span>
+                            <span style="font-family:'Fredoka One',cursive;font-size:1rem;font-weight:700;color:#1E3A5F;display:block;margin-bottom:0.6rem;">Mi Propia Historia</span>
+                            <span style="width:32px;height:32px;background:#5DA7E8;color:white;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;">→</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -149,9 +206,9 @@
                        onmouseout="this.style.transform='translateY(0)'">
                         <div style="position:relative;height:220px;background:#D6EDFB;overflow:hidden;">
                             <!-- ▼▼▼ Foto editable de Amira ▼▼▼ -->
-                            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=600&amp;q=70"
+                            <img src="/gigis_corner/static/src/img/samples/hist_amira.jpg"
                                  alt="Amira y el Mar"
-                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                                 style="width:100%;height:100%;object-fit:cover;display:block;" class="gc-img-cover"/>
                             <!-- Para activar el video: pon la URL en data-video (si está vacío, no aparece el botón) -->
                             <t t-set="video_amira" t-value="''"/>
                             <t t-if="video_amira">
@@ -194,9 +251,9 @@
                        onmouseout="this.style.transform='translateY(0)'">
                         <div style="position:relative;height:220px;background:#C8F5F1;overflow:hidden;">
                             <!-- ▼▼▼ Foto editable de Pepe ▼▼▼ -->
-                            <img src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=600&amp;q=70"
+                            <img src="/gigis_corner/static/src/img/samples/hist_pepe.jpg"
                                  alt="Pepe la Tortuga"
-                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                                 style="width:100%;height:100%;object-fit:cover;display:block;" class="gc-img-cover"/>
                             <t t-set="video_pepe" t-value="''"/>
                             <t t-if="video_pepe">
                                 <div class="gc-play-btn" t-att-data-video="video_pepe"
@@ -238,9 +295,9 @@
                        onmouseout="this.style.transform='translateY(0)'">
                         <div style="position:relative;height:220px;background:#FFE5E6;overflow:hidden;">
                             <!-- ▼▼▼ Foto editable de Valentina ▼▼▼ -->
-                            <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=600&amp;q=70"
+                            <img src="/gigis_corner/static/src/img/samples/hist_valentina.jpg"
                                  alt="Valentina Astronauta"
-                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                                 style="width:100%;height:100%;object-fit:cover;display:block;" class="gc-img-cover"/>
                             <t t-set="video_valentina" t-value="''"/>
                             <t t-if="video_valentina">
                                 <div class="gc-play-btn" t-att-data-video="video_valentina"
@@ -349,31 +406,43 @@
                         Fotos del proceso artesanal
                     </span>
                 </div>
-                <t t-foreach="[
-                    ('https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=300&amp;q=70','Diseño'),
-                    ('https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=300&amp;q=70','Corte'),
-                    ('https://images.unsplash.com/photo-1488926756850-9c1f6d7d2e7a?w=300&amp;q=70','Armado'),
-                    ('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=300&amp;q=70','Pintado'),
-                    ('https://images.unsplash.com/photo-1499744937866-d7e566a20a61?w=300&amp;q=70','Nombre'),
-                    ('https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=300&amp;q=70','Empaque')
-                ]" t-as="foto">
-                    <div class="col-4 col-md-2">
-                        <div style="border-radius:10px;overflow:hidden;aspect-ratio:1;
-                                    cursor:pointer;transition:transform 0.25s;position:relative;"
-                             onmouseover="this.style.transform='scale(1.04)'"
-                             onmouseout="this.style.transform='scale(1)'">
-                            <!-- ▼▼▼ Foto editable del paso ▼▼▼ -->
-                            <img t-att-src="foto[0]" t-att-alt="foto[1]"
-                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
-                            <span style="position:absolute;bottom:0;left:0;right:0;
-                                         background:rgba(30,58,95,0.55);color:white;
-                                         font-size:0.65rem;font-weight:600;text-align:center;
-                                         padding:0.2rem 0;">
-                                <t t-esc="foto[1]"/>
-                            </span>
-                        </div>
+                <!-- ▼▼▼ 6 fotos editables (doble clic para cambiar cada una) ▼▼▼ -->
+                <div class="col-4 col-md-2">
+                    <div class="gc-img-box" style="border-radius:10px;aspect-ratio:1;position:relative;">
+                        <img src="/gigis_corner/static/src/img/samples/proc1.jpg" alt="Diseño" class="gc-img-cover"/>
+                        <span style="position:absolute;bottom:0;left:0;right:0;background:rgba(30,58,95,0.55);color:white;font-size:0.65rem;font-weight:600;text-align:center;padding:0.2rem 0;">Diseño</span>
                     </div>
-                </t>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="gc-img-box" style="border-radius:10px;aspect-ratio:1;position:relative;">
+                        <img src="/gigis_corner/static/src/img/samples/proc2.jpg" alt="Corte" class="gc-img-cover"/>
+                        <span style="position:absolute;bottom:0;left:0;right:0;background:rgba(30,58,95,0.55);color:white;font-size:0.65rem;font-weight:600;text-align:center;padding:0.2rem 0;">Corte</span>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="gc-img-box" style="border-radius:10px;aspect-ratio:1;position:relative;">
+                        <img src="/gigis_corner/static/src/img/samples/proc3.jpg" alt="Armado" class="gc-img-cover"/>
+                        <span style="position:absolute;bottom:0;left:0;right:0;background:rgba(30,58,95,0.55);color:white;font-size:0.65rem;font-weight:600;text-align:center;padding:0.2rem 0;">Armado</span>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="gc-img-box" style="border-radius:10px;aspect-ratio:1;position:relative;">
+                        <img src="/gigis_corner/static/src/img/samples/proc4.jpg" alt="Pintado" class="gc-img-cover"/>
+                        <span style="position:absolute;bottom:0;left:0;right:0;background:rgba(30,58,95,0.55);color:white;font-size:0.65rem;font-weight:600;text-align:center;padding:0.2rem 0;">Pintado</span>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="gc-img-box" style="border-radius:10px;aspect-ratio:1;position:relative;">
+                        <img src="/gigis_corner/static/src/img/samples/proc5.jpg" alt="Nombre" class="gc-img-cover"/>
+                        <span style="position:absolute;bottom:0;left:0;right:0;background:rgba(30,58,95,0.55);color:white;font-size:0.65rem;font-weight:600;text-align:center;padding:0.2rem 0;">Nombre</span>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="gc-img-box" style="border-radius:10px;aspect-ratio:1;position:relative;">
+                        <img src="/gigis_corner/static/src/img/samples/proc6.jpg" alt="Empaque" class="gc-img-cover"/>
+                        <span style="position:absolute;bottom:0;left:0;right:0;background:rgba(30,58,95,0.55);color:white;font-size:0.65rem;font-weight:600;text-align:center;padding:0.2rem 0;">Empaque</span>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -390,11 +459,10 @@
 
                     <!-- Foto Ana -->
                     <div class="col-lg-5 gc-fade-up">
-                        <div style="border-radius:18px;overflow:hidden;height:420px;">
+                        <div class="gc-img-box" style="border-radius:18px;height:420px;">
                             <!-- ▼▼▼ Foto editable de Ana con Helana ▼▼▼ -->
-                            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=700&amp;q=75"
-                                 alt="Ana y Helana"
-                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                            <img src="/gigis_corner/static/src/img/samples/ana.jpg"
+                                 alt="Ana y Helana" class="gc-img-cover"/>
                         </div>
                     </div>
 
@@ -442,20 +510,50 @@
             <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-bottom:0.5rem;">Las manos detrás de cada historia</h2>
             <p style="font-size:1rem;color:#4B4B4B;opacity:0.8;margin-bottom:2.5rem;">Un proyecto construido principalmente por madres que crean mientras acompañan la infancia de sus hijos.</p>
             <div class="row g-4 justify-content-center mt-2">
-                <t t-foreach="[('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&amp;q=70','Ana','Fundadora','Mamá de Helana · Corazón del proyecto','#FFE5E6','#FF5C64'),('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&amp;q=70','Marlene','Diseño','Mamá de Edrik y Rohan · Diseño y desarrollo','#D6EDFB','#5DA7E8'),('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&amp;q=70','Leidy','Producción','Diseño y producción artesanal','#C8F5F1','#34C9B8'),('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&amp;q=70','Bryan','Creativo','Diseñador creativo · Desarrollo visual','#FFF0D0','#F5C640')]" t-as="m">
-                    <div class="col-6 col-md-3">
-                        <div style="background:white;border-radius:18px;padding:2rem 1.5rem;text-align:center;box-shadow:0 4px 24px rgba(93,167,232,0.13);transition:transform 0.25s;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
-                            <!-- ▼▼▼ Foto editable del miembro ▼▼▼ -->
-                            <div t-attf-style="width:90px;height:90px;border-radius:50%;margin:0 auto 1rem;overflow:hidden;background:#{m[4]};">
-                                <img t-att-src="m[0]" t-att-alt="m[1]"
-                                     style="width:100%;height:100%;object-fit:cover;display:block;"/>
-                            </div>
-                            <div style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:#1E3A5F;margin-bottom:0.4rem;"><t t-esc="m[1]"/></div>
-                            <span t-attf-style="display:inline-block;font-size:0.75rem;font-weight:700;padding:0.2rem 0.8rem;border-radius:50px;color:white;margin-bottom:0.6rem;background:#{m[5]};"><t t-esc="m[2]"/></span>
-                            <p style="font-size:0.82rem;color:#4B4B4B;opacity:0.75;margin:0;"><t t-esc="m[3]"/></p>
+                <div class="col-6 col-md-3">
+                    <div style="background:white;border-radius:18px;padding:2rem 1.5rem;text-align:center;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                        <!-- ▼▼▼ Foto editable de Ana (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="width:90px;height:90px;border-radius:50%;margin:0 auto 1rem;background:#FFE5E6;">
+                            <img src="/gigis_corner/static/src/img/samples/team_ana.jpg" alt="Ana" class="gc-img-cover"/>
                         </div>
+                        <div style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:#1E3A5F;margin-bottom:0.4rem;">Ana</div>
+                        <span style="display:inline-block;font-size:0.75rem;font-weight:700;padding:0.2rem 0.8rem;border-radius:50px;color:white;margin-bottom:0.6rem;background:#FF5C64;">Fundadora</span>
+                        <p style="font-size:0.82rem;color:#4B4B4B;opacity:0.75;margin:0;">Mamá de Helana · Corazón del proyecto</p>
                     </div>
-                </t>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div style="background:white;border-radius:18px;padding:2rem 1.5rem;text-align:center;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                        <!-- ▼▼▼ Foto editable de Marlene (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="width:90px;height:90px;border-radius:50%;margin:0 auto 1rem;background:#D6EDFB;">
+                            <img src="/gigis_corner/static/src/img/samples/team_marlene.jpg" alt="Marlene" class="gc-img-cover"/>
+                        </div>
+                        <div style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:#1E3A5F;margin-bottom:0.4rem;">Marlene</div>
+                        <span style="display:inline-block;font-size:0.75rem;font-weight:700;padding:0.2rem 0.8rem;border-radius:50px;color:white;margin-bottom:0.6rem;background:#5DA7E8;">Diseño</span>
+                        <p style="font-size:0.82rem;color:#4B4B4B;opacity:0.75;margin:0;">Mamá de Edrik y Rohan · Diseño y desarrollo</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div style="background:white;border-radius:18px;padding:2rem 1.5rem;text-align:center;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                        <!-- ▼▼▼ Foto editable de Leidy (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="width:90px;height:90px;border-radius:50%;margin:0 auto 1rem;background:#C8F5F1;">
+                            <img src="/gigis_corner/static/src/img/samples/team_leidy.jpg" alt="Leidy" class="gc-img-cover"/>
+                        </div>
+                        <div style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:#1E3A5F;margin-bottom:0.4rem;">Leidy</div>
+                        <span style="display:inline-block;font-size:0.75rem;font-weight:700;padding:0.2rem 0.8rem;border-radius:50px;color:white;margin-bottom:0.6rem;background:#34C9B8;">Producción</span>
+                        <p style="font-size:0.82rem;color:#4B4B4B;opacity:0.75;margin:0;">Diseño y producción artesanal</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div style="background:white;border-radius:18px;padding:2rem 1.5rem;text-align:center;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                        <!-- ▼▼▼ Foto editable de Bryan (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="width:90px;height:90px;border-radius:50%;margin:0 auto 1rem;background:#FFF0D0;">
+                            <img src="/gigis_corner/static/src/img/samples/team_bryan.jpg" alt="Bryan" class="gc-img-cover"/>
+                        </div>
+                        <div style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:#1E3A5F;margin-bottom:0.4rem;">Bryan</div>
+                        <span style="display:inline-block;font-size:0.75rem;font-weight:700;padding:0.2rem 0.8rem;border-radius:50px;color:white;margin-bottom:0.6rem;background:#F5C640;">Creativo</span>
+                        <p style="font-size:0.82rem;color:#4B4B4B;opacity:0.75;margin:0;">Diseñador creativo · Desarrollo visual</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -468,38 +566,90 @@
             <h2 style="font-family:'Fredoka One',cursive;font-size:2.1rem;color:#1E3A5F;margin-bottom:0.5rem;">Familias que iluminan sus historias</h2>
             <p style="font-size:1rem;color:#4B4B4B;opacity:0.8;margin-bottom:2.5rem;">Habitaciones reales, niños reales, momentos reales.</p>
             <div class="row g-4 text-start">
-                <t t-foreach="[
-                    ('https://images.unsplash.com/photo-1566479179817-c0b5b4b4b1e5?w=600&amp;q=70','🏠 La familia de Sofía','La lámpara que conquistó la sala','Sofía no quiere dormir sin su lámpara de luna. Ahora ilumina toda la sala cada noche.','#D6EDFB','#185FA5'),
-                    ('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=600&amp;q=70','🛏️ El cuarto de Mateo','Un rincón de aventuras','El cuarto de Mateo se transformó con su lámpara de excavadoras pintada a mano.','#C8F5F1','#0F6E56'),
-                    ('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=600&amp;q=70','🌙 La historia de Emma','Buenas noches con luz cálida','Emma ya no le teme a la oscuridad: su lámpara la acompaña cada noche con luz cálida.','#FFE5E6','#993556'),
-                    ('https://images.unsplash.com/photo-1535572290543-960a8046f5af?w=600&amp;q=70','🎁 El regalo de Lucas','El mejor regalo de cumpleaños','La cara de Lucas al abrir su lámpara personalizada no tiene precio.','#FFF0D0','#854F0B'),
-                    ('https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&amp;q=70','👶 El cuarto del bebé','Luz suave para el bebé','Una luz tenue y cálida que acompaña los primeros sueños del bebé.','#D6EDFB','#185FA5'),
-                    ('https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=600&amp;q=70','🎉 La celebración','Momentos que iluminan','Cada entrega es una pequeña celebración en familia que atesoramos.','#C8F5F1','#0F6E56')
-                ]" t-as="fam">
-                    <div class="col-12 col-md-6 col-lg-4 gc-fade-up">
-                        <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);transition:transform 0.25s;"
-                             onmouseover="this.style.transform='translateY(-6px)'"
-                             onmouseout="this.style.transform='translateY(0)'">
-                            <!-- ▼▼▼ Imagen editable de la familia ▼▼▼ -->
-                            <div t-attf-style="height:180px;background:#{fam[4]};overflow:hidden;">
-                                <img t-att-src="fam[0]" t-att-alt="fam[2]"
-                                     style="width:100%;height:100%;object-fit:cover;display:block;"/>
-                            </div>
-                            <div style="padding:1.2rem;">
-                                <!-- ▼▼▼ Etiqueta / título / historia editables ▼▼▼ -->
-                                <span t-attf-style="display:inline-block;font-size:0.72rem;font-weight:700;padding:0.25rem 0.8rem;border-radius:50px;background:#{fam[4]};color:#{fam[5]};">
-                                    <t t-esc="fam[1]"/>
-                                </span>
-                                <h4 style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:#1E3A5F;margin:0.6rem 0 0.4rem;">
-                                    <t t-esc="fam[2]"/>
-                                </h4>
-                                <p style="font-size:0.85rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">
-                                    <t t-esc="fam[3]"/>
-                                </p>
-                            </div>
+                <div class="col-12 col-md-6 col-lg-4 gc-fade-up">
+                    <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="height:180px;background:#D6EDFB;">
+                            <img src="/gigis_corner/static/src/img/samples/fam1.jpg" alt="La lámpara que conquistó la sala" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1.2rem;">
+                            <!-- ▼▼▼ Etiqueta / título / historia: doble clic en el texto para editar ▼▼▼ -->
+                            <span style="display:inline-block;font-size:0.72rem;font-weight:700;padding:0.25rem 0.8rem;border-radius:50px;background:#D6EDFB;color:#185FA5;">🏠 La familia de Sofía</span>
+                            <h4 style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:#1E3A5F;margin:0.6rem 0 0.4rem;">La lámpara que conquistó la sala</h4>
+                            <p style="font-size:0.85rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">Sofía no quiere dormir sin su lámpara de luna. Ahora ilumina toda la sala cada noche.</p>
                         </div>
                     </div>
-                </t>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 gc-fade-up">
+                    <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="height:180px;background:#C8F5F1;">
+                            <img src="/gigis_corner/static/src/img/samples/fam2.jpg" alt="Un rincón de aventuras" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1.2rem;">
+                            <!-- ▼▼▼ Etiqueta / título / historia: doble clic en el texto para editar ▼▼▼ -->
+                            <span style="display:inline-block;font-size:0.72rem;font-weight:700;padding:0.25rem 0.8rem;border-radius:50px;background:#C8F5F1;color:#0F6E56;">🛏️ El cuarto de Mateo</span>
+                            <h4 style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:#1E3A5F;margin:0.6rem 0 0.4rem;">Un rincón de aventuras</h4>
+                            <p style="font-size:0.85rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">El cuarto de Mateo se transformó con su lámpara de excavadoras pintada a mano.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 gc-fade-up">
+                    <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="height:180px;background:#FFE5E6;">
+                            <img src="/gigis_corner/static/src/img/samples/fam3.jpg" alt="Buenas noches con luz cálida" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1.2rem;">
+                            <!-- ▼▼▼ Etiqueta / título / historia: doble clic en el texto para editar ▼▼▼ -->
+                            <span style="display:inline-block;font-size:0.72rem;font-weight:700;padding:0.25rem 0.8rem;border-radius:50px;background:#FFE5E6;color:#993556;">🌙 La historia de Emma</span>
+                            <h4 style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:#1E3A5F;margin:0.6rem 0 0.4rem;">Buenas noches con luz cálida</h4>
+                            <p style="font-size:0.85rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">Emma ya no le teme a la oscuridad: su lámpara la acompaña cada noche con luz cálida.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 gc-fade-up">
+                    <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="height:180px;background:#FFF0D0;">
+                            <img src="/gigis_corner/static/src/img/samples/fam4.jpg" alt="El mejor regalo de cumpleaños" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1.2rem;">
+                            <!-- ▼▼▼ Etiqueta / título / historia: doble clic en el texto para editar ▼▼▼ -->
+                            <span style="display:inline-block;font-size:0.72rem;font-weight:700;padding:0.25rem 0.8rem;border-radius:50px;background:#FFF0D0;color:#854F0B;">🎁 El regalo de Lucas</span>
+                            <h4 style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:#1E3A5F;margin:0.6rem 0 0.4rem;">El mejor regalo de cumpleaños</h4>
+                            <p style="font-size:0.85rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">La cara de Lucas al abrir su lámpara personalizada no tiene precio.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 gc-fade-up">
+                    <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="height:180px;background:#D6EDFB;">
+                            <img src="/gigis_corner/static/src/img/samples/fam5.jpg" alt="Luz suave para el bebé" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1.2rem;">
+                            <!-- ▼▼▼ Etiqueta / título / historia: doble clic en el texto para editar ▼▼▼ -->
+                            <span style="display:inline-block;font-size:0.72rem;font-weight:700;padding:0.25rem 0.8rem;border-radius:50px;background:#D6EDFB;color:#185FA5;">👶 El cuarto del bebé</span>
+                            <h4 style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:#1E3A5F;margin:0.6rem 0 0.4rem;">Luz suave para el bebé</h4>
+                            <p style="font-size:0.85rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">Una luz tenue y cálida que acompaña los primeros sueños del bebé.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 gc-fade-up">
+                    <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="height:180px;background:#C8F5F1;">
+                            <img src="/gigis_corner/static/src/img/samples/fam6.jpg" alt="Momentos que iluminan" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1.2rem;">
+                            <!-- ▼▼▼ Etiqueta / título / historia: doble clic en el texto para editar ▼▼▼ -->
+                            <span style="display:inline-block;font-size:0.72rem;font-weight:700;padding:0.25rem 0.8rem;border-radius:50px;background:#C8F5F1;color:#0F6E56;">🎉 La celebración</span>
+                            <h4 style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:#1E3A5F;margin:0.6rem 0 0.4rem;">Momentos que iluminan</h4>
+                            <p style="font-size:0.85rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">Cada entrega es una pequeña celebración en familia que atesoramos.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

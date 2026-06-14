@@ -9,12 +9,24 @@
 <t t-call="website.layout">
 <div id="wrap">
 
-    <!-- HERO con imagen grande editable -->
+    <!-- HERO con imagen grande editable (una por categoría, doble clic para cambiar) -->
     <section style="position:relative;overflow:hidden;">
-        <div t-attf-style="height:340px;background:#{cat['color']};overflow:hidden;">
-            <!-- ▼▼▼ Imagen grande editable de la categoría ▼▼▼ -->
-            <img t-att-src="cat['imagen']" t-att-alt="cat['titulo']"
-                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div class="gc-img-box" style="height:340px;">
+            <t t-if="slug == 'dulces-suenos'">
+                <img src="/gigis_corner/static/src/img/samples/cat_dulces.jpg" alt="Dulces Sueños" class="gc-img-cover"/>
+            </t>
+            <t t-elif="slug == 'suena-grande'">
+                <img src="/gigis_corner/static/src/img/samples/cat_suena.jpg" alt="Sueña en Grande" class="gc-img-cover"/>
+            </t>
+            <t t-elif="slug == 'exploradores'">
+                <img src="/gigis_corner/static/src/img/samples/cat_explora.jpg" alt="Pequeños Exploradores" class="gc-img-cover"/>
+            </t>
+            <t t-elif="slug == 'amigos-especiales'">
+                <img src="/gigis_corner/static/src/img/samples/cat_amigos.jpg" alt="Amigos Especiales" class="gc-img-cover"/>
+            </t>
+            <t t-else="">
+                <img src="/gigis_corner/static/src/img/samples/cat_mar.jpg" alt="Aventuras al Mar" class="gc-img-cover"/>
+            </t>
         </div>
         <div style="position:absolute;inset:0;background:rgba(30,58,95,0.32);
                     display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -45,35 +57,40 @@
             </div>
 
             <div class="row g-4">
-                <t t-foreach="[
-                    ('https://images.unsplash.com/photo-1515861461225-1488dfdaf0a8?w=600&amp;q=70','Diseño 1','Una lámpara pensada al detalle para tu pequeño.'),
-                    ('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=600&amp;q=70','Diseño 2','Colores suaves y pintura hecha a mano.'),
-                    ('https://images.unsplash.com/photo-1535905557558-afc4877a26fc?w=600&amp;q=70','Diseño 3','Personalizada con el nombre y la historia.')
-                ]" t-as="ej">
-                    <div class="col-12 col-md-4 gc-fade-up">
-                        <div style="background:white;border-radius:18px;overflow:hidden;height:100%;
-                                    box-shadow:0 4px 24px rgba(93,167,232,0.13);transition:transform 0.25s;"
-                             onmouseover="this.style.transform='translateY(-6px)'"
-                             onmouseout="this.style.transform='translateY(0)'">
-                            <!-- ▼▼▼ Imagen editable del ejemplo ▼▼▼ -->
-                            <div style="height:200px;overflow:hidden;">
-                                <img t-att-src="ej[0]" t-att-alt="ej[1]"
-                                     style="width:100%;height:100%;object-fit:cover;display:block;"/>
-                            </div>
-                            <div style="padding:1.3rem;">
-                                <!-- ▼▼▼ Título y texto editables ▼▼▼ -->
-                                <h4 style="font-family:'Fredoka One',cursive;font-size:1.1rem;
-                                           color:#1E3A5F;margin:0 0 0.5rem;">
-                                    <t t-esc="ej[1]"/>
-                                </h4>
-                                <p style="font-size:0.88rem;color:#4B4B4B;opacity:0.8;
-                                          line-height:1.6;margin:0;">
-                                    <t t-esc="ej[2]"/>
-                                </p>
-                            </div>
+                <div class="col-12 col-md-4 gc-fade-up">
+                    <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
+                        <div class="gc-img-box" style="height:200px;">
+                            <img src="/gigis_corner/static/src/img/samples/catpg_1.jpg" alt="Diseño 1" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1.3rem;">
+                            <h4 style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:#1E3A5F;margin:0 0 0.5rem;">Diseño 1</h4>
+                            <p style="font-size:0.88rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">Una lámpara pensada al detalle para tu pequeño.</p>
                         </div>
                     </div>
-                </t>
+                </div>
+                <div class="col-12 col-md-4 gc-fade-up">
+                    <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                        <div class="gc-img-box" style="height:200px;">
+                            <img src="/gigis_corner/static/src/img/samples/catpg_2.jpg" alt="Diseño 2" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1.3rem;">
+                            <h4 style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:#1E3A5F;margin:0 0 0.5rem;">Diseño 2</h4>
+                            <p style="font-size:0.88rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">Colores suaves y pintura hecha a mano.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 gc-fade-up">
+                    <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                        <div class="gc-img-box" style="height:200px;">
+                            <img src="/gigis_corner/static/src/img/samples/catpg_3.jpg" alt="Diseño 3" class="gc-img-cover"/>
+                        </div>
+                        <div style="padding:1.3rem;">
+                            <h4 style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:#1E3A5F;margin:0 0 0.5rem;">Diseño 3</h4>
+                            <p style="font-size:0.88rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">Personalizada con el nombre y la historia.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- CTA -->

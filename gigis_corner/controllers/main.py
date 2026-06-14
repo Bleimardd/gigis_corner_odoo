@@ -78,27 +78,27 @@ class GigisController(http.Controller):
         'dulces-suenos': {
             'emoji': '🌙', 'titulo': 'Dulces Sueños', 'color': '#D6EDFB',
             'descripcion': 'Lámparas suaves y serenas para acompañar las noches de tu pequeño.',
-            'imagen': 'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=1200&q=75',
+            'imagen': '/gigis_corner/static/src/img/samples/catpg_hero.jpg',
         },
         'suena-grande': {
             'emoji': '🚀', 'titulo': 'Sueña en Grande', 'color': '#FFE5E6',
             'descripcion': 'Para los que quieren conquistar las estrellas y volar muy alto.',
-            'imagen': 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200&q=75',
+            'imagen': '/gigis_corner/static/src/img/samples/catpg_hero.jpg',
         },
         'exploradores': {
             'emoji': '🚜', 'titulo': 'Pequeños Exploradores', 'color': '#C8F5F1',
             'descripcion': 'Aventuras, máquinas y descubrimientos para los más curiosos.',
-            'imagen': 'https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=1200&q=75',
+            'imagen': '/gigis_corner/static/src/img/samples/catpg_hero.jpg',
         },
         'amigos-especiales': {
             'emoji': '🐢', 'titulo': 'Amigos Especiales', 'color': '#FFF0D0',
             'descripcion': 'Las mascotas y personajes favoritos convertidos en luz.',
-            'imagen': 'https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=1200&q=75',
+            'imagen': '/gigis_corner/static/src/img/samples/catpg_hero.jpg',
         },
         'aventuras-mar': {
             'emoji': '🌊', 'titulo': 'Aventuras al Mar', 'color': '#D6EDFB',
             'descripcion': 'Olas, peces y todo el océano iluminando la habitación.',
-            'imagen': 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1200&q=75',
+            'imagen': '/gigis_corner/static/src/img/samples/catpg_hero.jpg',
         },
     }
 

@@ -6,17 +6,37 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // ── 1. SCROLL REVEAL ──────────────────────────────────
-    const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('gc-visible');
-            }
-        });
-    }, { threshold: 0.12 });
+    // Solo activamos la animación si el navegador soporta IntersectionObserver.
+    // Marcamos <html> con .gc-animate para que el CSS oculte y luego revele.
+    // Si algo falla, el contenido queda visible (failsafe en CSS).
+    try {
+        if ('IntersectionObserver' in window) {
+            var fadeEls = document.querySelectorAll('.gc-fade-up');
+            if (fadeEls.length) {
+                document.documentElement.classList.add('gc-animate');
 
-    document.querySelectorAll('.gc-fade-up').forEach(function (el) {
-        observer.observe(el);
-    });
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('gc-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+                fadeEls.forEach(function (el) { observer.observe(el); });
+
+                // Failsafe: a los 2.5s revela cualquier bloque que siga oculto
+                setTimeout(function () {
+                    document.querySelectorAll('.gc-fade-up:not(.gc-visible)').forEach(function (el) {
+                        el.classList.add('gc-visible');
+                    });
+                }, 2500);
+            }
+        }
+    } catch (e) {
+        document.documentElement.classList.remove('gc-animate');
+    }
 
 
     // ── 2. CONTADOR ANIMADO (stats) ───────────────────────

@@ -23,11 +23,10 @@
                     </p>
                 </div>
                 <div class="col-lg-6 gc-fade-up gc-delay-2">
-                    <div style="border-radius:18px;overflow:hidden;height:350px;">
+                    <div class="gc-img-box" style="border-radius:18px;height:350px;">
                         <!-- ▼▼▼ Foto editable del equipo ▼▼▼ -->
-                        <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&amp;q=75"
-                             alt="Equipo Gigi's Corner"
-                             style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                        <img src="/gigis_corner/static/src/img/samples/nos_hero.jpg"
+                             alt="Equipo Gigi's Corner" class="gc-img-cover"/>
                     </div>
                 </div>
             </div>
@@ -50,9 +49,9 @@
                         <!-- ▼▼▼ FOTO ANA Y HELANA ▼▼▼ -->
                         <div style="border-radius:10px;overflow:hidden;height:220px;margin-bottom:1rem;">
                             <!-- ▼▼▼ Foto editable: Ana y Helana ▼▼▼ -->
-                            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=600&amp;q=70"
+                            <img src="/gigis_corner/static/src/img/samples/nos_cap1.jpg"
                                  alt="Ana y Helana"
-                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                                 style="width:100%;height:100%;object-fit:cover;display:block;" class="gc-img-cover"/>
                         </div>
                         <p class="gc-chapter-text">
                             <!-- ▼▼▼ EDITA ESTE TEXTO CON LA HISTORIA REAL ▼▼▼ -->
@@ -75,9 +74,9 @@
                         <!-- ▼▼▼ FOTO DEL TALLER / INICIO ▼▼▼ -->
                         <div style="border-radius:10px;overflow:hidden;height:200px;margin-bottom:1rem;">
                             <!-- ▼▼▼ Foto editable: taller / inicio ▼▼▼ -->
-                            <img src="https://images.unsplash.com/photo-1556760544-74068565f05c?w=600&amp;q=70"
+                            <img src="/gigis_corner/static/src/img/samples/nos_cap2.jpg"
                                  alt="El taller de Gigi's Corner"
-                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                                 style="width:100%;height:100%;object-fit:cover;display:block;" class="gc-img-cover"/>
                         </div>
                         <p class="gc-chapter-text">
                             La primera lámpara de Helana generó reacciones que Ana no esperaba.
@@ -99,9 +98,9 @@
                         <!-- ▼▼▼ FOTO DEL EQUIPO ▼▼▼ -->
                         <div style="border-radius:10px;overflow:hidden;height:200px;margin-bottom:1rem;">
                             <!-- ▼▼▼ Foto editable: equipo trabajando ▼▼▼ -->
-                            <img src="https://images.unsplash.com/photo-1558403194-611308249627?w=600&amp;q=70"
+                            <img src="/gigis_corner/static/src/img/samples/nos_cap3.jpg"
                                  alt="El equipo de madres creadoras"
-                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                                 style="width:100%;height:100%;object-fit:cover;display:block;" class="gc-img-cover"/>
                         </div>
                         <p class="gc-chapter-text">
                             Gigi's Corner creció hasta convertirse en un equipo de madres: Marlene,
@@ -174,8 +173,8 @@
                     <div class="gc-team-card">
                         <div class="gc-team-avatar" style="background:#FFE5E6;width:110px;height:110px;font-size:3rem;overflow:hidden;">
                             <!-- ▼▼▼ Foto editable de Ana ▼▼▼ -->
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&amp;q=70" alt="Ana"
-                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                            <img src="/gigis_corner/static/src/img/samples/team_ana.jpg" alt="Ana"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;" class="gc-img-cover"/>
                         </div>
                         <div class="gc-team-name mt-2">Ana</div>
                         <span class="gc-team-role" style="background:#FF5C64;">Fundadora &amp; CEO</span>
@@ -194,8 +193,8 @@
                     <div class="gc-team-card">
                         <div class="gc-team-avatar" style="background:#D6EDFB;width:110px;height:110px;font-size:3rem;overflow:hidden;">
                             <!-- ▼▼▼ Foto editable de Marlene ▼▼▼ -->
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&amp;q=70" alt="Marlene"
-                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                            <img src="/gigis_corner/static/src/img/samples/team_marlene.jpg" alt="Marlene"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;" class="gc-img-cover"/>
                         </div>
                         <div class="gc-team-name mt-2">Marlene</div>
                         <span class="gc-team-role" style="background:#5DA7E8;">Diseño</span>
@@ -210,8 +209,8 @@
                     <div class="gc-team-card">
                         <div class="gc-team-avatar" style="background:#C8F5F1;width:110px;height:110px;font-size:3rem;overflow:hidden;">
                             <!-- ▼▼▼ Foto editable de Leidy ▼▼▼ -->
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&amp;q=70" alt="Leidy"
-                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                            <img src="/gigis_corner/static/src/img/samples/team_leidy.jpg" alt="Leidy"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;" class="gc-img-cover"/>
                         </div>
                         <div class="gc-team-name mt-2">Leidy</div>
                         <span class="gc-team-role" style="background:#34C9B8;">Producción</span>
@@ -226,8 +225,8 @@
                     <div class="gc-team-card">
                         <div class="gc-team-avatar" style="background:#FFF0D0;width:110px;height:110px;font-size:3rem;overflow:hidden;">
                             <!-- ▼▼▼ Foto editable de Bryan ▼▼▼ -->
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&amp;q=70" alt="Bryan"
-                                 style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                            <img src="/gigis_corner/static/src/img/samples/team_bryan.jpg" alt="Bryan"
+                                 style="width:100%;height:100%;object-fit:cover;display:block;" class="gc-img-cover"/>
                         </div>
                         <div class="gc-team-name mt-2">Bryan</div>
                         <span class="gc-team-role" style="background:#F5C640;color:#4B4B4B;">Creativo</span>

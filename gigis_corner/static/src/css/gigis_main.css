@@ -971,3 +971,29 @@ h1, h2, h3, h4 {
     color: #FF5C64;
     border-bottom-color: #FF5C64;
 }
+
+/* ── BLINDAJE DE IMÁGENES EDITABLES ──
+   Cuando reemplazas una imagen desde el editor de Odoo, a veces se pierden
+   los estilos inline (height/object-fit). Estas reglas garantizan que la
+   imagen siempre llene su contenedor y sea visible. */
+.gc-img-cover {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    opacity: 1 !important;
+}
+.gc-img-box {
+    overflow: hidden;
+    position: relative;
+}
+/* Cualquier img que Odoo inserte dentro de estos contenedores */
+.gc-img-box > img,
+.gc-img-box > .o_image,
+.gc-img-box > figure img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    opacity: 1 !important;
+}

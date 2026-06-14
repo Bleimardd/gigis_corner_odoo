@@ -38,12 +38,12 @@
                                 <t t-if="h.imagen_principal">
                                     <img t-attf-src="/web/image/gigis.historia/#{h.id}/imagen_principal"
                                          t-att-alt="h.titulo"
-                                         style="width:100%;height:100%;object-fit:cover;"/>
+                                         style="width:100%;height:100%;object-fit:cover;" class="gc-img-cover"/>
                                 </t>
                                 <t t-else="">
-                                    <img t-attf-src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=600&amp;q=70"
+                                    <img src="/gigis_corner/static/src/img/samples/hist_amira.jpg"
                                          t-att-alt="h.titulo"
-                                         style="width:100%;height:100%;object-fit:cover;"/>
+                                         style="width:100%;height:100%;object-fit:cover;" class="gc-img-cover"/>
                                 </t>
                                 <!-- Botón play si hay video -->
                                 <t t-if="h.video_url">
@@ -150,12 +150,12 @@
                         <t t-if="historia.imagen_principal">
                             <img t-attf-src="/web/image/gigis.historia/#{historia.id}/imagen_principal"
                                  t-att-alt="historia.titulo"
-                                 style="width:100%;height:100%;object-fit:cover;"/>
+                                 style="width:100%;height:100%;object-fit:cover;" class="gc-img-cover"/>
                         </t>
                         <t t-else="">
-                            <img t-attf-src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=900&amp;q=75"
+                            <img src="/gigis_corner/static/src/img/samples/hist_amira.jpg"
                                  t-att-alt="historia.titulo"
-                                 style="width:100%;height:100%;object-fit:cover;"/>
+                                 style="width:100%;height:100%;object-fit:cover;" class="gc-img-cover"/>
                         </t>
                         <!-- Botón play si hay video -->
                         <t t-if="historia.video_url">
@@ -174,7 +174,7 @@
                                     <div class="gc-gallery-item" style="height:85px;">
                                         <img t-attf-src="/web/image/gigis.historia/#{historia.id}/#{campo}"
                                              t-att-alt="historia.titulo"
-                                             style="width:100%;height:100%;object-fit:cover;"/>
+                                             style="width:100%;height:100%;object-fit:cover;" class="gc-img-cover"/>
                                     </div>
                                 </div>
                             </t>
