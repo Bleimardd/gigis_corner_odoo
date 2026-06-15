@@ -8,7 +8,7 @@
      ═══════════════════════════════════════════════════════════ -->
 <template id="view_personalizado_page" name="Gigi's Corner — Personalizados">
 <t t-call="website.layout">
-<div id="wrap">
+<div id="wrap" class="oe_structure">
 
     <!-- HERO -->
     <section style="background:linear-gradient(135deg,#E8F4FD,#EEF9F7,#FFF8EE);
@@ -388,7 +388,7 @@
      ═══════════════════════════════════════════════════════════ -->
 <template id="view_gracias_page" name="Gigi's Corner — Gracias">
 <t t-call="website.layout">
-<div id="wrap">
+<div id="wrap" class="oe_structure">
     <section style="padding:6rem 0;background:linear-gradient(135deg,#E8F4FD,#FFF8EE);
                     min-height:72vh;display:flex;align-items:center;">
         <div class="container text-center">

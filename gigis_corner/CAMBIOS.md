@@ -101,3 +101,32 @@ CÓMO EDITAR UNA IMAGEN:
 2. Haz doble clic sobre la imagen que quieras cambiar.
 3. Sube tu foto o elige una. Pulsa "Guardar".
    (NO uses el panel "Bloques" de la derecha; ese es para arrastrar bloques nuevos.)
+
+## v17.0.6.0.0 — CAUSA REAL de las imágenes bloqueadas: faltaba oe_structure
+**El verdadero problema:** Odoo NO permite editar el contenido de una página
+(imágenes, textos) a menos que esté dentro de un contenedor con la clase
+"oe_structure". El módulo tenía <div id="wrap"> SIN esa clase, por eso TODO
+salía bloqueado en el editor.
+
+**Solución (confirmada en docs oficiales de Odoo 17):**
+Se cambió <div id="wrap"> por <div id="wrap" class="oe_structure"> en todas las
+páginas (inicio, historias, nosotros, personalizados, categoría).
+Ahora el editor web de Odoo permite cambiar imágenes y textos.
+
+CÓMO EDITAR AHORA:
+1. Abre la página y pulsa "Editar" (arriba a la derecha).
+2. Haz clic / doble clic en cualquier imagen → botón "Reemplazar" / "Replace".
+3. Sube tu foto. Guarda.
+También puedes editar cualquier texto haciendo clic sobre él.
+
+NOTA: como ahora la página es totalmente editable, evita arrastrar o borrar
+secciones completas sin querer. Para cambiar una imagen, solo haz clic en ella
+(no la arrastres).
+
+IMPORTANTE tras instalar:
+- Actualiza el módulo con -u o desde Apps.
+- Si ya habías editado la página antes desde el front-end, Odoo pudo marcar la
+  vista como "no actualizable". Si no ves los cambios: Ajustes → Técnico →
+  Vistas → busca "Gigi's Corner - Home" → si está, bórrala y actualiza el módulo,
+  o desmarca "No actualizable".
+- Ctrl+F5 para limpiar caché.

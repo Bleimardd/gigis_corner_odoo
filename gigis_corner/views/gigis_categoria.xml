@@ -7,7 +7,7 @@
      ═══════════════════════════════════════════════════════════ -->
 <template id="view_categoria_page" name="Gigi's Corner — Categoría">
 <t t-call="website.layout">
-<div id="wrap">
+<div id="wrap" class="oe_structure">
 
     <!-- HERO con imagen grande editable (una por categoría, doble clic para cambiar) -->
     <section style="position:relative;overflow:hidden;">
