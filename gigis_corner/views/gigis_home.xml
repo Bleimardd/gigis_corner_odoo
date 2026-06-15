@@ -204,21 +204,23 @@
                               color:#4B4B4B;transition:transform 0.3s;"
                        onmouseover="this.style.transform='translateY(-8px)'"
                        onmouseout="this.style.transform='translateY(0)'">
-                        <div style="position:relative;height:220px;background:#D6EDFB;overflow:hidden;">
-                            <!-- ▼▼▼ Foto editable de Amira ▼▼▼ -->
+                        <div class="gc-media" style="position:relative;height:220px;background:#D6EDFB;overflow:hidden;">
+                            <!-- ▼▼▼ FOTO: haz clic con el lápiz de Odoo para reemplazarla ▼▼▼ -->
                             <img src="/gigis_corner/static/src/img/samples/hist_amira.jpg"
-                                 alt="Amira y el Mar"
+                                 alt="Foto/Video de Amira"
                                  style="width:100%;height:100%;object-fit:cover;display:block;" class="gc-img-cover"/>
-                            <!-- Para activar el video: pon la URL en data-video (si está vacío, no aparece el botón) -->
-                            <t t-set="video_amira" t-value="''"/>
-                            <t t-if="video_amira">
-                                <div class="gc-play-btn" t-att-data-video="video_amira"
-                                     style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-                                            width:56px;height:56px;background:rgba(255,255,255,0.92);
-                                            border-radius:50%;display:flex;align-items:center;
-                                            justify-content:center;font-size:1.3rem;color:#FF5C64;
-                                            box-shadow:0 4px 16px rgba(0,0,0,0.15);cursor:pointer;">▶</div>
-                            </t>
+                            <!-- ▼▼▼ VIDEO: haz clic en el texto de abajo con el lápiz de Odoo y pega
+                                       la URL del video (YouTube, Vimeo o .mp4). Borra el texto para
+                                       quitar el video y dejar solo la foto. ▼▼▼ -->
+                            <p class="gc-video-url" style="position:absolute;bottom:8px;left:8px;right:8px;margin:0;
+                                      font-size:0.7rem;color:#1E3A5F;background:rgba(255,255,255,0.85);
+                                      padding:4px 8px;border-radius:8px;text-align:center;">Pega aquí la URL del video</p>
+                            <div class="gc-play-btn"
+                                 style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+                                        width:56px;height:56px;background:rgba(255,255,255,0.92);
+                                        border-radius:50%;display:flex;align-items:center;
+                                        justify-content:center;font-size:1.3rem;color:#FF5C64;
+                                        box-shadow:0 4px 16px rgba(0,0,0,0.15);cursor:pointer;">▶</div>
                         </div>
                         <div style="padding:1.3rem;">
                             <span style="display:inline-block;background:#C8F5F1;color:#34C9B8;
@@ -249,20 +251,22 @@
                               color:#4B4B4B;transition:transform 0.3s;"
                        onmouseover="this.style.transform='translateY(-8px)'"
                        onmouseout="this.style.transform='translateY(0)'">
-                        <div style="position:relative;height:220px;background:#C8F5F1;overflow:hidden;">
-                            <!-- ▼▼▼ Foto editable de Pepe ▼▼▼ -->
+                        <div class="gc-media" style="position:relative;height:220px;background:#C8F5F1;overflow:hidden;">
+                            <!-- ▼▼▼ FOTO: haz clic con el lápiz de Odoo para reemplazarla ▼▼▼ -->
                             <img src="/gigis_corner/static/src/img/samples/hist_pepe.jpg"
-                                 alt="Pepe la Tortuga"
+                                 alt="Foto/Video de Pepe"
                                  style="width:100%;height:100%;object-fit:cover;display:block;" class="gc-img-cover"/>
-                            <t t-set="video_pepe" t-value="''"/>
-                            <t t-if="video_pepe">
-                                <div class="gc-play-btn" t-att-data-video="video_pepe"
-                                     style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-                                            width:56px;height:56px;background:rgba(255,255,255,0.92);
-                                            border-radius:50%;display:flex;align-items:center;
-                                            justify-content:center;font-size:1.3rem;color:#FF5C64;
-                                            box-shadow:0 4px 16px rgba(0,0,0,0.15);cursor:pointer;">▶</div>
-                            </t>
+                            <!-- ▼▼▼ VIDEO: pega la URL en el texto de abajo (YouTube, Vimeo o .mp4).
+                                       Borra el texto para quitar el video. ▼▼▼ -->
+                            <p class="gc-video-url" style="position:absolute;bottom:8px;left:8px;right:8px;margin:0;
+                                      font-size:0.7rem;color:#1E3A5F;background:rgba(255,255,255,0.85);
+                                      padding:4px 8px;border-radius:8px;text-align:center;">Pega aquí la URL del video</p>
+                            <div class="gc-play-btn"
+                                 style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+                                        width:56px;height:56px;background:rgba(255,255,255,0.92);
+                                        border-radius:50%;display:flex;align-items:center;
+                                        justify-content:center;font-size:1.3rem;color:#FF5C64;
+                                        box-shadow:0 4px 16px rgba(0,0,0,0.15);cursor:pointer;">▶</div>
                         </div>
                         <div style="padding:1.3rem;">
                             <span style="display:inline-block;background:#C8F5F1;color:#34C9B8;
@@ -293,20 +297,22 @@
                               color:#4B4B4B;transition:transform 0.3s;"
                        onmouseover="this.style.transform='translateY(-8px)'"
                        onmouseout="this.style.transform='translateY(0)'">
-                        <div style="position:relative;height:220px;background:#FFE5E6;overflow:hidden;">
-                            <!-- ▼▼▼ Foto editable de Valentina ▼▼▼ -->
+                        <div class="gc-media" style="position:relative;height:220px;background:#FFE5E6;overflow:hidden;">
+                            <!-- ▼▼▼ FOTO: haz clic con el lápiz de Odoo para reemplazarla ▼▼▼ -->
                             <img src="/gigis_corner/static/src/img/samples/hist_valentina.jpg"
-                                 alt="Valentina Astronauta"
+                                 alt="Foto/Video de Valentina"
                                  style="width:100%;height:100%;object-fit:cover;display:block;" class="gc-img-cover"/>
-                            <t t-set="video_valentina" t-value="''"/>
-                            <t t-if="video_valentina">
-                                <div class="gc-play-btn" t-att-data-video="video_valentina"
-                                     style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-                                            width:56px;height:56px;background:rgba(255,255,255,0.92);
-                                            border-radius:50%;display:flex;align-items:center;
-                                            justify-content:center;font-size:1.3rem;color:#FF5C64;
-                                            box-shadow:0 4px 16px rgba(0,0,0,0.15);cursor:pointer;">▶</div>
-                            </t>
+                            <!-- ▼▼▼ VIDEO: pega la URL en el texto de abajo (YouTube, Vimeo o .mp4).
+                                       Borra el texto para quitar el video. ▼▼▼ -->
+                            <p class="gc-video-url" style="position:absolute;bottom:8px;left:8px;right:8px;margin:0;
+                                      font-size:0.7rem;color:#1E3A5F;background:rgba(255,255,255,0.85);
+                                      padding:4px 8px;border-radius:8px;text-align:center;">Pega aquí la URL del video</p>
+                            <div class="gc-play-btn"
+                                 style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+                                        width:56px;height:56px;background:rgba(255,255,255,0.92);
+                                        border-radius:50%;display:flex;align-items:center;
+                                        justify-content:center;font-size:1.3rem;color:#FF5C64;
+                                        box-shadow:0 4px 16px rgba(0,0,0,0.15);cursor:pointer;">▶</div>
                         </div>
                         <div style="padding:1.3rem;">
                             <span style="display:inline-block;background:#FFE5E6;color:#FF5C64;

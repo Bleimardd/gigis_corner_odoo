@@ -110,11 +110,53 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // ── 4. VIDEO MODAL ────────────────────────────────────
-    document.querySelectorAll('.gc-play-btn[data-video]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            var videoUrl = btn.getAttribute('data-video');
-            if (!videoUrl) return;
+    // ── 4. VIDEO MODAL (editable desde Odoo) ──────────────
+    function gcBuildPlayer(url) {
+        var yt = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+        if (yt) {
+            return '<iframe src="https://www.youtube.com/embed/' + yt[1] + '?autoplay=1" ' +
+                   'style="width:100%;aspect-ratio:16/9;display:block;border:0;" ' +
+                   'allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
+        }
+        var vm = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+        if (vm) {
+            return '<iframe src="https://player.vimeo.com/video/' + vm[1] + '?autoplay=1" ' +
+                   'style="width:100%;aspect-ratio:16/9;display:block;border:0;" ' +
+                   'allow="autoplay; fullscreen" allowfullscreen></iframe>';
+        }
+        return '<video src="' + url + '" controls autoplay playsinline ' +
+               'style="width:100%;display:block;max-height:80vh;"></video>';
+    }
+
+    function gcIsValidVideo(txt) {
+        if (!txt) return false;
+        txt = txt.trim();
+        if (!txt) return false;
+        if (txt.toLowerCase().indexOf('pega aqu') !== -1) return false; // placeholder por defecto
+        return /^https?:\/\//i.test(txt) || /\.mp4($|\?)/i.test(txt);
+    }
+
+    var gcInEditor = document.body.classList.contains('editor_enable') ||
+                     !!document.querySelector('.o_we_website_top_actions, .o_edit_mode');
+
+    document.querySelectorAll('.gc-media').forEach(function (media) {
+        var urlEl = media.querySelector('.gc-video-url');
+        var btn = media.querySelector('.gc-play-btn');
+        var url = urlEl ? urlEl.textContent.trim() : '';
+
+        if (!gcIsValidVideo(url)) {
+            if (btn) btn.style.display = 'none';
+            if (urlEl && !gcInEditor) urlEl.style.display = 'none';
+            return;
+        }
+
+        if (urlEl && !gcInEditor) urlEl.style.display = 'none';
+        if (!btn) return;
+
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
 
             var overlay = document.createElement('div');
             overlay.style.cssText = [
@@ -130,15 +172,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 '<button style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.18);' +
                 'border:none;color:white;font-size:1.4rem;width:40px;height:40px;border-radius:50%;' +
                 'cursor:pointer;z-index:2;line-height:1;">✕</button>' +
-                '<video src="' + videoUrl + '" controls autoplay playsinline ' +
-                'style="width:100%;display:block;max-height:80vh;"></video>';
+                gcBuildPlayer(url);
 
             overlay.appendChild(box);
             document.body.appendChild(overlay);
 
-            // Cerrar al clickear fuera o en el botón X
-            overlay.addEventListener('click', function (e) {
-                if (e.target === overlay) overlay.remove();
+            overlay.addEventListener('click', function (ev) {
+                if (ev.target === overlay) overlay.remove();
             });
             box.querySelector('button').addEventListener('click', function () {
                 overlay.remove();
