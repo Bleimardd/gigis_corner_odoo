@@ -153,3 +153,30 @@ capítulos y la imagen. Marca "Publicada en web".
 
 IMPORTANTE: este cambio agrega vistas nuevas, así que hay que ACTUALIZAR el módulo
 (-u gigis_corner) para que aparezca el menú.
+
+## v17.0.8.0.0 — Videos unificados en TODO el sitio
+**Problema:** había DOS sistemas de video distintos y solo uno servía.
+- Inicio: video por texto editable (gc-video-url) — funcionaba.
+- Listado y Detalle de historias: video por `data-video` desde la BD, pero el
+  reproductor viejo solo aceptaba archivos .mp4 directos (no YouTube ni Vimeo) y el
+  botón ▶ no estaba conectado al reproductor corregido.
+
+**Solución (static/src/js/gigis_main.js):**
+- Un solo reproductor para todo el sitio. Soporta YouTube, Vimeo y .mp4.
+- El botón ▶ (.gc-play-btn) ahora lee el video de DOS fuentes automáticamente:
+  1) atributo data-video  → historias guardadas en la base de datos (listado/detalle)
+  2) texto .gc-video-url  → tarjetas editables del inicio
+- Si no hay URL válida, el botón ▶ no se muestra (en el inicio el texto de la URL
+  solo es visible cuando estás EDITANDO con el lápiz).
+
+DÓNDE PONER CADA VIDEO:
+- Inicio (3 tarjetas): editor web (lápiz) → clic en el texto "Pega aquí la URL del
+  video" de cada tarjeta y pega el link. Guarda.
+- Páginas de detalle e historias /historias: menú "Gigi's Corner" → Historias →
+  abre la historia → campo "URL del video". Guarda.
+
+RECORDATORIO CRÍTICO: hay que ACTUALIZAR el módulo (-u gigis_corner) para que el
+servidor tome este código. Si el sitio sigue mostrando "Imagen de muestra · reemplázala
+con el lápiz de Odoo", es que la BASE DE DATOS tiene una versión vieja guardada:
+Ajustes → Técnico → Vistas → busca "Gigi's Corner" → borra las vistas duplicadas/editadas
+y vuelve a actualizar el módulo (o desinstala e instala de nuevo).

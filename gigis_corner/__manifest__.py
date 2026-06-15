@@ -5,7 +5,7 @@
     'author': "Gigi's Corner",
     'website': "https://gigiscorner.com.mx",
     'category': 'Website',
-    'version': '17.0.7.0.0',
+    'version': '17.0.8.0.0',
     'depends': ['website', 'mail', 'web'],
     'data': [
         'security/ir.model.access.csv',

@@ -139,50 +139,67 @@ document.addEventListener('DOMContentLoaded', function () {
     var gcInEditor = document.body.classList.contains('editor_enable') ||
                      !!document.querySelector('.o_we_website_top_actions, .o_edit_mode');
 
-    document.querySelectorAll('.gc-media').forEach(function (media) {
-        var urlEl = media.querySelector('.gc-video-url');
-        var btn = media.querySelector('.gc-play-btn');
-        var url = urlEl ? urlEl.textContent.trim() : '';
+    function gcOpenModal(url) {
+        var overlay = document.createElement('div');
+        overlay.style.cssText = [
+            'position:fixed', 'top:0', 'left:0', 'width:100%', 'height:100%',
+            'background:rgba(0,0,0,0.88)', 'z-index:99999',
+            'display:flex', 'align-items:center', 'justify-content:center',
+            'cursor:pointer'
+        ].join(';');
 
-        if (!gcIsValidVideo(url)) {
-            if (btn) btn.style.display = 'none';
-            if (urlEl && !gcInEditor) urlEl.style.display = 'none';
+        var box = document.createElement('div');
+        box.style.cssText = 'position:relative;max-width:820px;width:92%;border-radius:18px;overflow:hidden;';
+        box.innerHTML =
+            '<button style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.18);' +
+            'border:none;color:white;font-size:1.4rem;width:40px;height:40px;border-radius:50%;' +
+            'cursor:pointer;z-index:2;line-height:1;">✕</button>' +
+            gcBuildPlayer(url);
+
+        overlay.appendChild(box);
+        document.body.appendChild(overlay);
+
+        overlay.addEventListener('click', function (ev) {
+            if (ev.target === overlay) overlay.remove();
+        });
+        box.querySelector('button').addEventListener('click', function () {
+            overlay.remove();
+        });
+    }
+
+    // Devuelve la URL del video de un botón:
+    //  1) atributo data-video  (historias guardadas en la base de datos)
+    //  2) texto del .gc-video-url hermano (tarjetas editables del inicio)
+    function gcGetVideoUrl(btn) {
+        var dv = btn.getAttribute('data-video');
+        if (dv && gcIsValidVideo(dv)) return dv.trim();
+        var container = btn.closest('.gc-media') || btn.parentElement;
+        var urlEl = container ? container.querySelector('.gc-video-url') : null;
+        if (urlEl) {
+            var t = urlEl.textContent.trim();
+            if (gcIsValidVideo(t)) return t;
+        }
+        return '';
+    }
+
+    // En el inicio: oculta el texto de la URL en la web publicada (solo se ve al editar)
+    document.querySelectorAll('.gc-video-url').forEach(function (urlEl) {
+        if (!gcInEditor) urlEl.style.display = 'none';
+    });
+
+    // Activa TODOS los botones de play del sitio (inicio, listado y detalle)
+    document.querySelectorAll('.gc-play-btn').forEach(function (btn) {
+        var url = gcGetVideoUrl(btn);
+        if (!url) {
+            btn.style.display = 'none';   // sin video válido → no se muestra el botón ▶
             return;
         }
-
-        if (urlEl && !gcInEditor) urlEl.style.display = 'none';
-        if (!btn) return;
-
+        btn.style.display = '';
         btn.style.cursor = 'pointer';
         btn.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
-
-            var overlay = document.createElement('div');
-            overlay.style.cssText = [
-                'position:fixed', 'top:0', 'left:0', 'width:100%', 'height:100%',
-                'background:rgba(0,0,0,0.88)', 'z-index:99999',
-                'display:flex', 'align-items:center', 'justify-content:center',
-                'cursor:pointer'
-            ].join(';');
-
-            var box = document.createElement('div');
-            box.style.cssText = 'position:relative;max-width:820px;width:92%;border-radius:18px;overflow:hidden;';
-            box.innerHTML =
-                '<button style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.18);' +
-                'border:none;color:white;font-size:1.4rem;width:40px;height:40px;border-radius:50%;' +
-                'cursor:pointer;z-index:2;line-height:1;">✕</button>' +
-                gcBuildPlayer(url);
-
-            overlay.appendChild(box);
-            document.body.appendChild(overlay);
-
-            overlay.addEventListener('click', function (ev) {
-                if (ev.target === overlay) overlay.remove();
-            });
-            box.querySelector('button').addEventListener('click', function () {
-                overlay.remove();
-            });
+            gcOpenModal(gcGetVideoUrl(btn));
         });
     });
 
