@@ -130,3 +130,26 @@ IMPORTANTE tras instalar:
   Vistas → busca "Gigi's Corner - Home" → si está, bórrala y actualiza el módulo,
   o desmarca "No actualizable".
 - Ctrl+F5 para limpiar caché.
+
+## v17.0.7.0.0 — Panel para administrar Historias (y Solicitudes)
+**Problema:** la sección "Historias que iluminan" mostraba siempre el placeholder
+"Foto/Video de Amira · Imagen de muestra" y no se podía cambiar. Las imágenes de las
+historias vienen de la BASE DE DATOS (modelo gigis.historia), NO del editor web. Pero
+el módulo NO tenía menú ni formulario para administrarlas, así que era imposible subir
+esas fotos por ningún lado.
+
+**Solución:** se creó un menú nuevo en Odoo llamado "Gigi's Corner" con:
+- HISTORIAS: crear/editar cada historia y subir su imagen principal, video y hasta 4
+  fotos de proceso. En cuanto subes la foto, el placeholder "A" desaparece solo.
+- SOLICITUDES: ver los pedidos que llegan del formulario "Personalizados".
+
+CÓMO SUBIR LAS FOTOS DE LAS HISTORIAS:
+1. En Odoo, abre el menú "Gigi's Corner" (barra superior) → "Historias".
+2. Verás Amira, Pepe, Valentina y Mateo (ya vienen de ejemplo). Abre una.
+3. Sube la "Imagen principal", pega el link del video (opcional) y las fotos de proceso.
+4. Guarda. La web se actualiza sola.
+Para una historia nueva: botón "Nuevo", llena título, slug (url), etiqueta, los 3
+capítulos y la imagen. Marca "Publicada en web".
+
+IMPORTANTE: este cambio agrega vistas nuevas, así que hay que ACTUALIZAR el módulo
+(-u gigis_corner) para que aparezca el menú.

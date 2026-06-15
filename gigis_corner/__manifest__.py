@@ -5,11 +5,12 @@
     'author': "Gigi's Corner",
     'website': "https://gigiscorner.com.mx",
     'category': 'Website',
-    'version': '17.0.6.0.0',
+    'version': '17.0.7.0.0',
     'depends': ['website', 'mail', 'web'],
     'data': [
         'security/ir.model.access.csv',
         'data/gigis_data.xml',
+        'views/gigis_historia_admin.xml',
         'views/gigis_templates.xml',
         'views/gigis_home.xml',
         'views/gigis_historias.xml',
