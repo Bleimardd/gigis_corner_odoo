@@ -294,3 +294,18 @@ página con el lápiz** del editor web. Como cada URL carga su propio registro
 - **Facebook corregido:** el footer apuntaba a `facebook.com/gigiscorner`
   (inexistente). Ahora apunta a la página real
   `https://www.facebook.com/profile.php?id=100064930652500`.
+
+## v17.0.14.0.0 — Encabezado de categoría 100% por backend (estable)
+
+**Decisión:** los 5 encabezados de categoría se editan SOLO desde
+**Gigi's Corner → Categorías** (título, descripción, emoji e imagen). Se quitó
+la edición inline con el lápiz porque las 5 URLs comparten UNA plantilla y editar
+en el front genera copias "COW" (ir.ui.view por sitio web) que se congelan y tapan
+el módulo → el síntoma de "encabezado bloqueado / no toma el cambio".
+
+- Título/descripción/emoji vuelven a `t-esc` (render normal, se editan en backend).
+- La imagen del encabezado lleva cache-busting (`?unique=write_date`) para que al
+  cambiarla en el backend se vea de inmediato (sin esperar a la caché).
+- OPERATIVO: se eliminó la copia COW de la vista de categoría (ir.ui.view con
+  website_id) que estaba bloqueando. Si vuelve a aparecer (por editar esa página
+  con el lápiz), borrarla en Ajustes → Técnico → Vistas.
