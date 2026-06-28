@@ -282,3 +282,15 @@ página con el lápiz** del editor web. Como cada URL carga su propio registro
 - Imagen de fondo del encabezado → sigue desde **Gigi's Corner → Categorías**
   (la imagen queda protegida del editor para no romper las 5 páginas; abrir el
   lápiz no la altera).
+
+## v17.0.13.0.0 — Encabezado editable (fix), foto de muestra y Facebook
+
+- **Texto del encabezado editable de verdad:** el controlador `/categoria/<slug>`
+  ya no usa `sudo` (el público lee por ACL) y pasa `main_object`, para que el
+  editor web (lápiz) permita editar inline el título/descripción/emoji.
+- **Foto de muestra real:** el encabezado de categoría sin imagen ahora muestra
+  una **foto de lámpara** (catpg_*) en vez del placeholder azul; se cambia desde
+  Gigi's Corner → Categorías → "Imagen del encabezado".
+- **Facebook corregido:** el footer apuntaba a `facebook.com/gigiscorner`
+  (inexistente). Ahora apunta a la página real
+  `https://www.facebook.com/profile.php?id=100064930652500`.

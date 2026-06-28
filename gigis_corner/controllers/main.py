@@ -86,12 +86,16 @@ class GigisController(http.Controller):
         domain = [('slug', '=', slug), ('website_published', '=', True)]
         if company:
             domain.append(('company_id', '=', company.id))
-        cat = request.env['gigis.categoria'].sudo().search(domain, limit=1)
+        # Sin sudo: el público tiene permiso de lectura (ACL) y, al editar,
+        # el registro queda en el entorno del usuario para que el editor web
+        # (lápiz) permita editar inline el título/descripción/emoji.
+        cat = request.env['gigis.categoria'].search(domain, limit=1)
         if not cat:
             return request.not_found()
         return request.render('gigis_corner.view_categoria_page', {
             'cat': cat,
             'slug': slug,
+            'main_object': cat,
         })
 
     # ── PERSONALIZADOS — formulario ───────────────────────────

@@ -19,21 +19,21 @@
                      t-att-alt="cat.titulo" class="gc-img-cover"/>
             </t>
             <t t-else="">
-                <!-- Imagen de muestra (se reemplaza subiendo la tuya en el backend) -->
+                <!-- Foto de muestra (real). Súbela/ cámbiala desde Gigi's Corner → Categorías -->
                 <t t-if="slug == 'dulces-suenos'">
-                    <img src="/gigis_corner/static/src/img/samples/cat_dulces.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
+                    <img src="/gigis_corner/static/src/img/samples/catpg_1.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
                 </t>
                 <t t-elif="slug == 'suena-grande'">
-                    <img src="/gigis_corner/static/src/img/samples/cat_suena.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
+                    <img src="/gigis_corner/static/src/img/samples/catpg_2.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
                 </t>
                 <t t-elif="slug == 'exploradores'">
-                    <img src="/gigis_corner/static/src/img/samples/cat_explora.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
+                    <img src="/gigis_corner/static/src/img/samples/catpg_3.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
                 </t>
                 <t t-elif="slug == 'amigos-especiales'">
-                    <img src="/gigis_corner/static/src/img/samples/cat_amigos.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
+                    <img src="/gigis_corner/static/src/img/samples/catpg_1.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
                 </t>
                 <t t-else="">
-                    <img src="/gigis_corner/static/src/img/samples/cat_mar.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
+                    <img src="/gigis_corner/static/src/img/samples/catpg_2.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
                 </t>
             </t>
             <!-- Botón ▶ solo si la categoría tiene video -->
