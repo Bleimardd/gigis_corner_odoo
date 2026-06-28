@@ -41,15 +41,20 @@ class GigisPersonalizacion(models.Model):
     ], string='¿Cómo nos conoció?')
 
     state = fields.Selection([
-        ('nuevo',         '🆕 Nuevo'),
-        ('contactado',    '📱 Contactado'),
-        ('en_diseno',     '🎨 En diseño'),
-        ('en_produccion', '🔨 En producción'),
-        ('enviado',       '📦 Enviado'),
-        ('entregado',     '✅ Entregado'),
-    ], string='Estado', default='nuevo', tracking=True)
+        ('nuevo',      '🆕 Nuevo'),
+        ('contactado', '📱 Contactado'),
+        ('en_proceso', '🎨 En proceso'),
+        ('enviado',    '📦 Enviado'),
+        ('atendido',   '✅ Atendido'),
+    ], string='Etapa', default='nuevo', tracking=True,
+       group_expand='_group_expand_states')
 
     notas_internas = fields.Text(string='Notas internas')
+
+    @api.model
+    def _group_expand_states(self, states, domain, *args):
+        """Muestra TODAS las columnas en el Kanban aunque estén vacías."""
+        return [key for key, _label in self._fields['state'].selection]
 
     # ── Multi-empresa: fija a Gigi's Corner ───────────────────
     company_id = fields.Many2one(
@@ -66,12 +71,11 @@ class GigisPersonalizacion(models.Model):
         )
         return gigis or self.env.company
 
-    # ── Acciones de estado ────────────────────────────────────
-    def action_contactado(self):    self.state = 'contactado'
-    def action_en_diseno(self):     self.state = 'en_diseno'
-    def action_en_produccion(self): self.state = 'en_produccion'
-    def action_enviado(self):       self.state = 'enviado'
-    def action_entregado(self):     self.state = 'entregado'
+    # ── Acciones de etapa ─────────────────────────────────────
+    def action_contactado(self): self.state = 'contactado'
+    def action_en_proceso(self): self.state = 'en_proceso'
+    def action_enviado(self):    self.state = 'enviado'
+    def action_atendido(self):   self.state = 'atendido'
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -118,10 +122,24 @@ class GigisPersonalizacion(models.Model):
     </table>
   </div>
 </div>"""
+            # Nota interna en el historial (chatter) de la solicitud
             self.message_post(
                 subject=subject, body=body,
                 message_type='email',
                 subtype_xmlid='mail.mt_comment',
             )
+
+            # Copia al correo configurado en Gigi's Corner → Configuración
+            config = self.env['gigis.config'].sudo().search([], limit=1)
+            if config and config.notif_activo and config.notif_email:
+                self.env['mail.mail'].sudo().create({
+                    'subject': subject,
+                    'body_html': body,
+                    'email_to': config.notif_email,
+                    'email_from': (self.company_id.email
+                                   or self.env.company.email
+                                   or config.notif_email),
+                    'auto_delete': True,
+                }).send()
         except Exception as e:
             _logger.warning("Notificación Gigi's Corner: %s", e)

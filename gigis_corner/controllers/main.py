@@ -74,39 +74,18 @@ class GigisController(http.Controller):
         return request.render('gigis_corner.view_nosotros_page', {})
 
     # ── CATEGORÍAS ────────────────────────────────────────────
-    _CATEGORIAS = {
-        'dulces-suenos': {
-            'emoji': '🌙', 'titulo': 'Dulces Sueños', 'color': '#D6EDFB',
-            'descripcion': 'Lámparas suaves y serenas para acompañar las noches de tu pequeño.',
-            'imagen': '/gigis_corner/static/src/img/samples/catpg_hero.jpg',
-        },
-        'suena-grande': {
-            'emoji': '🚀', 'titulo': 'Sueña en Grande', 'color': '#FFE5E6',
-            'descripcion': 'Para los que quieren conquistar las estrellas y volar muy alto.',
-            'imagen': '/gigis_corner/static/src/img/samples/catpg_hero.jpg',
-        },
-        'exploradores': {
-            'emoji': '🚜', 'titulo': 'Pequeños Exploradores', 'color': '#C8F5F1',
-            'descripcion': 'Aventuras, máquinas y descubrimientos para los más curiosos.',
-            'imagen': '/gigis_corner/static/src/img/samples/catpg_hero.jpg',
-        },
-        'amigos-especiales': {
-            'emoji': '🐢', 'titulo': 'Amigos Especiales', 'color': '#FFF0D0',
-            'descripcion': 'Las mascotas y personajes favoritos convertidos en luz.',
-            'imagen': '/gigis_corner/static/src/img/samples/catpg_hero.jpg',
-        },
-        'aventuras-mar': {
-            'emoji': '🌊', 'titulo': 'Aventuras al Mar', 'color': '#D6EDFB',
-            'descripcion': 'Olas, peces y todo el océano iluminando la habitación.',
-            'imagen': '/gigis_corner/static/src/img/samples/catpg_hero.jpg',
-        },
-    }
-
+    # El contenido (título, descripción, imagen, video y ejemplos) se
+    # administra desde el backend: Gigi's Corner → Categorías
+    # (modelo gigis.categoria). Ya no se define en Python.
     @http.route('/categoria/<string:slug>', type='http', auth='public', website=True)
     def categoria(self, slug, **kwargs):
         if not self._es_sitio_gigis():
             return request.not_found()
-        cat = self._CATEGORIAS.get(slug)
+        company = self._get_gigis_company()
+        domain = [('slug', '=', slug), ('website_published', '=', True)]
+        if company:
+            domain.append(('company_id', '=', company.id))
+        cat = request.env['gigis.categoria'].sudo().search(domain, limit=1)
         if not cat:
             return request.not_found()
         return request.render('gigis_corner.view_categoria_page', {

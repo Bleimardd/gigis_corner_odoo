@@ -3,109 +3,167 @@
 
 <!-- ═══════════════════════════════════════════════════════════
      PÁGINA: CATEGORÍA  — /categoria/<slug>
-     El controlador pasa 'cat' (dict) y 'slug'
+     El controlador pasa 'cat' (registro gigis.categoria) y 'slug'.
+     TODO el contenido (título, descripción, imagen, video y ejemplos)
+     se edita desde el backend: Gigi's Corner → Categorías.
      ═══════════════════════════════════════════════════════════ -->
 <template id="view_categoria_page" name="Gigi's Corner — Categoría">
 <t t-call="website.layout">
 <div id="wrap" class="oe_structure">
 
-    <!-- HERO con imagen grande editable (una por categoría, doble clic para cambiar) -->
+    <!-- HERO — imagen/video del encabezado (editable desde el backend) -->
     <section style="position:relative;overflow:hidden;">
-        <div class="gc-img-box" style="height:340px;">
-            <t t-if="slug == 'dulces-suenos'">
-                <img src="/gigis_corner/static/src/img/samples/cat_dulces.jpg" alt="Dulces Sueños" class="gc-img-cover"/>
-            </t>
-            <t t-elif="slug == 'suena-grande'">
-                <img src="/gigis_corner/static/src/img/samples/cat_suena.jpg" alt="Sueña en Grande" class="gc-img-cover"/>
-            </t>
-            <t t-elif="slug == 'exploradores'">
-                <img src="/gigis_corner/static/src/img/samples/cat_explora.jpg" alt="Pequeños Exploradores" class="gc-img-cover"/>
-            </t>
-            <t t-elif="slug == 'amigos-especiales'">
-                <img src="/gigis_corner/static/src/img/samples/cat_amigos.jpg" alt="Amigos Especiales" class="gc-img-cover"/>
+        <div class="gc-img-box gc-media" style="height:340px;position:relative;">
+            <t t-if="cat.imagen_hero">
+                <img t-attf-src="/web/image/gigis.categoria/#{cat.id}/imagen_hero"
+                     t-att-alt="cat.titulo" class="gc-img-cover"/>
             </t>
             <t t-else="">
-                <img src="/gigis_corner/static/src/img/samples/cat_mar.jpg" alt="Aventuras al Mar" class="gc-img-cover"/>
+                <!-- Imagen de muestra (se reemplaza subiendo la tuya en el backend) -->
+                <t t-if="slug == 'dulces-suenos'">
+                    <img src="/gigis_corner/static/src/img/samples/cat_dulces.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
+                </t>
+                <t t-elif="slug == 'suena-grande'">
+                    <img src="/gigis_corner/static/src/img/samples/cat_suena.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
+                </t>
+                <t t-elif="slug == 'exploradores'">
+                    <img src="/gigis_corner/static/src/img/samples/cat_explora.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
+                </t>
+                <t t-elif="slug == 'amigos-especiales'">
+                    <img src="/gigis_corner/static/src/img/samples/cat_amigos.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
+                </t>
+                <t t-else="">
+                    <img src="/gigis_corner/static/src/img/samples/cat_mar.jpg" t-att-alt="cat.titulo" class="gc-img-cover"/>
+                </t>
+            </t>
+            <!-- Botón ▶ solo si la categoría tiene video -->
+            <t t-if="cat.video_url">
+                <div class="gc-play-btn" t-att-data-video="cat.video_url"
+                     style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+                            width:64px;height:64px;background:rgba(255,255,255,0.92);border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+                            color:#FF5C64;box-shadow:0 4px 16px rgba(0,0,0,0.2);cursor:pointer;z-index:3;">▶</div>
             </t>
         </div>
         <div style="position:absolute;inset:0;background:rgba(30,58,95,0.32);
                     display:flex;flex-direction:column;align-items:center;justify-content:center;
                     text-align:center;padding:0 1rem;">
-            <span style="font-size:3.2rem;line-height:1;"><t t-esc="cat['emoji']"/></span>
+            <span style="font-size:3.2rem;line-height:1;"><t t-esc="cat.emoji"/></span>
             <h1 style="font-family:'Fredoka One',cursive;color:white;font-size:2.4rem;
                        margin:0.6rem 0 0.3rem;text-shadow:0 2px 12px rgba(0,0,0,0.25);">
-                <t t-esc="cat['titulo']"/>
+                <t t-esc="cat.titulo"/>
             </h1>
             <p style="color:white;font-size:1rem;max-width:560px;
                       text-shadow:0 1px 8px rgba(0,0,0,0.3);margin:0;">
-                <t t-esc="cat['descripcion']"/>
+                <t t-esc="cat.descripcion"/>
             </p>
         </div>
     </section>
 
-    <!-- BLOQUES DE EJEMPLOS — imagen + texto editables -->
+    <!-- BLOQUES DE EJEMPLOS — desde el backend (gigis.categoria.ejemplo) -->
     <section style="background:#F7F3EB;padding:4rem 0;">
         <div class="container">
             <div class="text-center" style="margin-bottom:2.5rem;">
                 <span style="display:inline-block;background:#5DA7E8;color:white;font-size:0.78rem;
                              font-weight:700;padding:0.3rem 1rem;border-radius:50px;margin-bottom:1rem;">
-                    Ejemplos de esta categoría
+                    <t t-esc="cat.seccion_etiqueta or 'Ejemplos de esta categoría'"/>
                 </span>
                 <h2 style="font-family:'Fredoka One',cursive;font-size:1.9rem;color:#1E3A5F;margin:0;">
-                    Lámparas que inspiran
+                    <t t-esc="cat.seccion_titulo or 'Lámparas que inspiran'"/>
                 </h2>
             </div>
 
             <div class="row g-4">
-                <div class="col-12 col-md-4 gc-fade-up">
-                    <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
-                        <!-- ▼▼▼ Imagen editable (doble clic para cambiar) ▼▼▼ -->
-                        <div class="gc-img-box" style="height:200px;">
-                            <img src="/gigis_corner/static/src/img/samples/catpg_1.jpg" alt="Diseño 1" class="gc-img-cover"/>
+                <t t-if="cat.ejemplo_ids">
+                    <!-- Ejemplos reales cargados desde el backend -->
+                    <t t-foreach="cat.ejemplo_ids" t-as="ej">
+                        <div class="col-12 col-md-4 gc-fade-up">
+                            <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                                <div class="gc-img-box gc-media" style="height:200px;position:relative;">
+                                    <t t-if="ej.imagen">
+                                        <img t-attf-src="/web/image/gigis.categoria.ejemplo/#{ej.id}/imagen"
+                                             t-att-alt="ej.titulo" class="gc-img-cover"/>
+                                    </t>
+                                    <t t-else="">
+                                        <img src="/gigis_corner/static/src/img/samples/catpg_1.jpg"
+                                             t-att-alt="ej.titulo" class="gc-img-cover"/>
+                                    </t>
+                                    <t t-if="ej.video_url">
+                                        <div class="gc-play-btn" t-att-data-video="ej.video_url"
+                                             style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+                                                    width:52px;height:52px;background:rgba(255,255,255,0.92);border-radius:50%;
+                                                    display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+                                                    color:#FF5C64;box-shadow:0 4px 16px rgba(0,0,0,0.2);cursor:pointer;z-index:3;">▶</div>
+                                    </t>
+                                </div>
+                                <div style="padding:1.3rem;">
+                                    <h4 style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:#1E3A5F;margin:0 0 0.5rem;"><t t-esc="ej.titulo"/></h4>
+                                    <p style="font-size:0.88rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;"><t t-esc="ej.descripcion"/></p>
+                                </div>
+                            </div>
                         </div>
-                        <div style="padding:1.3rem;">
-                            <h4 style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:#1E3A5F;margin:0 0 0.5rem;">Diseño 1</h4>
-                            <p style="font-size:0.88rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">Una lámpara pensada al detalle para tu pequeño.</p>
+                    </t>
+                </t>
+                <t t-else="">
+                    <!-- Sin ejemplos aún: 3 bloques de muestra. Crea ejemplos en
+                         Gigi's Corner → Categorías → (abre la categoría) → pestaña Ejemplos -->
+                    <div class="col-12 col-md-4 gc-fade-up">
+                        <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                            <div class="gc-img-box" style="height:200px;">
+                                <img src="/gigis_corner/static/src/img/samples/catpg_1.jpg" alt="Diseño 1" class="gc-img-cover"/>
+                            </div>
+                            <div style="padding:1.3rem;">
+                                <h4 style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:#1E3A5F;margin:0 0 0.5rem;">Diseño 1</h4>
+                                <p style="font-size:0.88rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">Una lámpara pensada al detalle para tu pequeño.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-4 gc-fade-up">
-                    <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
-                        <div class="gc-img-box" style="height:200px;">
-                            <img src="/gigis_corner/static/src/img/samples/catpg_2.jpg" alt="Diseño 2" class="gc-img-cover"/>
-                        </div>
-                        <div style="padding:1.3rem;">
-                            <h4 style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:#1E3A5F;margin:0 0 0.5rem;">Diseño 2</h4>
-                            <p style="font-size:0.88rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">Colores suaves y pintura hecha a mano.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 gc-fade-up">
-                    <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
-                        <div class="gc-img-box" style="height:200px;">
-                            <img src="/gigis_corner/static/src/img/samples/catpg_3.jpg" alt="Diseño 3" class="gc-img-cover"/>
-                        </div>
-                        <div style="padding:1.3rem;">
-                            <h4 style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:#1E3A5F;margin:0 0 0.5rem;">Diseño 3</h4>
-                            <p style="font-size:0.88rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">Personalizada con el nombre y la historia.</p>
+                    <div class="col-12 col-md-4 gc-fade-up">
+                        <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                            <div class="gc-img-box" style="height:200px;">
+                                <img src="/gigis_corner/static/src/img/samples/catpg_2.jpg" alt="Diseño 2" class="gc-img-cover"/>
+                            </div>
+                            <div style="padding:1.3rem;">
+                                <h4 style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:#1E3A5F;margin:0 0 0.5rem;">Diseño 2</h4>
+                                <p style="font-size:0.88rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">Colores suaves y pintura hecha a mano.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="col-12 col-md-4 gc-fade-up">
+                        <div style="background:white;border-radius:18px;overflow:hidden;height:100%;box-shadow:0 4px 24px rgba(93,167,232,0.13);">
+                            <div class="gc-img-box" style="height:200px;">
+                                <img src="/gigis_corner/static/src/img/samples/catpg_3.jpg" alt="Diseño 3" class="gc-img-cover"/>
+                            </div>
+                            <div style="padding:1.3rem;">
+                                <h4 style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:#1E3A5F;margin:0 0 0.5rem;">Diseño 3</h4>
+                                <p style="font-size:0.88rem;color:#4B4B4B;opacity:0.8;line-height:1.6;margin:0;">Personalizada con el nombre y la historia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
             </div>
 
             <!-- CTA -->
             <div class="text-center" style="margin-top:3rem;">
+                <t t-if="cat.public_category_id">
+                    <a t-attf-href="/shop/category/#{cat.public_category_id.id}"
+                       style="display:inline-flex;align-items:center;gap:0.5rem;background:#FF5C64;
+                              color:white;border-radius:50px;padding:0.8rem 2rem;font-weight:700;
+                              font-size:0.95rem;text-decoration:none;margin:0.3rem;">
+                        🛒 Ver lámparas en la tienda
+                    </a>
+                </t>
                 <a href="/personalizados"
-                   style="display:inline-flex;align-items:center;gap:0.5rem;background:#FF5C64;
+                   style="display:inline-flex;align-items:center;gap:0.5rem;background:#5DA7E8;
                           color:white;border-radius:50px;padding:0.8rem 2rem;font-weight:700;
-                          font-size:0.95rem;text-decoration:none;">
+                          font-size:0.95rem;text-decoration:none;margin:0.3rem;">
                     Quiero una lámpara así ✨
                 </a>
                 <a href="/historias"
                    style="display:inline-flex;align-items:center;gap:0.5rem;color:#5DA7E8;
                           border:2px solid #5DA7E8;border-radius:50px;padding:0.78rem 1.9rem;
                           font-weight:700;font-size:0.95rem;text-decoration:none;background:transparent;
-                          margin-left:0.6rem;">
+                          margin:0.3rem;">
                     Ver historias reales
                 </a>
             </div>

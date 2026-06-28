@@ -180,3 +180,75 @@ servidor tome este código. Si el sitio sigue mostrando "Imagen de muestra · re
 con el lápiz de Odoo", es que la BASE DE DATOS tiene una versión vieja guardada:
 Ajustes → Técnico → Vistas → busca "Gigi's Corner" → borra las vistas duplicadas/editadas
 y vuelve a actualizar el módulo (o desinstala e instala de nuevo).
+
+## v17.0.9.0.0 — Categorías editables desde el backend + Carrito de compra (eCommerce)
+
+### 1) Encabezados de categoría DESBLOQUEADOS (causa raíz resuelta)
+**Problema:** en /categoria/<slug> (ej. /categoria/aventuras-mar) NO se podía editar el
+encabezado (título, descripción, emoji ni la imagen). La razón real: ese contenido venía
+de un diccionario en Python (controllers/main.py) y se pintaba con t-esc / t-if, y Odoo
+NUNCA deja editar contenido dinámico (t-esc, t-if, t-foreach) desde el editor web.
+
+**Solución:** se creó el modelo `gigis.categoria` (igual que las Historias). Ahora cada
+categoría es un registro de base de datos con: título, slug, emoji, color, descripción,
+imagen del encabezado, URL de video y una lista de "ejemplos" (cada uno con su imagen,
+video, título y texto).
+
+CÓMO EDITAR LAS CATEGORÍAS AHORA:
+1. En Odoo, menú superior "Gigi's Corner" → "Categorías".
+2. Abre una (Dulces Sueños, Sueña en Grande, Exploradores, Amigos Especiales,
+   Aventuras al Mar). Vienen precargadas.
+3. Cambia el título/descripción, sube la "Imagen del encabezado", pega una "URL de video"
+   (YouTube/Vimeo/.mp4) y, en la pestaña "Ejemplos", agrega tarjetas con foto/video/texto.
+4. Guarda → la página /categoria/<slug> se actualiza sola.
+Mientras no subas tu imagen, se muestra la imagen de muestra de cada categoría.
+
+### 2) CARRITO DE COMPRA real (eCommerce de Odoo Community)
+**Qué se agregó:** el módulo ahora depende de `website_sale` (eCommerce, gratis en
+Community) y `sale_management`. Esto habilita la tienda completa:
+- Página /shop con productos, carrito (/shop/cart), checkout y pago en línea.
+- Ícono de carrito con contador en el navbar + enlace "Tienda" (navbar y footer).
+- 5 categorías de tienda (product.public.category) y 5 productos de EJEMPLO (lámparas)
+  para que /shop no salga vacío. Edítalos o bórralos en Comercio electrónico → Productos.
+- Cada categoría del sitio se liga a su categoría de tienda; la página /categoria/<slug>
+  muestra el botón "Ver lámparas en la tienda".
+
+IMPORTANTE tras instalar:
+- Actualiza el módulo (-u gigis_corner). Al instalar website_sale se activan también las
+  apps de Ventas/Facturación/Pagos (es lo que necesita un carrito real).
+- Para cobrar en línea hay que configurar un proveedor de pago en
+  Comercio electrónico → Configuración → Proveedores de pago.
+- Sube las fotos y precios reales de tus productos en Comercio electrónico → Productos.
+
+### 3) Etapas (pipeline) en las Solicitudes
+**Qué se agregó:** las solicitudes del formulario ahora tienen un flujo de etapas visual.
+- Barra de etapas (statusbar) arriba del formulario, clic para avanzar.
+- Vista Kanban (tablero) agrupada por etapa: arrastra cada solicitud entre columnas.
+- Etapas: 🆕 Nuevo → 📱 Contactado → 🎨 En proceso → 📦 Enviado → ✅ Atendido.
+NOTA: si una solicitud vieja tenía "En diseño/En producción/Entregado", esos nombres se
+unificaron; solo arrástrala a la columna correcta.
+
+### 4) Correcciones de contenido
+- Sección "Así nace una lámpara": se quitó el paso 5 "Personalizamos el nombre" (era lo
+  mismo que el paso 1) y se aclaró el paso 1 (se diseña la figura de la lámpara con el
+  nombre). Quedaron 5 pasos y se quitó la foto "Nombre" del proceso.
+- Equipo (inicio y Nosotros): Marlene y Bryan diseñan cada lámpara (Marlene además
+  desarrolla el software); Leidy se encarga del corte de cada pieza.
+
+## v17.0.10.0.0 — Menú Configuración + correo de aviso de Solicitudes
+
+**Qué se agregó:** un menú nuevo **Gigi's Corner → Configuración** con el modelo
+`gigis.config` (registro único). Ahí defines:
+- **Enviar aviso por correo** (sí/no).
+- **Correo para recibir solicitudes** (uno o varios separados por coma).
+
+Ahora, cada vez que alguien envía el formulario de «Personalizados», además de guardarse
+en *Solicitudes* y dejar la nota interna, se manda una **copia por correo** a la dirección
+configurada (vía mail.mail). Antes no llegaba a nadie.
+
+CÓMO CONFIGURARLO:
+1. Menú **Gigi's Corner → Configuración**.
+2. Activa «Enviar aviso por correo» y escribe el/los correo(s).
+3. Guarda.
+REQUISITO: tener un **servidor de correo saliente** configurado en Odoo
+(Ajustes → Técnico → Servidores de correo saliente).

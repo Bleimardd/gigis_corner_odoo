@@ -5,3 +5,11 @@ access_gigis_personalizacion_manager,gigis.personalizacion.manager,model_gigis_p
 access_gigis_historia_public,gigis.historia.public,model_gigis_historia,,1,0,0,0
 access_gigis_historia_user,gigis.historia.user,model_gigis_historia,base.group_user,1,1,1,0
 access_gigis_historia_manager,gigis.historia.manager,model_gigis_historia,base.group_system,1,1,1,1
+access_gigis_categoria_public,gigis.categoria.public,model_gigis_categoria,,1,0,0,0
+access_gigis_categoria_user,gigis.categoria.user,model_gigis_categoria,base.group_user,1,1,1,0
+access_gigis_categoria_manager,gigis.categoria.manager,model_gigis_categoria,base.group_system,1,1,1,1
+access_gigis_categoria_ejemplo_public,gigis.categoria.ejemplo.public,model_gigis_categoria_ejemplo,,1,0,0,0
+access_gigis_categoria_ejemplo_user,gigis.categoria.ejemplo.user,model_gigis_categoria_ejemplo,base.group_user,1,1,1,1
+access_gigis_categoria_ejemplo_manager,gigis.categoria.ejemplo.manager,model_gigis_categoria_ejemplo,base.group_system,1,1,1,1
+access_gigis_config_user,gigis.config.user,model_gigis_config,base.group_user,1,1,1,0
+access_gigis_config_manager,gigis.config.manager,model_gigis_config,base.group_system,1,1,1,1

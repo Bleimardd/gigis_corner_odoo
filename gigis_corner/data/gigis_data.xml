@@ -66,6 +66,61 @@
         <field name="sequence">40</field>
     </record>
 
+    <!-- ═══════════════════════════════════════════
+         CATEGORÍAS DEL SITIO (gigis.categoria)
+         Editables desde: Gigi's Corner → Categorías
+         ═══════════════════════════════════════════ -->
+
+    <record id="categoria_dulces" model="gigis.categoria">
+        <field name="titulo">Dulces Sueños</field>
+        <field name="slug">dulces-suenos</field>
+        <field name="emoji">🌙</field>
+        <field name="color">#D6EDFB</field>
+        <field name="descripcion">Lámparas suaves y serenas para acompañar las noches de tu pequeño.</field>
+        <field name="sequence">10</field>
+        <field name="public_category_id" ref="public_categ_dulces"/>
+    </record>
+
+    <record id="categoria_grande" model="gigis.categoria">
+        <field name="titulo">Sueña en Grande</field>
+        <field name="slug">suena-grande</field>
+        <field name="emoji">🚀</field>
+        <field name="color">#FFE5E6</field>
+        <field name="descripcion">Para los que quieren conquistar las estrellas y volar muy alto.</field>
+        <field name="sequence">20</field>
+        <field name="public_category_id" ref="public_categ_grande"/>
+    </record>
+
+    <record id="categoria_explora" model="gigis.categoria">
+        <field name="titulo">Pequeños Exploradores</field>
+        <field name="slug">exploradores</field>
+        <field name="emoji">🚜</field>
+        <field name="color">#C8F5F1</field>
+        <field name="descripcion">Aventuras, máquinas y descubrimientos para los más curiosos.</field>
+        <field name="sequence">30</field>
+        <field name="public_category_id" ref="public_categ_explora"/>
+    </record>
+
+    <record id="categoria_amigos" model="gigis.categoria">
+        <field name="titulo">Amigos Especiales</field>
+        <field name="slug">amigos-especiales</field>
+        <field name="emoji">🐢</field>
+        <field name="color">#FFF0D0</field>
+        <field name="descripcion">Las mascotas y personajes favoritos convertidos en luz.</field>
+        <field name="sequence">40</field>
+        <field name="public_category_id" ref="public_categ_amigos"/>
+    </record>
+
+    <record id="categoria_mar" model="gigis.categoria">
+        <field name="titulo">Aventuras al Mar</field>
+        <field name="slug">aventuras-mar</field>
+        <field name="emoji">🌊</field>
+        <field name="color">#D6EDFB</field>
+        <field name="descripcion">Olas, peces y todo el océano iluminando la habitación.</field>
+        <field name="sequence">50</field>
+        <field name="public_category_id" ref="public_categ_mar"/>
+    </record>
+
     <!-- NOTA: La asignación del website a la empresa Gigi's Corner
          se hace manualmente desde:
          Odoo → Sitio Web → Configuración → Ajustes → Empresa

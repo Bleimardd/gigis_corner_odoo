@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CATEGORÍAS DE LA TIENDA (eCommerce) — product.public.category
+         Una por cada categoría del sitio. Se usan para filtrar /shop.
+         ═══════════════════════════════════════════════════════════ -->
+    <record id="public_categ_dulces" model="product.public.category">
+        <field name="name">Dulces Sueños</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="public_categ_grande" model="product.public.category">
+        <field name="name">Sueña en Grande</field>
+        <field name="sequence">20</field>
+    </record>
+    <record id="public_categ_explora" model="product.public.category">
+        <field name="name">Pequeños Exploradores</field>
+        <field name="sequence">30</field>
+    </record>
+    <record id="public_categ_amigos" model="product.public.category">
+        <field name="name">Amigos Especiales</field>
+        <field name="sequence">40</field>
+    </record>
+    <record id="public_categ_mar" model="product.public.category">
+        <field name="name">Aventuras al Mar</field>
+        <field name="sequence">50</field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PRODUCTOS DE EJEMPLO (lámparas) — product.template
+         Son ejemplos para que la tienda /shop no salga vacía.
+         Puedes editarlos o borrarlos desde Ventas/eCommerce → Productos.
+         ═══════════════════════════════════════════════════════════ -->
+    <record id="product_lampara_mar" model="product.template">
+        <field name="name">Lámpara Aventuras al Mar (ejemplo)</field>
+        <field name="type">consu</field>
+        <field name="sale_ok" eval="True"/>
+        <field name="is_published" eval="True"/>
+        <field name="list_price">1200.0</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('public_categ_mar')])]"/>
+        <field name="description_sale">Lámpara artesanal personalizada inspirada en el mar: olas, peces y el nombre de tu pequeño.</field>
+    </record>
+
+    <record id="product_lampara_dulces" model="product.template">
+        <field name="name">Lámpara Dulces Sueños (ejemplo)</field>
+        <field name="type">consu</field>
+        <field name="sale_ok" eval="True"/>
+        <field name="is_published" eval="True"/>
+        <field name="list_price">1100.0</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('public_categ_dulces')])]"/>
+        <field name="description_sale">Lámpara suave y serena para acompañar las noches de tu pequeño.</field>
+    </record>
+
+    <record id="product_lampara_grande" model="product.template">
+        <field name="name">Lámpara Sueña en Grande (ejemplo)</field>
+        <field name="type">consu</field>
+        <field name="sale_ok" eval="True"/>
+        <field name="is_published" eval="True"/>
+        <field name="list_price">1300.0</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('public_categ_grande')])]"/>
+        <field name="description_sale">Para los que quieren conquistar las estrellas y volar muy alto.</field>
+    </record>
+
+    <record id="product_lampara_explora" model="product.template">
+        <field name="name">Lámpara Pequeños Exploradores (ejemplo)</field>
+        <field name="type">consu</field>
+        <field name="sale_ok" eval="True"/>
+        <field name="is_published" eval="True"/>
+        <field name="list_price">1250.0</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('public_categ_explora')])]"/>
+        <field name="description_sale">Aventuras, máquinas y descubrimientos para los más curiosos.</field>
+    </record>
+
+    <record id="product_lampara_amigos" model="product.template">
+        <field name="name">Lámpara Amigos Especiales (ejemplo)</field>
+        <field name="type">consu</field>
+        <field name="sale_ok" eval="True"/>
+        <field name="is_published" eval="True"/>
+        <field name="list_price">1150.0</field>
+        <field name="public_categ_ids" eval="[(6, 0, [ref('public_categ_amigos')])]"/>
+        <field name="description_sale">Las mascotas y personajes favoritos convertidos en luz.</field>
+    </record>
+
+</data>
+</odoo>

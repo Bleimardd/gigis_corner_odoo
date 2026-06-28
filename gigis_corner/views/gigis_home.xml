@@ -368,12 +368,11 @@
             <div class="row g-3 mt-2">
 
                 <t t-foreach="[
-                    ('1','💡','Diseñamos la idea','Conversamos contigo sobre la historia y sueños de tu pequeño.','#5DA7E8'),
+                    ('1','💡','Diseñamos la lámpara','Diseñamos la figura de la lámpara con el nombre de tu pequeño, según su historia y sus sueños.','#5DA7E8'),
                     ('2','✂️','Cortamos cada pieza','Con precisión artesanal cortamos el MDF según el diseño único.','#34C9B8'),
                     ('3','🔨','Armamos cuidadosamente','Cada pieza encaja perfectamente con detalle y precisión.','#FF5C64'),
                     ('4','🎨','Pintamos a mano','Nuestras artistas dan vida al diseño con pinceladas únicas.','#F5C640'),
-                    ('5','✏️','Personalizamos el nombre','El nombre de tu niño es el toque más especial de la lámpara.','#5DA7E8'),
-                    ('6','🎁','Empacamos con amor','Lista para ser el regalo más memorable de la infancia.','#34C9B8')
+                    ('5','🎁','Empacamos con amor','Lista para ser el regalo más memorable de la infancia.','#34C9B8')
                 ]" t-as="paso">
                     <div class="col-6 col-md-4 col-lg-2">
                         <div style="background:white;border-radius:18px;padding:1.5rem 1rem;
@@ -435,12 +434,6 @@
                     <div class="gc-img-box" style="border-radius:10px;aspect-ratio:1;position:relative;">
                         <img src="/gigis_corner/static/src/img/samples/proc4.jpg" alt="Pintado" class="gc-img-cover"/>
                         <span style="position:absolute;bottom:0;left:0;right:0;background:rgba(30,58,95,0.55);color:white;font-size:0.65rem;font-weight:600;text-align:center;padding:0.2rem 0;">Pintado</span>
-                    </div>
-                </div>
-                <div class="col-4 col-md-2">
-                    <div class="gc-img-box" style="border-radius:10px;aspect-ratio:1;position:relative;">
-                        <img src="/gigis_corner/static/src/img/samples/proc5.jpg" alt="Nombre" class="gc-img-cover"/>
-                        <span style="position:absolute;bottom:0;left:0;right:0;background:rgba(30,58,95,0.55);color:white;font-size:0.65rem;font-weight:600;text-align:center;padding:0.2rem 0;">Nombre</span>
                     </div>
                 </div>
                 <div class="col-4 col-md-2">
@@ -535,7 +528,7 @@
                         </div>
                         <div style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:#1E3A5F;margin-bottom:0.4rem;">Marlene</div>
                         <span style="display:inline-block;font-size:0.75rem;font-weight:700;padding:0.2rem 0.8rem;border-radius:50px;color:white;margin-bottom:0.6rem;background:#5DA7E8;">Diseño</span>
-                        <p style="font-size:0.82rem;color:#4B4B4B;opacity:0.75;margin:0;">Mamá de Edrik y Rohan · Diseño y desarrollo</p>
+                        <p style="font-size:0.82rem;color:#4B4B4B;opacity:0.75;margin:0;">Mamá de Edrik y Rohan · Diseña las lámparas y desarrolla el software</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
@@ -546,7 +539,7 @@
                         </div>
                         <div style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:#1E3A5F;margin-bottom:0.4rem;">Leidy</div>
                         <span style="display:inline-block;font-size:0.75rem;font-weight:700;padding:0.2rem 0.8rem;border-radius:50px;color:white;margin-bottom:0.6rem;background:#34C9B8;">Producción</span>
-                        <p style="font-size:0.82rem;color:#4B4B4B;opacity:0.75;margin:0;">Diseño y producción artesanal</p>
+                        <p style="font-size:0.82rem;color:#4B4B4B;opacity:0.75;margin:0;">Se encarga del corte de cada pieza · Producción artesanal</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
@@ -556,8 +549,8 @@
                             <img src="/gigis_corner/static/src/img/samples/team_bryan.jpg" alt="Bryan" class="gc-img-cover"/>
                         </div>
                         <div style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:#1E3A5F;margin-bottom:0.4rem;">Bryan</div>
-                        <span style="display:inline-block;font-size:0.75rem;font-weight:700;padding:0.2rem 0.8rem;border-radius:50px;color:white;margin-bottom:0.6rem;background:#F5C640;">Creativo</span>
-                        <p style="font-size:0.82rem;color:#4B4B4B;opacity:0.75;margin:0;">Diseñador creativo · Desarrollo visual</p>
+                        <span style="display:inline-block;font-size:0.75rem;font-weight:700;padding:0.2rem 0.8rem;border-radius:50px;color:white;margin-bottom:0.6rem;background:#F5C640;">Diseño</span>
+                        <p style="font-size:0.82rem;color:#4B4B4B;opacity:0.75;margin:0;">Diseña cada lámpara junto con Marlene</p>
                     </div>
                 </div>
             </div>

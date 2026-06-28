@@ -55,10 +55,27 @@
                             <li class="nav-item">
                                 <a class="nav-link gc-nav-link" href="/personalizados">Personalizados</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link gc-nav-link" href="/shop">Tienda</a>
+                            </li>
                         </ul>
 
                         <!-- Acciones derecha -->
                         <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+                            <!-- Carrito de compra (eCommerce) -->
+                            <t t-set="gc_cart" t-value="website.sale_get_order()"/>
+                            <a href="/shop/cart" title="Mi carrito"
+                               style="position:relative;width:38px;height:38px;border-radius:50%;
+                                      background:#FDECEd;color:#FF5C64;display:inline-flex;
+                                      align-items:center;justify-content:center;font-size:1.15rem;
+                                      text-decoration:none;flex-shrink:0;">
+                                <i class="fa fa-shopping-cart"/>
+                                <sup t-attf-class="my_cart_quantity badge rounded-pill#{(gc_cart and gc_cart.cart_quantity) and '' or ' d-none'}"
+                                     style="position:absolute;top:-4px;right:-4px;background:#FF5C64;
+                                            color:white;font-size:0.62rem;min-width:18px;height:18px;
+                                            line-height:18px;padding:0 4px;"
+                                     t-esc="(gc_cart and gc_cart.cart_quantity) or 0"/>
+                            </a>
                             <!-- WhatsApp burbuja verde suave -->
                             <a href="https://wa.me/525529451680" target="_blank"
                                title="WhatsApp"
@@ -107,7 +124,7 @@
      ═══════════════════════════════════════════════════════════ -->
 <template id="gigis_footer" inherit_id="website.layout" name="Gigi's Corner — Footer">
     <xpath expr="//div[@id='footer']" position="replace">
-        <div id="footer" t-ignore="true">
+        <div id="footer">
             <footer style="background:#1E3A5F;color:rgba(255,255,255,0.8);padding:3.5rem 0 1.5rem;">
                 <div class="container">
                     <div class="row g-4">
@@ -152,6 +169,7 @@
                                 <li style="margin-bottom:0.5rem;"><a href="/historias" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">Historias</a></li>
                                 <li style="margin-bottom:0.5rem;"><a href="/nosotros" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">Nosotros</a></li>
                                 <li style="margin-bottom:0.5rem;"><a href="/personalizados" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">Personalizados</a></li>
+                                <li style="margin-bottom:0.5rem;"><a href="/shop" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;">Tienda</a></li>
                             </ul>
                         </div>
 
@@ -198,7 +216,7 @@
                     <hr style="border-color:rgba(255,255,255,0.1);margin:2rem 0 1rem;"/>
                     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;
                                 font-size:0.8rem;color:rgba(255,255,255,0.45);">
-                        <span>© 2024 Gigi's Corner · Hecho con ❤️ en CDMX, México.</span>
+                        <span>© <t t-esc="datetime.date.today().year"/> Gigi's Corner · Hecho con ❤️ en CDMX, México.</span>
                         <a href="/contactus" style="color:rgba(255,255,255,0.45);text-decoration:none;">Contacto</a>
                     </div>
                 </div>
