@@ -153,7 +153,8 @@
                         <!-- POST al controlador propio — sin website_form -->
                         <form id="gc-personalizacion-form"
                               action="/personalizados/enviar"
-                              method="post">
+                              method="post"
+                              enctype="multipart/form-data">
 
                             <!-- CSRF token de Odoo -->
                             <input type="hidden" name="csrf_token"
@@ -292,6 +293,22 @@
                                         <option value="whatsapp">WhatsApp</option>
                                         <option value="otro">Otro</option>
                                     </select>
+                                </div>
+                            </div>
+
+                            <!-- ── IMÁGENES DE REFERENCIA (las sube el cliente) ── -->
+                            <div class="row g-3 mt-1">
+                                <div class="col-12">
+                                    <label class="gc-form-label" for="gc_imagenes_ref">
+                                        🖼️ Imágenes de referencia (opcional)
+                                    </label>
+                                    <input type="file" id="gc_imagenes_ref"
+                                           name="imagenes_ref"
+                                           class="gc-form-input"
+                                           accept="image/*" multiple="multiple"/>
+                                    <span style="font-size:0.77rem;color:#4B4B4B;opacity:0.7;display:block;margin-top:0.3rem;">
+                                        Sube fotos o dibujos que te inspiren para la lámpara (hasta 8 imágenes).
+                                    </span>
                                 </div>
                             </div>
 

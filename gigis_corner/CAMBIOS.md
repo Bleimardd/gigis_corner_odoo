@@ -252,3 +252,19 @@ CÓMO CONFIGURARLO:
 3. Guarda.
 REQUISITO: tener un **servidor de correo saliente** configurado en Odoo
 (Ajustes → Técnico → Servidores de correo saliente).
+
+## v17.0.11.0.0 — El cliente puede subir imágenes de referencia
+
+**Qué se agregó:** en el formulario de «Personalizados» hay un campo nuevo
+**"Imágenes de referencia (opcional)"** donde el cliente puede subir hasta 8
+fotos o dibujos que lo inspiren.
+
+- El formulario ahora usa `enctype="multipart/form-data"` (necesario para archivos).
+- El controlador valida (solo imágenes, máx. 10 MB c/u, máx. 8) y guarda cada
+  archivo como adjunto (ir.attachment) ligado a la solicitud, y lo publica en
+  el chatter de la solicitud.
+- Se agregó el **chatter** al formulario de Solicitudes en el backend, así que
+  las imágenes de referencia (y las notificaciones) se ven al abrir la solicitud.
+
+DÓNDE VERLAS: Gigi's Corner → Solicitudes → abre la solicitud → en el chatter
+(lado derecho) aparecen las imágenes que subió el cliente.

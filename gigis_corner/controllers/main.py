@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import base64
 from odoo import http
 from odoo.http import request
 import logging
@@ -135,7 +136,8 @@ class GigisController(http.Controller):
             if fecha_str:
                 vals['fecha_requerida'] = fecha_str
 
-            request.env['gigis.personalizacion'].sudo().create(vals)
+            rec = request.env['gigis.personalizacion'].sudo().create(vals)
+            self._guardar_imagenes_ref(rec)
 
         except Exception as e:
             _logger.error("Error solicitud Gigi's Corner: %s", e)
@@ -145,6 +147,36 @@ class GigisController(http.Controller):
             })
 
         return request.redirect('/gracias')
+
+    def _guardar_imagenes_ref(self, rec):
+        """Guarda las imágenes de referencia que sube el cliente como
+        adjuntos de la solicitud y las publica en el chatter."""
+        try:
+            files = request.httprequest.files.getlist('imagenes_ref')
+        except Exception:
+            files = []
+        attachment_ids = []
+        for f in files[:8]:  # máximo 8 imágenes
+            if not f or not f.filename:
+                continue
+            if not (f.content_type or '').startswith('image/'):
+                continue
+            data = f.read()
+            if not data or len(data) > 10 * 1024 * 1024:  # máx 10 MB c/u
+                continue
+            att = request.env['ir.attachment'].sudo().create({
+                'name': f.filename,
+                'datas': base64.b64encode(data),
+                'res_model': 'gigis.personalizacion',
+                'res_id': rec.id,
+                'mimetype': f.content_type,
+            })
+            attachment_ids.append(att.id)
+        if attachment_ids:
+            rec.sudo().message_post(
+                body="📎 Imágenes de referencia enviadas por el cliente.",
+                attachment_ids=attachment_ids,
+            )
 
     # ── GRACIAS ───────────────────────────────────────────────
     @http.route('/gracias', type='http', auth='public', website=True)
