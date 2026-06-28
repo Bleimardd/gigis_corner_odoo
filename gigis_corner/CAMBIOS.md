@@ -268,3 +268,17 @@ fotos o dibujos que lo inspiren.
 
 DÓNDE VERLAS: Gigi's Corner → Solicitudes → abre la solicitud → en el chatter
 (lado derecho) aparecen las imágenes que subió el cliente.
+
+## v17.0.12.0.0 — Encabezado de categoría editable con el lápiz (inline)
+
+**Qué cambió:** en /categoria/<slug>, el **título, la descripción y el emoji**
+del encabezado ahora son `t-field`, así que se pueden **editar directo en la
+página con el lápiz** del editor web. Como cada URL carga su propio registro
+(gigis.categoria), cada edición se guarda en ESA categoría, sin chocar entre las
+5 páginas.
+
+- Texto del encabezado (título/descripción/emoji) → **lápiz** (en la página) o
+  también desde Gigi's Corner → Categorías.
+- Imagen de fondo del encabezado → sigue desde **Gigi's Corner → Categorías**
+  (la imagen queda protegida del editor para no romper las 5 páginas; abrir el
+  lápiz no la altera).

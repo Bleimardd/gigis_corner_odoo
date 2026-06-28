@@ -45,18 +45,19 @@
                             color:#FF5C64;box-shadow:0 4px 16px rgba(0,0,0,0.2);cursor:pointer;z-index:3;">▶</div>
             </t>
         </div>
+        <!-- Encabezado editable con el lápiz: título, descripción y emoji
+             son t-field, se guardan en el registro de ESTA categoría.
+             La imagen de fondo se edita desde Gigi's Corner → Categorías. -->
         <div style="position:absolute;inset:0;background:rgba(30,58,95,0.32);
                     display:flex;flex-direction:column;align-items:center;justify-content:center;
                     text-align:center;padding:0 1rem;">
-            <span style="font-size:3.2rem;line-height:1;"><t t-esc="cat.emoji"/></span>
+            <span style="font-size:3.2rem;line-height:1;" t-field="cat.emoji"/>
             <h1 style="font-family:'Fredoka One',cursive;color:white;font-size:2.4rem;
-                       margin:0.6rem 0 0.3rem;text-shadow:0 2px 12px rgba(0,0,0,0.25);">
-                <t t-esc="cat.titulo"/>
-            </h1>
+                       margin:0.6rem 0 0.3rem;text-shadow:0 2px 12px rgba(0,0,0,0.25);"
+                t-field="cat.titulo"/>
             <p style="color:white;font-size:1rem;max-width:560px;
-                      text-shadow:0 1px 8px rgba(0,0,0,0.3);margin:0;">
-                <t t-esc="cat.descripcion"/>
-            </p>
+                      text-shadow:0 1px 8px rgba(0,0,0,0.3);margin:0;"
+               t-field="cat.descripcion"/>
         </div>
     </section>
 
